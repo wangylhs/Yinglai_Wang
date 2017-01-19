@@ -32,6 +32,5 @@ public class warmup {
 	
 	public static void main(String args[]){
 		//System.out.println(convertFromBase("101",2));
-		//System.out.println(IsUniqueChar("habjdf"));
 	}
 }
