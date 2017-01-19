@@ -71,7 +71,7 @@ public class warmup {
 		//System.out.println(convertFromBase("101",2));
 		//System.out.println(IsUniqueChar("habjdf"));
 		//System.out.println(CheckPermutation("abcakn","aabknn"));
-		char[] temp = "Mr John Smith      ".toCharArray();
+		char[] temp = "Mr John Smith   ".toCharArray();
 		System.out.println(replaceSpaces(temp,13));
 	}
 }
