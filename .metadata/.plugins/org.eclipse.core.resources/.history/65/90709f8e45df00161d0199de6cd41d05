@@ -69,17 +69,16 @@ public class warmup {
 		return str;
 	}
 	
-	static int checkIntExp(int input){
-		
+	static boolean checkIntExp(int input){
 		int max=(int) Math.sqrt(input);
-		int min=1;
+		int min=2;
 		for(int i=min;i<=max;i++){
-			for(int j=2;j<100;j++){
+			for(int j=0;j<100;j++){
 				if(Math.pow(i, j)>input) break;
-				if(Math.pow(i, j)==input) return 1;
+				if(Math.pow(i, j)==input) return true;
 			}
 		}
-		return 0;
+		return false;
 	}
 	
 	public static void main(String args[]){
@@ -88,7 +87,7 @@ public class warmup {
 		//System.out.println(CheckPermutation("abcakn","aabknn"));
 		//char[] temp = "Mr John Smith      ".toCharArray();
 		//System.out.println(replaceSpaces(temp,13));
-		Scanner s = new Scanner(System.in);
+		/*Scanner s = new Scanner(System.in);
 		System.out.println("Input test case numbers T");
 		int T = s.nextInt();
 		int[] input= new int[T];
@@ -96,9 +95,9 @@ public class warmup {
 			System.out.println("Input test case: ");
 			input[i]=s.nextInt();
 		}
-		System.out.println("Output:");
 		for(int i=0;i<T;i++){
-			System.out.println(checkIntExp(input[i]));
-		}
+			System.out.println(input[i]);
+		}*/
+		
 	}
 }
