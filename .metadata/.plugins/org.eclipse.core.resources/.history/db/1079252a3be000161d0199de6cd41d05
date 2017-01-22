@@ -98,7 +98,6 @@ public class warmup {
 		return true;
 	}
 	
-	
 	public static void main(String args[]){
 		//System.out.println(convertFromBase("101",2));
 		//System.out.println(IsUniqueChar("habjdf"));
@@ -118,6 +117,6 @@ public class warmup {
 			System.out.println(checkIntExp(input[i]));
 		}
 		*/
-		System.out.println(checkPalindrom("Tact Cooaa"));
+		System.out.println(checkPalindrom("Tact Coa"));
 	}
 }

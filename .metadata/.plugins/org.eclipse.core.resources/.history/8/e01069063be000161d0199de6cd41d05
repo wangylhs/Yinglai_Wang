@@ -82,7 +82,7 @@ public class warmup {
 		return 0;
 	}
 	
-	static boolean checkPalindrom(String str){
+	static boolean check Palindrom(String str){
 		//check if given string is a permutation of palindrom
 		String s = (str.toLowerCase()).replaceAll(" ", "");
 		char[] c = s.toCharArray();
@@ -91,13 +91,8 @@ public class warmup {
 			marker[c[i]]++;
 		}
 		int odd_ct=0;
-		for(int i : marker){
-			if(odd_ct>1) return false;
-			if(i%2!=0) odd_ct++;
-		}
-		return true;
+		
 	}
-	
 	
 	public static void main(String args[]){
 		//System.out.println(convertFromBase("101",2));
@@ -118,6 +113,6 @@ public class warmup {
 			System.out.println(checkIntExp(input[i]));
 		}
 		*/
-		System.out.println(checkPalindrom("Tact Cooaa"));
+		
 	}
 }
