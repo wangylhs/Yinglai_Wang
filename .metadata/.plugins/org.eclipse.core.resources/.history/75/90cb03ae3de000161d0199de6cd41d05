@@ -100,45 +100,17 @@ public class warmup {
 	
 	static boolean OneAway(String s1, String s2){
 		//check if they are one edit away
-		int diff_ct;
-		int index1, index2;
 		//check for replacement
 		if(s1.length()==s2.length()){
-			diff_ct=0;
+			int rep_ct=0;
 			for(int i=0;i<s1.length();i++){
-				if(diff_ct>1) return false;
-				if(s1.charAt(i)!=s2.charAt(i)) diff_ct++;
-			}
-			return true;
-		}else if(s1.length()-s2.length()==1){
-			//check for remove/insertion
-			index1=0;index2=0;
-			while(index1<s1.length() && index2<s2.length()){
-				if(s1.charAt(index1)!=s2.charAt(index2)){
-					if(index1!=index2) return false;
-					index1++;
-				}else{
-					index1++;
-					index2++;
-				}
-			}
-			return true;
-		
-		}else if(s2.length()-s1.length()==1){
-			//check for remove/insertion
-			index1=0;index2=0;
-			while(index1<s1.length() && index2<s2.length()){
-				if(s1.charAt(index1)!=s2.charAt(index2)){
-					if(index1!=index2) return false;
-					index2++;
-				}else{
-					index1++;
-					index2++;
-				}
+				if(rep_ct>1) return false;
+				if(s1.charAt(i)!=s2.charAt(i)) rep_ct++;
 			}
 			return true;
 		}
-		return false;
+		
+		
 	}
 	
 	public static void main(String args[]){
@@ -160,6 +132,6 @@ public class warmup {
 			System.out.println(checkIntExp(input[i]));
 		}
 		*/
-		System.out.println(OneAway("pale","bkle"));
+		System.out.println(checkPalindrom("Tact Cooaa"));
 	}
 }

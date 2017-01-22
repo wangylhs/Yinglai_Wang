@@ -160,6 +160,6 @@ public class warmup {
 			System.out.println(checkIntExp(input[i]));
 		}
 		*/
-		System.out.println(OneAway("pale","bkle"));
+		System.out.println(OneAway("pale","ble"));
 	}
 }
