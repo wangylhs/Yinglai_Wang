@@ -144,16 +144,17 @@ public class warmup {
 	static String compress(String str){
 		//compress string in a simple way "aabbaaccc" -> "a2b2a2c3"
 		StringBuilder sb = new StringBuilder();
-		int ct=0;
-		for(int i=0;i<str.length();i++){
-			ct++;
-			if(i+1>=str.length() || str.charAt(i+1)!=str.charAt(i)){
-				sb.append(str.charAt(i));
+		int ct=1;
+		for(int i=1;i<str.length();i++){
+			if(str.charAt(i)!=str.charAt(i-1) || i==str.length()-1){
+				sb.append(str.charAt(i-1));
 				sb.append(ct);
-				ct=0;
+				ct=1;
+			}else{
+				ct++;
 			}
 		}
-		return sb.length()<str.length() ?  sb.toString() : str;
+		return sb.toString();
 		
 	}
 	
@@ -177,6 +178,6 @@ public class warmup {
 		}
 		*/
 		//System.out.println(OneAway("pale","bkle"));
-		System.out.println(compress("abca"));
+		System.out.println(compress("aabbccaaa"));
 	}
 }

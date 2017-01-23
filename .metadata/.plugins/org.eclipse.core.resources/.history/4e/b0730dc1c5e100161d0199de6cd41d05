@@ -177,6 +177,6 @@ public class warmup {
 		}
 		*/
 		//System.out.println(OneAway("pale","bkle"));
-		System.out.println(compress("abca"));
+		System.out.println(compress("aabbccaaa"));
 	}
 }
