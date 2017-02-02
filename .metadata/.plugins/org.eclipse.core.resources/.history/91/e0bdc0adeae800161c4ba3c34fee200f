@@ -37,19 +37,6 @@ class Node{
 
 
 public class chapter2 {
-	static void deleteDups(Node n){
-		HashSet<Integer> set = new HashSet<Integer>();
-		Node prev = null;
-		while(n!=null){
-			if(set.contains(n.data)){
-				prev.next=n.next;
-			}else{
-				prev=n;
-				set.add(n.data);
-			}
-			n=n.next;
-		}
-	}
 	public static void main(String args[]){
 		/*LinkedList<Integer> list = new LinkedList<Integer>();
 		
@@ -60,16 +47,6 @@ public class chapter2 {
 		Node list = new Node(1);
 		list.appendToTail(2);
 		list.appendToTail(1);
-		list.appendToTail(3);
-		list.appendToTail(4);
-		list.appendToTail(5);
-		list.appendToTail(1);
-		deleteDups(list);
-		
-		while(list!=null){
-			System.out.println(list.data);
-			list=list.next;
-		}
 		
 	}	
 }

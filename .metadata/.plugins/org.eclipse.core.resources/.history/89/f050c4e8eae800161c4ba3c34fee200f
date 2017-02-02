@@ -64,7 +64,6 @@ public class chapter2 {
 		list.appendToTail(4);
 		list.appendToTail(5);
 		list.appendToTail(1);
-		deleteDups(list);
 		
 		while(list!=null){
 			System.out.println(list.data);
