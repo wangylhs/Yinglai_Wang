@@ -150,50 +150,16 @@ public class chapter2 {
 		}
 		return i;
 	}
-	static Node PadList(Node l, int pad_size){
-		int i;
-		Node head=l;
-		for(i=0;i<pad_size;i++){
-			head = insertBefore(head,0);
-		}
-		return head;
-		
-	}
-	static class Sum{
-		public Node sum = null;
-		public int carry = 0;
-	}
-	static Sum addList_helper(Node l1, Node l2){
-		if(l1==null && l2==null){
-			//base case
-			Sum s = new Sum();
-			return s;
-		}
-		Sum s = addList_helper(l1.next,l2.next);
-		int value = s.carry + l1.data + l2.data;
-		Node node = insertBefore(s.sum,value%10);
-		s.sum = node;
-		s.carry = value/10;
-		return s;
-		
-	}
 	
-	static Node addList_forward(Node l1, Node l2){
-		int len1 = list_length(l1);
-		int len2 = list_length(l2);
-		if(len1>len2) l2 = PadList(l2,len1-len2);
-		else l1 = PadList(l1,len2-len1);
-		PrintList(l1);
-		PrintList(l2);
-		Sum s = addList_helper(l1,l2);
-		if(s.carry==0){
-			return s.sum;
-		}else{
-			Node ret = insertBefore(s.sum,s.carry);
-			return ret;
+	/*static Node addList_forward(Node n1, Node n2){
+		Node head1;
+		while(n1!=null){
+			n1 = n1.next;
 		}
-	}
-	
+		head1 = n1;
+		
+		
+	}*/
 	
 	static void PrintList(Node node){
 		while(node!=null){
@@ -225,19 +191,18 @@ public class chapter2 {
 		}
 		deleteNode(n);
 		*/
-		//PrintList(list);
-		//list = partition(list,5);
-		//PrintList(list);
-		Node list1 = new Node(1);
+		list = partition(list,5);
+		PrintList(list);
+		/*Node list1 = new Node(1);
 		list1.appendToTail(2);
 		list1.appendToTail(3);
 		list1.appendToTail(4);
 		Node list2 = new Node(5);
 		list2.appendToTail(6);
-		//list2.appendToTail(7);
+		list2.appendToTail(7);
 		PrintList(list1);
 		PrintList(list2);
 		PrintList(addList_reverse(list1,list2));
-		PrintList(addList_forward(list1,list2));
+		*/
 	}	
 }

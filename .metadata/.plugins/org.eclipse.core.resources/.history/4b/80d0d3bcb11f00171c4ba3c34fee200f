@@ -148,13 +148,14 @@ public class chapter2 {
 			i++;
 			n = n.next;
 		}
+		System.out.println(i);
 		return i;
 	}
 	static Node PadList(Node l, int pad_size){
 		int i;
 		Node head=l;
 		for(i=0;i<pad_size;i++){
-			head = insertBefore(head,0);
+			head = insertBefore(l,0);
 		}
 		return head;
 		
@@ -171,7 +172,7 @@ public class chapter2 {
 		}
 		Sum s = addList_helper(l1.next,l2.next);
 		int value = s.carry + l1.data + l2.data;
-		Node node = insertBefore(s.sum,value%10);
+		Node node = insertBefore(s.sum,value);
 		s.sum = node;
 		s.carry = value/10;
 		return s;
