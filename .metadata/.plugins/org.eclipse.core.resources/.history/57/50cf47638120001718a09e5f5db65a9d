@@ -333,8 +333,6 @@ public class chapter2 {
 		*/
 		//Node r = find_intersection(list1,list2);
 		//PrintList(r);
-		//PrintList(list1);
-		Node res = find_loop_start(list1);
-		System.out.println(res.data);
+		PrintList(list1);
 	}	
 }
