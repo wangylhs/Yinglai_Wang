@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class chapter3 {
+	public class FixedMultiStack{
+		private int numOfStacks = 3;
+		private int capacity;
+		private int[] values;
+		private int[] sizes;
+		
+		public FixedMultiStack(int stackSize){
+			capacity = stackSize;
+			values = new int[numOfStacks*stackSize];
+			sizes = new int[numOfStacks];
+		}
+		public void push(int stackNum, int value) throws FullStackException{
+			
+		}
+	}
+}

@@ -1,0 +1,14 @@
+
+public class chapter3 {
+	public class FixedMultiStack{
+		private int numOfStacks = 3;
+		private int capacity;
+		private int[] values;
+		private int[] sizes;
+		
+		public FixedMultiStack(int stackSize){
+			capacity = stackSize;
+			
+		}
+	}
+}

@@ -1,0 +1,37 @@
+import java.util.*;
+import java.lang.*;
+
+public class chapter3 {
+	public class FixedMultiStack{
+		private int numOfStacks = 3;
+		private int capacity;
+		private int[] values;
+		private int[] sp;
+		
+		public FixedMultiStack(int stackSize){
+			capacity = stackSize;
+			values = new int[numOfStacks*stackSize];
+			sp = new int[numOfStacks];
+		}
+		public void push(int stackNum, int value){
+			if(isFull(stackNum)){ 
+				System.out.println("Stack "+stackNum+" is full!");
+				return;
+			}
+			sp[stackNum]++;
+			values[indexOfTop(stackNum)]=value;
+		}
+		
+		public int pop(int stackNum){
+			if(isEmpty(stackNum)){
+				System.out.println("Stack "+stackNum+" is empty!");
+				return;
+			}
+			int top = indexOfTop(stackNum);
+			int value = values[top];
+			values[top]=0;
+			sp[stackNum]--;
+			return value;
+		}
+	}
+}

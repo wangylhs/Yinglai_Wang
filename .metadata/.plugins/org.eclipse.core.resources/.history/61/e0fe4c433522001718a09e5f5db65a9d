@@ -1,0 +1,11 @@
+import java.util.*;
+import java.lang.*;
+
+public class chapter3 {
+	
+	
+	public static void main(String[] args){
+		FixedMultiStack fs = new FixedMultiStack(10);
+	}
+}
+
