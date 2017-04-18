@@ -25,48 +25,9 @@ public class chapter3 {
 			super(n);
 		}
 	}
-	public class Cat extends Animal{
-		public Cat(String n){
-			super(n);
-		}
-	}
 	
 	class AnimalQueue{
-		LinkedList<Dog> dogs = new LinkedList<Dog>();
-		LinkedList<Cat> cats = new LinkedList<Cat>();
-		private int order = 0;
-		public void enqueue(Animal a){
-			a.setOrder(order);
-			order++;
-			if(a instanceof Dog){
-				dogs.addLast((Dog)a);
-			}
-			if(a instanceof Cat){
-				cats.addLast((Cat)a);
-			}
-		}
-		public Animal dequeueAny(){
-			if(dogs.size()==0){
-				return dequeueCat();
-			}else if(cats.size()==0){
-				return dequeueDog();
-			}
-			Dog dog = dogs.peek();
-			Cat cat = cats.peek();
-			if(dog.isOlderThan(cat)){
-				return dequeueDog();
-			}else{
-				return dequeueCat();
-			}
-			
-		}
-		
-		public Dog dequeueDog(){
-			return dogs.poll();
-		}
-		public Cat dequeueCat(){
-			return cats.poll();
-		}
+		LinkedList<>
 	}
 	
 	public static void sort(Stack<Integer> s){
@@ -110,7 +71,7 @@ public class chapter3 {
 		q.add(2);
 		q.add(3);
 		while(q.size()>0) System.out.println(q.remove());
-		
+		*/
 		Stack<Integer> s = new Stack<Integer>();
 		s.push(8);
 		s.push(12);
@@ -118,18 +79,6 @@ public class chapter3 {
 		s.push(7);
 		sort(s);
 		while(!s.isEmpty()) System.out.println(s.pop());
-		*/
-		chapter3 c3 = new chapter3();
-		chapter3.AnimalQueue aq = c3.new AnimalQueue();
-		for(int i=0;i<10;i++){
-			String d = "dog"+Integer.toString(i);
-			String c = "cat"+Integer.toString(i);
-			chapter3.Dog dog = c3.new Dog(d);
-			chapter3.Cat cat = c3.new Cat(c);
-			aq.enqueue(dog);
-			aq.enqueue(cat);
-		}
-		
 		
 	}
 }

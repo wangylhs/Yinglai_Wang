@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+import java.util.Stack;
+
+
+public class SetOfStacks {
+	ArrayList<Stack> stacks = new ArrayList<Stack>();
+	public void push(int value){
+		Stack last = stacks.get(stacks.size()-1);
+		if(last!=null && last.size()<=10){
+			last.push(value);
+		}else{
+			Stack s = new Stack();
+			s.push(value);
+			stacks.add(s);
+		}
+	}
+}

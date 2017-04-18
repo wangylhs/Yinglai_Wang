@@ -119,16 +119,6 @@ public class chapter3 {
 		sort(s);
 		while(!s.isEmpty()) System.out.println(s.pop());
 		*/
-		chapter3 c3 = new chapter3();
-		chapter3.AnimalQueue aq = c3.new AnimalQueue();
-		for(int i=0;i<10;i++){
-			String d = "dog"+Integer.toString(i);
-			String c = "cat"+Integer.toString(i);
-			chapter3.Dog dog = c3.new Dog(d);
-			chapter3.Cat cat = c3.new Cat(c);
-			aq.enqueue(dog);
-			aq.enqueue(cat);
-		}
 		
 		
 	}
