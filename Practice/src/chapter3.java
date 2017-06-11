@@ -129,7 +129,8 @@ public class chapter3 {
 			aq.enqueue(dog);
 			aq.enqueue(cat);
 		}
-		
+		System.out.println(aq.dequeueAny());
+		System.out.println(aq.dequeueDog());
 		
 	}
 }
