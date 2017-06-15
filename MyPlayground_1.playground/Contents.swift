@@ -98,6 +98,43 @@ for (kind, numbers) in numDic{
     }
 }
 //numDic["largest"] = [largest]
-print("largestKind is \(largestKind) and largest number is \(largest)")
+print("largest kind is \(largestKind) and largest number is \(largest)")
+
+func greet(person: String, day: String) -> String{
+    return "Hello \(person), today is \(day)."
+}
+greet(person: "Bob", day: "Monday")
+
+func calculateStat(scores: [Int]) -> (min: Int, max: Int, sum: Int){
+    var min = scores[0]
+    var max = scores[0]
+    var sum = 0
+    for score in scores {
+        if score > max {
+            max = score
+        } else if score < min {
+            min = score
+        }
+        sum += score
+    }
+    return (min, max, sum)
+}
+
+let stat = calculateStat(scores: [1,2,3,4,5,6,7,8])
+print(stat.2)
+
+func makeIncrementer() -> ((Int) -> Int) {
+    func addOne(number: Int) -> Int {
+        return number + 1
+    }
+    return addOne
+}
+var increment = makeIncrementer()
+increment(7)
+
+
+
+
+
 
 
