@@ -132,9 +132,51 @@ func makeIncrementer() -> ((Int) -> Int) {
 var increment = makeIncrementer()
 increment(7)
 
+func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {
+    for item in list {
+        if condition(item) {
+            return true
+        }
+    }
+    return false
+}
+func lessThanTen(number: Int) -> Bool {
+    return number < 10
+}
+var numbers = [12, 10, 20]
+hasAnyMatches(list: numbers, condition: lessThanTen)
 
+numbers.map({ (number: Int) -> Int in
+    if number%2 == 0 {
+        return 1
+    } else {
+        return 0
+    }
+})
 
+struct Person {
+    let firstName: String
+    let lastName: String
+    
+    func sayHello() {
+        print("Hello! My name is \(firstName) \(lastName).")
+    }
+}
 
+let aPerson = Person(firstName: "Jacob", lastName: "Edwards")
+aPerson.sayHello()
 
+struct Car {
+    var make: String
+    var model: String
+    var year: Int
+}
 
+let aCar = Car(make: "Jeep", model: "Compass", year: 2012)
+print(aCar)
+
+var largestN: Int
+let a = 15
+let b = 4
+largestN = a > b ? a : b
 
