@@ -8,7 +8,9 @@ public class StringMani {
 		}
 		boolean[] b = new boolean[128];
 		for(int i=0;i<s.length();i++){
-			
+			if(b[]){
+				
+			}
 		}
 		
 	}
