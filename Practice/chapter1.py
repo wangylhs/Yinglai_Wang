@@ -41,3 +41,5 @@ str1 = re.sub(r"\s+",'%20',str1)
 print str1
 
 #print checkPermutation('abcd','djbc')
+
+
