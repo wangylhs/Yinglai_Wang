@@ -1,0 +1,89 @@
+Nathan Tornquist
+ECE 563
+Matrix Multiply - MPI
+(Base Model, without tuned communication)
+
+Summary:
+Nodes       Speedup
+1            99.93 %
+2           111.28 %
+4           170.87 %
+8           175.06 %
+16          310.37 %
+
+Full Results:
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+Generating a 1500x1500 matrix and a 1500x1500 matrix.
+Starting Parallel Operation
+Multiplication Completed
+Generating Solution for Verification
+Verifying Solution
+
+Results:
+Solution: Valid
+Parallel:   1.428000 s
+Sequential: 1.427000 s
+Speedup: 99.93 %
+Threads: 1
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+Generating a 1500x1500 matrix and a 1500x1500 matrix.
+Starting Parallel Operation
+Multiplication Completed
+Generating Solution for Verification
+Verifying Solution
+
+Results:
+Solution: Valid
+Parallel:   1.303000 s
+Sequential: 1.450000 s
+Speedup: 111.28 %
+Threads: 2
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+Generating a 1500x1500 matrix and a 1500x1500 matrix.
+Starting Parallel Operation
+Multiplication Completed
+Generating Solution for Verification
+Verifying Solution
+
+Results:
+Solution: Valid
+Parallel:   0.841000 s
+Sequential: 1.437000 s
+Speedup: 170.87 %
+Threads: 4
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+Generating a 1500x1500 matrix and a 1500x1500 matrix.
+Starting Parallel Operation
+Multiplication Completed
+Generating Solution for Verification
+Verifying Solution
+
+Results:
+Solution: Valid
+Parallel:   0.830000 s
+Sequential: 1.453000 s
+Speedup: 175.06 %
+Threads: 8
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+Generating a 1500x1500 matrix and a 1500x1500 matrix.
+Starting Parallel Operation
+Multiplication Completed
+Generating Solution for Verification
+Verifying Solution
+
+Results:
+Solution: Valid
+Parallel:   0.463000 s
+Sequential: 1.437000 s
+Speedup: 310.37 %
+Threads: 16

@@ -1,0 +1,45 @@
+Script started on Mon 23 Feb 2015 03:18:56 PM EST
+bash-4.1$ module load devel
+bash-4.1$ mpicc hw5.c -o hw5
+bash-4.1$ qsub -l nodes=2:ppn=16,walltime=00:01:00 ./hw5.sub
+6401610.carter-adm.rcac.purdue.edu
+bash-4.1$ ls
+hw5  hw5.c  hw5.pdf  hw5_results  hw5.sub  hw5.sub.e6401610  hw5.sub.o6401610  scholar_hostname
+bash-4.1$ cat hw.[K5[K5.sub.e6401610 
+bash-4.1$ cat hw5.sub.o6401610 
+Hello World -- carter-b011.rcac.purdue.edu (3/32)
+Hello World -- carter-b011.rcac.purdue.edu (4/32)
+Hello World -- carter-b011.rcac.purdue.edu (5/32)
+Hello World -- carter-b011.rcac.purdue.edu (6/32)
+Hello World -- carter-b011.rcac.purdue.edu (7/32)
+Hello World -- carter-b011.rcac.purdue.edu (1/32)
+Hello World -- carter-b011.rcac.purdue.edu (2/32)
+Hello World -- carter-b011.rcac.purdue.edu (0/32)
+Hello World -- carter-b011.rcac.purdue.edu (8/32)
+Hello World -- carter-b011.rcac.purdue.edu (9/32)
+Hello World -- carter-b011.rcac.purdue.edu (10/32)
+Hello World -- carter-b011.rcac.purdue.edu (11/32)
+Hello World -- carter-b011.rcac.purdue.edu (12/32)
+Hello World -- carter-b011.rcac.purdue.edu (13/32)
+Hello World -- carter-b011.rcac.purdue.edu (14/32)
+Hello World -- carter-b011.rcac.purdue.edu (15/32)
+Hello World -- carter-a470.rcac.purdue.edu (23/32)
+Hello World -- carter-a470.rcac.purdue.edu (24/32)
+Hello World -- carter-a470.rcac.purdue.edu (25/32)
+Hello World -- carter-a470.rcac.purdue.edu (16/32)
+Hello World -- carter-a470.rcac.purdue.edu (17/32)
+Hello World -- carter-a470.rcac.purdue.edu (18/32)
+Hello World -- carter-a470.rcac.purdue.edu (20/32)
+Hello World -- carter-a470.rcac.purdue.edu (21/32)
+Hello World -- carter-a470.rcac.purdue.edu (22/32)
+Hello World -- carter-a470.rcac.purdue.edu (19/32)
+Hello World -- carter-a470.rcac.purdue.edu (26/32)
+Hello World -- carter-a470.rcac.purdue.edu (27/32)
+Hello World -- carter-a470.rcac.purdue.edu (28/32)
+Hello World -- carter-a470.rcac.purdue.edu (29/32)
+Hello World -- carter-a470.rcac.purdue.edu (30/32)
+Hello World -- carter-a470.rcac.purdue.edu (31/32)
+bash-4.1$ exit
+exit
+
+Script done on Mon 23 Feb 2015 03:22:30 PM EST

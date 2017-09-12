@@ -1,0 +1,59 @@
+;;isPrime(n d) is a helper function for prime(n)
+
+(define isPrime(n d)
+    (if(= d 1) 1
+        (if(= (mod n d) 0) 0 (isPrime n (- d 1))
+        )
+    )
+)
+
+(define prime(n)
+    (if(< n 2) 0 (isPrime n (- n 1))
+    )
+)
+
+(val num 1)         ;;natural numbers that keep incrementing
+(val i 0)           ;;counter of prime numbers
+(define nthprime(n)
+    (if(= i n) (- num 1)
+        (begin (if(= (prime num) 1)
+                (begin (set i (+ i 1))
+                       (set num (+ num 1))
+                )
+                (set num (+ num 1))
+               )
+            (nthprime n)
+        )
+    )
+)
+
+(val sum 0)         ;;final result of the function
+(val num 1)         ;;natural numbers(keep incrementing)
+(val i 0)           ;;counter of prime numbers
+(define sumprimes(n)
+    (if(= n i) sum
+        (begin (if(= (prime num) 1)
+                (begin (set i (+ i 1))
+                       (set sum (+ sum num))
+                       (set num (+ num 1))
+                )
+                (set num (+ num 1))
+               )
+            (sumprimes n)
+        )
+    )
+)
+
+;;gcd(m n) is a helper function for relprime(m n)
+
+(define gcd(m n)
+    (if(= n 0) m
+        (gcd n (mod m n))
+    )
+)
+
+(define relprime(m n)
+    (if(= (gcd m n) 1) 1 0)
+)
+
+

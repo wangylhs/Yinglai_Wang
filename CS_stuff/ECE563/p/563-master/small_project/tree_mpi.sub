@@ -1,0 +1,11 @@
+#!/bin/sh -l
+# FILENAME:  tree_mpi.sub
+
+module load devel
+cd $PBS_O_WORKDIR
+
+mpiexec -n 1 ./tree_mpi
+mpiexec -n 2 ./tree_mpi
+mpiexec -n 4 ./tree_mpi
+mpiexec -n 8 ./tree_mpi
+mpiexec -n 16 ./tree_mpi

@@ -1,0 +1,21 @@
+Note: This process was repeated six times, three times for each file with different
+array_size values in the *.c files.
+
+Script started on Tue 24 Feb 2015 11:18:27 PM EST
+[?1034hbash-4.1$ mpicc hw7.c -o hw7
+bash-4.1$ qsub -l nodes=1:ppn=16,walltime=00:01:00 ./hw7.sub
+6413123.carter-adm.rcac.purdue.edu
+bash-4.1$ cat hw7.sub.o6413123 
+Sum Completed
+Generating Solution for Verification
+Verifying Solution
+
+Solution Valid
+
+Parallel:   1.156000 s
+Sequential: 0.000000 s
+Speedup: 0.00 %
+bash-4.1$ exit
+exit
+
+Script done on Tue 24 Feb 2015 11:26:22 PM EST

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@drawable/login_bg"
+  >
+  <TextView android:text="@string/student" 
+   		android:id="@+id/tvStudent"
+		android:textSize="30dp"
+		android:textColor="#0000ff"
+		android:gravity="right"
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="5dp">
+  </TextView>
+  <EditText android:text="" 
+		android:id="@+id/etUsername"
+		android:layout_width="fill_parent" 
+		android:layout_gravity="center_vertical" 
+		android:layout_height="wrap_content"
+		android:inputType="textNoSuggestions"
+		android:hint="Username">
+  </EditText>
+  <EditText android:text="" 
+		android:id="@+id/etPassword"
+		android:layout_width="fill_parent" 
+		android:layout_gravity="center_vertical" 
+		android:layout_height="wrap_content"
+		android:hint="Password"
+		android:inputType="textPassword"
+        android:password="true">
+  </EditText>
+  <CheckBox android:text=""
+  		android:id="@+id/cbRememberPassword"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:textColor="#ff0000">
+  </CheckBox>
+  <LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="horizontal"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  >
+	  <Button android:id="@+id/bLogin"
+	  		android:background="@drawable/login_button_3"
+			android:layout_width="wrap_content"
+			android:textSize="20dp"
+			android:layout_marginLeft="15dp"
+			android:layout_height="wrap_content"
+			android:textColor="#ffffff"
+	  />
+	  <Button android:id="@+id/bRegister"
+	  		android:background="@drawable/login_button_3"
+			android:layout_width="wrap_content"
+			android:textSize="20dp"
+			android:layout_marginLeft="10dp"
+			android:layout_height="wrap_content"
+			android:textColor="#ffffff"
+	  />
+  </LinearLayout>
+</LinearLayout>

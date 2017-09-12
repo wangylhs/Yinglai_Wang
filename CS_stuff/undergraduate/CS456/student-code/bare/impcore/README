@@ -1,0 +1,4 @@
+For most of the function, I used some global variables. 
+If doing multiple test for my code. The global variables need to be reset to the default value.
+For example, (set result 0), 0 is the value I assgined when I create the variable.
+

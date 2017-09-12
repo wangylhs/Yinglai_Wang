@@ -1,0 +1,67 @@
+;;exercise 3
+(define sigma(m n)
+    (if(> m n) 0 (if(= m n) n (+ m (sigma (+ m 1) n)))
+    )
+)
+;;exercise 4
+(define exp(m n)
+    (if(= n 0) 1 (* m (exp m (- n 1))))
+)
+
+(define loghelp(m n l)
+    (if (> (exp m (+ l 1)) n) l (loghelp m n (+ l 1)))
+)
+(define log (m n) (loghelp m n 0))
+
+;;exercise 5
+(define factorial(n)
+    (if(= n 1) 1 (* n (factorial(- n 1))))
+)
+(define choose (n k)
+    (/ (factorial n) (* (factorial k) (factorial (- n k))))
+)
+;;exercise 6
+(define fib(m)
+    (if (= m 0) 0 (if (= m 1) 1 (+ (fib (- m 1)) (fib (- m 2)))))
+)
+;;exercise 7
+;;isPrime(n d) is a helper function for prime?(n)
+(define isPrime(n d)
+    (if(= d 1) 1 (if(= (mod n d) 0) 0 (isPrime n (- d 1))))
+)
+
+(define prime?(n)
+    (if(< n 2) 0 (isPrime n (- n 1)))
+)
+
+;;helpnp(n num count) is a helper function for nthprime(n)
+(define helpnp(n num count)
+    (if(= n count) (- num 1) (if(prime? num) (helpnp n (+ num 1) (+ count 1))
+                                        (helpnp n (+ num 1) count)))
+)
+
+(define nthprime(n)
+    (if(= n 1) 2 (helpnp n 2 0))
+)
+
+(define sumprimes(n)
+    (if(= n 0) 0 (if(= n 1) 2 (+ (sumprimes (- n 1)) (nthprime n))))
+)
+
+;;gcd(m n) is a helper function for relprime(m n)
+(define gcd(m n)
+    (if(= n 0) m (gcd n (mod m n)))
+)
+(define relprime(m n)
+    (if(= (gcd m n) 1) 1 0)
+)
+;;exercise 8
+;;helpbi(m result remainder factor) is a helper function for binary(m);
+(define helpbi(m result remainder factor)
+    (if(<= m 0) result (helpbi (/ m 2) (+ result (* (mod m 2) factor)) (mod m 2) (* factor 10)))
+)
+(define binary(m)
+    (if(> m 0) (helpbi m 0 (mod m 2) 1)
+                (- 0 (helpbi (- 0 m) 0 (mod (- 0 m) 2) 1))
+    )
+)

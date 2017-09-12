@@ -1,0 +1,8 @@
+This directory contains configuration scripts for various installation
+builders.
+
+
+File                     Description
+---------------------------------------
+mosml.iss                For Inno Setup (Windows) see README.inno for
+                         more information.

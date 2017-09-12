@@ -1,0 +1,119 @@
+
+
+<HTML>
+
+
+<BODY BGCOLOR="FFFFCC">
+
+
+
+<H1>
+CS 240 Week 15, Lecture 1
+</H1>
+
+<I>(This material last modified 
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+    document.write (document.lastModified + ".)")
+//-->
+</SCRIPT>
+</I>
+
+<H2>
+Applications of Trees
+</H2>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/lectures/w12-ex/trees/trav/bintrav.html"> binary tree traversals </a>
+<P>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/lectures/w12-ex/trees/trav/nodecount.html"> counting the number of nodes in a tree </a>
+<P>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/lectures/w12-ex/trees/trav/depth.html"> finding the depth (how tall?) of a tree </a>
+<P>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/lectures/w12-ex/trees/trav/gen.html"> generalized tree representing, say, a file system </a>
+<P>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/lectures/w12-ex/trees/trav/binsearch.html"> searching an ordered binary tree </a>
+<P>
+
+
+<H2>
+More general traversals: depth-first and breadth-first
+</H2>
+
+
+When you have a graph (note: a tree is a graph without cycles) you can traverse
+it systematically: breadth-first search and depth-first search
+<P>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/lectures/w12-ex/trees/trav/bfsdfs.html"> breadth-first and depth-first searches </a>
+<P>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/lectures/w12-ex/trees/trav/bfsanddfs.html"> code for bfs and dfs </a>
+<P>
+
+<H2>
+Computing a histogram using a 1-D array
+</H2>
+
+Example: If you have a set of numbers, a "histogram" gives you a count of the number of numbers of each type. It's also called a "frequency distribution".
+<P>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/lectures/w7-ex/hist.html"> Computing a histogram using a 1D array </a>
+<P>
+
+
+TRY THIS as a homework exercise: Suppose you want to print out graphically what the histogram looks like. Add to the piece of code, using the char ** pointer provided in the code. Make a 2D array of the required size and fill it with 'x's and blanks. If the histogram says there are 8 numbers with value 3, your diagram should show a column of
+8 'x's for value 3.
+<P>
+
+
+<b><xmp>
+Here is the histogram computing code, followed by an application
+</xmp></b>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/lectures/w11-ex/hist.html"> Your exercise is to 
+graph the histogram (so try it first on your own) </a>
+<P>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/lectures/w11-ex/hist-out.html"> what such a histogram might look like </a>
+<P>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/lectures/w11-ex/flip.html"> REPEAT M times: toss a coin N times, build histogram of the number of occurrence for "heads" </a>
+<P>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/lectures/w11-ex/flip-out.html"> histogram for coin-tossing: it's a NORMAL APPROXIMATION! </a>
+<P>
+
+<H2>
+The Josephus problem
+</H2>
+
+<a href="http://en.wikipedia.org/wiki/Josephus_problem"> Background </a>
+<P>
+
+<b><xmp>
+The is an example of an algorithm to elect a leader (say, in a system of distributed processors).
+</xmp></b>
+
+
+We use a circular one-directional N node linked-list: each node represents a person who stands in a circle. We start counting at node 1 and always delete the M-th node. Last one standing after (N-1) deletions is the "winner".
+<P>
+
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/lectures/w11-ex/josephus.html"> josephus problem </a>
+<P>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/lectures/w11-ex/josephus-out.html"> the output </a>
+<P>
+
+
+
+
+
+
+</BODY>
+</HTML>
+

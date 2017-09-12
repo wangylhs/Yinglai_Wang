@@ -1,0 +1,199 @@
+Minitab Portable Worksheet P1.1             2010 713 Release 9.1               .
+%      3      1    182    -30 Country                                          .
+Albania                        Algeria                                         .
+Angola                         Argentina                                       .
+Armenia                        Australia                                       .
+Austria                        Azerbaijan                                      .
+Bahamas                        Bahrain                                         .
+Bangladesh                     Barbados                                        .
+Belarus                        Belgium                                         .
+Belize                         Benin                                           .
+Bermuda                        Bhutan                                          .
+Bolivia                        Bosnia and Herzegovina                          .
+Botswana                       Brazil                                          .
+Brunei Darussalam              Bulgaria                                        .
+Burkina Faso                   Burundi                                         .
+Cambodia                       Cameroon                                        .
+Canada                         Cape Verde                                      .
+Central African Republic       Chad                                            .
+Channel Islands                Chile                                           .
+China                          Colombia                                        .
+Comoros                        Congo, Dem. Rep.                                .
+Congo, Rep.                    Costa Rica                                      .
+Cote d'Ivoire                  Croatia                                         .
+Cuba                           Cyprus                                          .
+Czech Republic                 Denmark                                         .
+Djibouti                       Dominican Republic                              .
+Ecuador                        Egypt                                           .
+El Salvador                    Equatorial Guinea                               .
+Eritrea                        Estonia                                         .
+Ethiopia                       Faeroe Islands                                  .
+Fiji                           Finland                                         .
+France                         French Polynesia                                .
+Gabon                          Gambia                                          .
+Georgia                        Germany                                         .
+Ghana                          Greece                                          .
+Guatemala                      Guinea                                          .
+Guinea-Bissau                  Guyana                                          .
+Haiti                          Honduras                                        .
+Hungary                        Iceland                                         .
+India                          Indonesia                                       .
+Iran                           Ireland                                         .
+Israel                         Italy                                           .
+Jamaica                        Japan                                           .
+Jordan                         Kazakhstan                                      .
+Kenya                          Korea, Dem. Rep.                                .
+Korea, Rep.                    Kuwait                                          .
+Kyrgyz Republic                Lao PDR                                         .
+Latvia                         Lebanon                                         .
+Lesotho                        Liberia                                         .
+Libya                          Lithuania                                       .
+Luxembourg                     Macedonia                                       .
+Madagascar                     Malawi                                          .
+Malaysia                       Maldives                                        .
+Mali                           Malta                                           .
+Mauritania                     Mauritius                                       .
+Mexico                         Micronesia                                      .
+Moldova                        Mongolia                                        .
+Montenegro                     Morocco                                         .
+Mozambique                     Myanmar                                         .
+Namibia                        Nepal                                           .
+Netherlands                    New Caledonia                                   .
+New Zealand                    Nicaragua                                       .
+Niger                          Nigeria                                         .
+Norway                         Oman                                            .
+Pakistan                       Panama                                          .
+Papua New Guinea               Paraguay                                        .
+Peru                           Philippines                                     .
+Poland                         Portugal                                        .
+Puerto Rico                    Qatar                                           .
+Romania                        Russian Federation                              .
+Rwanda                         Samoa                                           .
+San Marino                     Sao Tome and Principe                           .
+Saudi Arabia                   Senegal                                         .
+Serbia                         Seychelles                                      .
+Sierra Leone                   Singapore                                       .
+Slovak Republic                Slovenia                                        .
+Solomon Islands                Somalia                                         .
+South Africa                   Spain                                           .
+Sri Lanka                      St. Lucia                                       .
+St. Vincent and the Grenadines Sudan                                           .
+Suriname                       Swaziland                                       .
+Sweden                         Switzerland                                     .
+Tanzania                       Thailand                                        .
+Timor-Leste                    Togo                                            .
+Tonga                          Trinidad and Tobago                             .
+Turkey                         Turkmenistan                                    .
+Uganda                         Ukraine                                         .
+United Arab Emirates           United Kingdom                                  .
+United States                  Uruguay                                         .
+Uzbekistan                     Venezuela, RB                                   .
+Vietnam                        Virgin Islands (U.S.)                           .
+West Bank and Gaza             Yemen, Rep.                                     .
+Zambia                         Zimbabwe                                        .
+%      3      2    182    -10 Code                                             .
+ALB        DZA        AGO        ARG        ARM        AUS        AUT          .
+AZE        BHS        BHR        BGD        BRB        BLR        BEL          .
+BLZ        BEN        BMU        BTN        BOL        BIH        BWA          .
+BRA        BRN        BGR        BFA        BDI        KHM        CMR          .
+CAN        CPV        CAF        TCD        CHI        CHL        CHN          .
+COL        COM        ZAR        COG        CRI        CIV        HRV          .
+CUB        CYP        CZE        DNK        DJI        DOM        ECU          .
+EGY        SLV        GNQ        ERI        EST        ETH        FRO          .
+FJI        FIN        FRA        PYF        GAB        GMB        GEO          .
+DEU        GHA        GRC        GTM        GIN        GNB        GUY          .
+HTI        HND        HUN        ISL        IND        IDN        IRN          .
+IRL        ISR        ITA        JAM        JPN        JOR        KAZ          .
+KEN        PRK        KOR        KWT        KGZ        LAO        LVA          .
+LBN        LSO        LBR        LBY        LTU        LUX        MKD          .
+MDG        MWI        MYS        MDV        MLI        MLT        MRT          .
+MUS        MEX        FSM        MDA        MNG        MNE        MAR          .
+MOZ        MMR        NAM        NPL        NLD        NCL        NZL          .
+NIC        NER        NGA        NOR        OMN        PAK        PAN          .
+PNG        PRY        PER        PHL        POL        PRT        PRI          .
+QAT        ROM        RUS        RWA        WSM        SMR        STP          .
+SAU        SEN        SRB        SYC        SLE        SGP        SVK          .
+SVN        SLB        SOM        ZAF        ESP        LKA        LCA          .
+VCT        SDN        SUR        SWZ        SWE        CHE        TZA          .
+THA        TMP        TGO        TON        TTO        TUR        TKM          .
+UGA        UKR        ARE        GBR        USA        URY        UZB          .
+VEN        VNM        VIR        WBG        YEM        ZMB        ZWE          .
+%      3      3    182      2 InternetUsers                                    .
+ 1.485583145E+01 7.376060372E+00 5.737737097E-01 2.091172099E+01 5.742056368E+00
+ 5.120404871E+01 5.083052367E+01 9.772052237E+00 3.361046691E+01 2.842012524E+01
+ 2.884785938E-01 8.534462158E+01 5.628050347E+01 4.645448470E+01 1.008022165E+01
+ 1.426996839E+00 7.053291536E+01 4.624163412E+00 6.200657997E+00 2.515145887E+01
+ 4.305327358E+00 2.250122961E+01 4.168822260E+01 4.664222760E+01 5.571612634E-01
+ 7.341182689E-01 4.648996863E-01 2.035797463E+00 7.657202365E+01 6.363752068E+00
+ 3.048204303E-01 5.731655907E-01               * 2.528845884E+01 1.044368357E+01
+ 1.471735759E+01 3.422391694E+00 2.968147327E-01 1.897379421E+00 2.760717200E+01
+ 1.586086930E+00 3.793033571E+01 2.130171023E+00 4.616270792E+01 3.448489089E+01
+ 5.833879553E+01 1.343908673E+00 1.493615486E+01 1.173307519E+01 8.089906256E+00
+ 1.035147854E+01 1.614077988E+00 2.131235061E+00 5.433378959E+01 3.084739612E-01
+ 7.039337474E+01 9.600038400E+00 5.554920486E+01 4.906069710E+01 2.507261415E+01
+ 6.179338124E+00 4.947472416E+00 7.489317008E+00 4.685805170E+01 2.650374908E+00
+ 1.837096783E+01 1.013157850E+01 5.445831135E-01 2.248517042E+00 2.367856684E+01
+ 6.881258173E+00 4.937802487E+00 3.475197515E+01 6.386158495E+01 1.081265045E+01
+ 4.741571299E+00 2.567836799E+01 3.382015423E+01 2.694237153E+01 5.219412468E+01
+ 4.873842462E+01 6.852124362E+01 1.439107194E+01 8.431937008E+00 7.578745559E+00
+ 0.000000000E+00 7.046954844E+01 3.077581764E+01 1.251901928E+01 1.215403960E+00
+ 4.680132590E+01 2.342612792E+01 3.007687650E+00 2.794135110E-02 4.305603097E+00
+ 3.190918782E+01 7.246005079E+01 1.316014331E+01 5.741424009E-01 4.399179321E-01
+ 5.356951866E+01 8.924646677E+00 7.387551995E-01 3.349102022E+01 9.856622287E-01
+ 2.552985875E+01 1.973132555E+01 1.446432284E+01 1.898657060E+01 1.199386278E+01
+ 4.425794730E+01 2.000226034E+01 8.583097906E-01 7.234513109E-02 4.402520333E+00
+ 1.146217035E+00 8.564733048E+01 3.360844090E+01 7.647086938E+01 2.801695622E+00
+ 2.911902854E-01 5.527917771E+00 8.136157043E+01 1.138896252E+01 7.547073015E+00
+ 1.528861415E+01 1.773709497E+00 4.321808511E+00 2.355192876E+01 5.796179907E+00
+ 3.693896311E+01 3.013885414E+01 2.545970035E+01 3.529920992E+01 5.234470219E+01
+ 1.802712281E+01 1.056608766E+00 4.315786066E+00 5.384615385E+01 1.418201978E+01
+ 1.984893776E+01 5.384146868E+00               * 3.427895981E+01 2.089611600E-01
+ 5.907211342E+01 4.184388914E+01 6.231750170E+01 1.652817434E+00 1.113032342E+00
+ 7.807385470E+00 4.211128454E+01 2.514331691E+00 6.023588372E+01 2.922218883E+01
+ 8.486379215E+00 8.346640367E+00 3.692631061E+00 7.688107655E+01 5.825813002E+01
+ 9.883749618E-01 1.334378298E+01 1.165960063E-01 4.991866378E+00 3.105870094E+00
+ 2.167969456E+01 1.801986982E+01 1.322595815E+00 5.016957651E+00 1.923580424E+01
+ 4.021394966E+01 6.238062074E+01 7.020754982E+01 2.565505273E+01 4.153168868E+00
+ 1.462238123E+01 1.745822697E+01 2.762303761E+01 7.047951994E+00 1.242393389E+00
+ 4.274907320E+00 9.222727431E+00                                               .
+%      3      4    182      0 LifeExpectancy                                   .
+ 7.633795122E+01 7.198809756E+01 4.235892683E+01 7.502653659E+01 7.159619512E+01
+ 8.099872085E+01 7.983731707E+01 7.233170732E+01 7.291302439E+01 7.565634146E+01
+ 6.365712195E+01 7.677214634E+01 6.858914308E+01 7.948048780E+01 7.189741848E+01
+ 5.619951220E+01 7.857670732E+01 6.526473171E+01 6.517912195E+01 7.457253659E+01
+ 4.977990244E+01 7.208356098E+01 7.713268293E+01 7.261219512E+01 5.187117073E+01
+ 4.904863415E+01 5.893424390E+01 5.028126829E+01 8.035600761E+01 7.099965854E+01
+ 4.438273171E+01 5.059790244E+01 7.885082927E+01 7.829443902E+01 7.200138059E+01
+ 7.259487805E+01 6.323993926E+01 4.612009756E+01 5.478936585E+01 7.865570732E+01
+ 4.808117073E+01 7.581707317E+01 7.803595122E+01 7.929268293E+01 7.648414634E+01
+ 7.809951220E+01 5.447502439E+01 7.202746341E+01 7.483404878E+01 7.101429268E+01
+ 7.154117073E+01 5.110009756E+01 5.731458537E+01 7.257243902E+01 5.247902439E+01
+ 7.884146341E+01 6.859019512E+01 7.922926829E+01 8.055536585E+01 7.396956098E+01
+ 5.673565854E+01 5.914751220E+01 7.072468293E+01 7.913170732E+01 5.969546341E+01
+ 7.941463415E+01 6.991424390E+01 5.551600000E+01 4.618814634E+01 6.628053659E+01
+ 6.032321951E+01 6.989073171E+01 7.308853659E+01 8.117146341E+01 6.447278049E+01
+ 6.816021858E+01 7.065229268E+01 7.939268293E+01 8.002080347E+01 8.108097561E+01
+ 7.112481537E+01 8.232195122E+01 7.220485753E+01 6.616097561E+01 5.344365854E+01
+ 6.696887805E+01 7.849853659E+01 7.766096983E+01 6.769512195E+01 6.386365854E+01
+ 7.086073171E+01 7.177941463E+01 4.292975610E+01 4.526985366E+01 7.397990244E+01
+ 7.104170732E+01 7.917560976E+01 7.398980488E+01 5.898897561E+01 4.761351220E+01
+ 7.404775610E+01 6.791965854E+01 5.378468293E+01 7.854878049E+01 6.374517073E+01
+ 7.317038035E+01 7.447107168E+01 6.831317073E+01 6.852780488E+01 6.716946466E+01
+ 7.442043902E+01 7.069872104E+01 4.245502439E+01 6.164814634E+01 5.249946341E+01
+ 6.322531707E+01 7.969756098E+01 7.532924246E+01 7.993040650E+01 7.247712195E+01
+ 5.641868293E+01 4.678302439E+01 8.033463415E+01 7.550502439E+01 6.520991548E+01
+ 7.540160976E+01 5.732068293E+01 7.165066374E+01 7.111717073E+01 7.138819512E+01
+ 7.514390244E+01 7.838487805E+01 7.841634146E+01 7.549643902E+01 7.218390244E+01
+ 6.555607142E+01 4.559326829E+01 7.133473171E+01 8.218634146E+01 6.520102439E+01
+ 7.258466193E+01 6.275580488E+01 7.277513725E+01 7.221707317E+01 4.223712195E+01
+ 7.985365854E+01 7.420487805E+01 7.766829268E+01 6.333170732E+01 4.769039024E+01
+ 5.070731707E+01 8.080146341E+01 7.496744624E+01 7.438671025E+01 7.138117073E+01
+ 5.810590244E+01 6.999214634E+01 4.076589858E+01 8.076829268E+01 8.151487805E+01
+ 5.189156098E+01 7.024004878E+01 5.716404478E+01 5.819902439E+01 7.302960976E+01
+ 6.957736585E+01 7.149024390E+01 6.301424390E+01 5.074258537E+01 6.804247927E+01
+ 7.931880608E+01 7.913743902E+01 7.784926829E+01 7.572975610E+01 6.749679464E+01
+ 7.440078584E+01 7.084685904E+01 7.875130259E+01 7.293251984E+01 6.220897561E+01
+ 4.167356098E+01 4.268687805E+01                                               .
+%    100      0      0      0                                                  .
+%    101      0      0      0                                                  .
+%    102      0      0      0                                                  .

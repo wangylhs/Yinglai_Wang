@@ -1,0 +1,204 @@
+Circuit: Jager Blalock Microelectronics, 4ed. Problem 1.132
+--------------------------------------------------------------------------
+Jager Blalock Microelectronics, 4ed. Problem 1.132
+*Adam T. Neal, ECE 255, Purdue University, Fall 2013
+
+*transitor model, Vaf= inf by default for NPN model
+*Is not given, but not so important for Forward Active.  Just let it use spice default.
+*Use bf and Vaf from problem 13.131 and 13.129
+.model BJT1 npn bf=65 Vaf=50
+
+*bias resistors
+
+rb NBase 0 1e6
+re NEmitter NMinus 160k
+rc NPlus NCollector 100k
+ri Ni N1 330
+ro NOut 0 220k
+
+*capacitors
+
+C1 N1 NBase 100e-6
+C2 NCollector NOut 100e-6
+C3 NEmitter 0 100e-6
+
+*dc supply
+
+VPlus NPlus 0 dc 5V
+VMinus	NMinus 0 dc -5V
+
+*AC input
+
+vac Ni 0 0V AC 1mV
+
+*  attach transistor (collector, base, emitter) described by model, BJT1
+q1 NCollector NBase NEmitter BJT1
+
+* find the dc operating point
+
+.op
+
+.ac LIN 1 1000 1000
+
+* a .print statement is required to get the .ac analysis to perform
+* without the .print, spice34f just exits with error code 1
+.print AC v(NOut) V(Ni)
+
+.options nopage
+.end
+
+--------------------------------------------------------------------------
+Note: no resource usage information for 'space',
+	or no active circuit available
+
+Circuit: Jager Blalock Microelectronics, 4ed. Problem 1.132
+
+Circuit: Jager Blalock Microelectronics, 4ed. Problem 1.132
+Date: Mon Oct 14 20:04:46  2013
+
+
+
+Operating point information:
+
+	Node	Voltage
+	----	-------
+	nout	0.000000e+00
+	n1	0.000000e+00
+	ni	0.000000e+00
+	ncollector	2.555625e+00
+	nplus	5.000000e+00
+	nminus	-5.00000e+00
+	nemitter	-1.03214e+00
+	nbase	-3.55365e-01
+
+	Source	Current
+	------	-------
+
+	vplus#branch	-2.44437e-05
+	vminus#branch	2.479911e-05
+	vac#branch	0.000000e+00
+
+ BJT models (Bipolar Junction Transistor)
+ model          bjt1
+
+      type       npn
+        is     1e-16
+        bf        65
+        nf         1
+       vaf        50
+       ikf         0
+       ise         0
+        ne       1.5
+        br         1
+        nr         1
+       var         0
+       ikr         0
+       isc         0
+        nc         2
+        rb         0
+       irb         0
+       rbm         0
+        re         0
+        rc         0
+       cje         0
+       vje      0.75
+       mje      0.33
+        tf         0
+       xtf         0
+       vtf         0
+       itf         0
+       ptf         0
+       cjc         0
+       vjc      0.75
+       mjc      0.33
+      xcjc         1
+        tr         0
+       cjs         0
+       ccs         0
+       vjs      0.75
+       mjs         0
+       xtb         0
+        eg      1.11
+       xti         3
+        fc       0.5
+      tnom        27
+        kf         0
+        af         0
+
+ Capacitor models (Fixed capacitor)
+ model             C
+
+        cj         0
+      cjsw         0
+      defw     1e-05
+    narrow         0
+
+ Resistor models (Simple linear resistor)
+ model             R
+
+       rsh         0
+    narrow         0
+       tc1         0
+       tc2         0
+      defw     1e-05
+
+ BJT: Bipolar Junction Transistor
+ device           q1
+ model          bjt1
+        ic  2.45e-05
+        ib  3.56e-07
+        ie -2.48e-05
+       vbe     0.677
+       vbc     -2.91
+        gm  0.000945
+       gpi  1.38e-05
+       gmu     1e-12
+        gx         0
+        go  4.62e-07
+       cpi         0
+       cmu         0
+       cbx         0
+       ccs         0
+
+ Capacitor: Fixed capacitor
+ device           c3        c2        c1
+ model             C         C         C
+capacitanc    0.0001    0.0001    0.0001
+         i    0.0001    0.0001    0.0001
+         p    0.0001    0.0001    0.0001
+
+ Resistor: Simple linear resistor
+ device           ro        ri        rc        re        rb
+ model             R         R         R         R         R
+resistance   2.2e+05       330     1e+05   1.6e+05     1e+06
+         i         0         0  2.44e-05  2.48e-05 -3.55e-07
+         p         0         0  5.97e-05  9.84e-05  1.26e-07
+
+ Vsource: Independent voltage source
+ device          vac    vminus     vplus
+        dc         0        -5         5
+     acmag     0.001         0         0
+         i         0  2.48e-05 -2.44e-05
+         p        -0  0.000124  0.000122
+
+               Jager Blalock Microelectronics, 4ed. Problem 1.132
+               AC Analysis  Mon Oct 14 20:04:46  2013
+--------------------------------------------------------------------------------
+Index   frequency                       v(nout)                         
+--------------------------------------------------------------------------------
+0	1.000000e+03,	0.000000e+00	-6.269475e-02,	-9.421615e-05	
+
+
+               Jager Blalock Microelectronics, 4ed. Problem 1.132
+               AC Analysis  Mon Oct 14 20:04:46  2013
+--------------------------------------------------------------------------------
+Index   frequency                       v(ni)                           
+--------------------------------------------------------------------------------
+0	1.000000e+03,	0.000000e+00	1.000000e-03,	0.000000e+00	
+
+CPU time since last call: 0.004 seconds.
+
+Total CPU time: 0.004 seconds.
+
+
+

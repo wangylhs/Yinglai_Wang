@@ -1,0 +1,1 @@
+In order to test the bonus feature, I add a sleep(6) in the server. So everytime before it response, it sleep for 6 seconds. Then the alarm on the client side will arise and errormessage will be printed.

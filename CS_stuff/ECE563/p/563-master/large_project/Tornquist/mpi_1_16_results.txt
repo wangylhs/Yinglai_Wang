@@ -1,0 +1,36 @@
+Nathan Tornquist
+ECE 563 - Large Project Step 2 Results
+4/10/15
+
+ Total Words Identified: 2888234
+                  Cores: 1
+   Time (exclude print): 9.336000 s
+           Time (total): 9.461000 s
+
+ Total Words Identified: 2888234
+                  Cores: 2
+   Time (exclude print): 7.627000 s
+           Time (total): 7.989000 s
+Speedup (exclude print): 122%
+        Speedup (total): 118%
+
+ Total Words Identified: 2888234
+                  Cores: 4
+   Time (exclude print): 5.273000 s
+           Time (total): 5.352000 s
+Speedup (exclude print): 177%
+        Speedup (total): 176%
+
+ Total Words Identified: 2888234
+                  Cores: 8
+   Time (exclude print): 4.077000 s
+           Time (total): 4.153000 s
+Speedup (exclude print): 228%
+        Speedup (total): 227%
+
+ Total Words Identified: 2888234
+                  Cores: 16
+   Time (exclude print): 3.012000 s
+           Time (total): 3.142000 s
+Speedup (exclude print): 309%
+        Speedup (total): 301%

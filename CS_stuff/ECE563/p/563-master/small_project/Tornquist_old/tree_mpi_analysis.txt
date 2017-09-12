@@ -1,0 +1,149 @@
+Nathan Tornquist
+ECE 563
+Binary Tree Traversal - MPI
+
+Summary:
+Nodes       Speedup
+1            99.09 %
+2           192.78 %
+4           356.18 %
+8           534.04 %
+16          764.50 %
+
+Full Results:
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+Generating Tree
+Printing Tree to File
+Starting Parallel Operation
+Characters: 33135176
+P # | Start - End | Matches
+P 0 | 0 - 33135175 | 461177
+Total Matches: 461177
+Search Completed
+Generating Solution for Verification
+Verifying Solution
+
+Results:
+Solution: Valid
+Sequential Matches: 461177
+Parallel Matches:   461177
+Parallel:   1.543000 s
+Sequential: 1.529000 s
+Speedup: 99.09 %
+Threads: 1
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+Generating Tree
+Printing Tree to File
+Starting Parallel Operation
+Characters: 33134268
+P # | Start - End | Matches
+P 1 | 16567134 - 33134267 | 230844
+P 0 | 0 - 16567133 | 230975
+Total Matches: 461819
+Search Completed
+Generating Solution for Verification
+Verifying Solution
+
+Results:
+Solution: Valid
+Sequential Matches: 461819
+Parallel Matches:   461819
+Parallel:   0.789000 s
+Sequential: 1.521000 s
+Speedup: 192.78 %
+Threads: 2
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+Generating Tree
+Printing Tree to File
+Starting Parallel Operation
+Characters: 33134000
+P # | Start - End | Matches
+P 3 | 24850500 - 33133999 | 115250
+P 2 | 16567000 - 24850499 | 115778
+P 1 | 8283500 - 16566999 | 115189
+P 0 | 0 - 8283499 | 116147
+Total Matches: 462364
+Search Completed
+Generating Solution for Verification
+Verifying Solution
+
+Results:
+Solution: Valid
+Sequential Matches: 462364
+Parallel Matches:   462364
+Parallel:   0.429000 s
+Sequential: 1.528000 s
+Speedup: 356.18 %
+Threads: 4
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+Generating Tree
+Printing Tree to File
+Starting Parallel Operation
+Characters: 33135329
+P # | Start - End | Matches
+P 4 | 16567664 - 20709579 | 57593
+P 5 | 20709580 - 24851495 | 57302
+P 1 | 4141916 - 8283831 | 57604
+P 2 | 8283832 - 12425747 | 57435
+P 3 | 12425748 - 16567663 | 57623
+P 0 | 0 - 4141915 | 57687
+P 7 | 28993412 - 33135328 | 57702
+Total Matches: 461045
+Search Completed
+Generating Solution for Verification
+P 6 | 24851496 - 28993411 | 58099
+Verifying Solution
+
+Results:
+Solution: Valid
+Sequential Matches: 461045
+Parallel Matches:   461045
+Parallel:   0.285000 s
+Sequential: 1.522000 s
+Speedup: 534.04 %
+Threads: 8
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+Generating Tree
+Printing Tree to File
+Starting Parallel Operation
+Characters: 33134004
+P # | Start - End | Matches
+P 8 | 16567000 - 18637874 | 29040
+P 12 | 24850500 - 26921374 | 28919
+P 13 | 26921375 - 28992249 | 28836
+P 4 | 8283500 - 10354374 | 28895
+P 5 | 10354375 - 12425249 | 28985
+P 9 | 18637875 - 20708749 | 28722
+P 10 | 20708750 - 22779624 | 28905
+P 1 | 2070875 - 4141749 | 28659
+P 11 | 22779625 - 24850499 | 28783
+P 2 | 4141750 - 6212624 | 29052
+P 14 | 28992250 - 31063124 | 28835
+P 15 | 31063125 - 33134003 | 29018
+P 3 | 6212625 - 8283499 | 29066
+P 6 | 12425250 - 14496124 | 28706
+P 7 | 14496125 - 16566999 | 28783
+P 0 | 0 - 2070874 | 29120
+Total Matches: 462324
+Search Completed
+Generating Solution for Verification
+Verifying Solution
+
+Results:
+Solution: Valid
+Sequential Matches: 462324
+Parallel Matches:   462324
+Parallel:   0.200000 s
+Sequential: 1.529000 s
+Speedup: 764.50 %
+Threads: 16

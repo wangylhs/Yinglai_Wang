@@ -1,0 +1,27 @@
+@dropall
+@createtable
+@populate
+@trg
+@fun
+@pro
+
+declare
+myvar number;
+begin
+	myvar:=fun_issue_anyedition(2,'DATA MANAGEMENT','C.J. DATES',to_date('03/03/05','MM/DD/YY'));
+	myvar:=fun_issue_anyedition(4,'DATA MANAGEMENT','C.J. DATES',to_date('03/04/05','MM/DD/YY'));
+	myvar:=fun_issue_anyedition(5,'DATA MANAGEMENT','C.J. DATES',to_date('03/04/05','MM/DD/YY'));
+	myvar:=fun_issue_anyedition(10,'DATA MANAGEMENT','C.J. DATES',to_date('02/27/05','MM/DD/YY'));
+	myvar:=fun_issue_anyedition(2,'DATA MANAGEMENT','C.J. DATES',to_date('05/03/05','MM/DD/YY'));
+	myvar:=fun_issue_anyedition(4,'DATA MANAGEMENT','C.J. DATES',to_date('03/04/05','MM/DD/YY'));
+	myvar:=fun_issue_anyedition(10,'DATA MANAGEMENT','C.J. DATES',to_date('03/04/05','MM/DD/YY'));
+	myvar:=fun_issue_anyedition(5,'DATA MANAGEMENT','C.J. DATES',to_date('02/26/05','MM/DD/YY'));
+	myvar:=fun_issue_anyedition(2,'DATA MANAGEMENT','C.J. DATES',to_date('03/03/05','MM/DD/YY'));
+	myvar:=fun_issue_anyedition(4,'DATA MANAGEMENT','C.J. DATES',to_date('04/04/05','MM/DD/YY'));
+	myvar:=fun_issue_anyedition(11,'DATA MANAGEMENT','C.J. DATES',to_date('03/08/05','MM/DD/YY'));
+	myvar:=fun_issue_anyedition(6,'DATA MANAGEMENT','C.J. DATES',to_date('02/17/05','MM/DD/YY'));
+	
+	--DBMS_OUTPUT.PUT_LINE(myvar);
+end;
+/
+

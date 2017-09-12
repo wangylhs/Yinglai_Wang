@@ -1,0 +1,123 @@
+0 All Files Requested : 0.001000 s
+0 Reader Done : 4.128000 s
+0 Mapper Done : 9.668000 s
+0 Reducer Done : 9.668000 s
+
+                             Total Words Identified: 2888234
+                                              Cores: 1
+                               Time (exclude print): 9.668000 s
+                                       Time (total): 9.767000 s
+0 Reader Done : 1.649000 s
+0 All Files Requested : 1.649000 s
+1 Reader Done : 1.649000 s
+0 Mapper Done : 3.381000 s
+1 Mapper Done : 4.824000 s
+1 Reducer Done : 5.049000 s
+0 Reducer Done : 8.056000 s
+
+                             Total Words Identified: 2888234
+                                              Cores: 2
+                               Time (exclude print): 8.056000 s
+                                       Time (total): 8.136000 s
+2 Reader Done : 0.827000 s
+0 Reader Done : 0.827000 s
+3 Reader Done : 0.846000 s
+1 Reader Done : 0.849000 s
+0 All Files Requested : 0.848000 s
+0 Mapper Done : 1.717000 s
+3 Mapper Done : 1.887000 s
+2 Mapper Done : 2.084000 s
+1 Mapper Done : 2.170000 s
+3 Reducer Done : 2.210000 s
+1 Reducer Done : 2.276000 s
+0 Reducer Done : 5.307000 s
+2 Reducer Done : 5.307000 s
+
+                             Total Words Identified: 2888234
+                                              Cores: 4
+                               Time (exclude print): 5.307000 s
+                                       Time (total): 5.397000 s
+4 Reader Done : 0.348000 s
+7 Reader Done : 0.348000 s
+6 Reader Done : 0.349000 s
+0 Reader Done : 0.356000 s
+2 Reader Done : 0.357000 s
+3 Reader Done : 0.360000 s
+5 Reader Done : 0.360000 s
+2 Mapper Done : 0.755000 s
+6 Mapper Done : 0.805000 s
+3 Mapper Done : 0.822000 s
+5 Mapper Done : 0.858000 s
+3 Reducer Done : 0.896000 s
+7 Mapper Done : 0.903000 s
+4 Mapper Done : 0.914000 s
+7 Reducer Done : 0.976000 s
+5 Reducer Done : 0.978000 s
+0 All Files Requested : 1.013000 s
+1 Reader Done : 1.024000 s
+0 Mapper Done : 1.031000 s
+6 Reducer Done : 1.046000 s
+4 Reducer Done : 1.118000 s
+1 Mapper Done : 2.311000 s
+1 Reducer Done : 2.373000 s
+2 Reducer Done : 2.955000 s
+0 Reducer Done : 3.055000 s
+
+                             Total Words Identified: 2888234
+                                              Cores: 8
+                               Time (exclude print): 3.055000 s
+                                       Time (total): 3.135000 s
+10 Reader Done : 0.142000 s
+3 Reader Done : 0.144000 s
+14 Reader Done : 0.144000 s
+15 Reader Done : 0.146000 s
+6 Reader Done : 0.148000 s
+2 Reader Done : 0.150000 s
+0 Reader Done : 0.158000 s
+1 Reader Done : 0.170000 s
+5 Reader Done : 0.170000 s
+8 Reader Done : 0.170000 s
+11 Reader Done : 0.170000 s
+7 Reader Done : 0.172000 s
+9 Reader Done : 0.175000 s
+12 Reader Done : 0.177000 s
+13 Reader Done : 0.213000 s
+14 Mapper Done : 0.384000 s
+3 Mapper Done : 0.403000 s
+15 Mapper Done : 0.406000 s
+8 Mapper Done : 0.444000 s
+15 Reducer Done : 0.448000 s
+0 Mapper Done : 0.452000 s
+1 Mapper Done : 0.454000 s
+2 Mapper Done : 0.468000 s
+6 Mapper Done : 0.474000 s
+5 Mapper Done : 0.478000 s
+12 Mapper Done : 0.483000 s
+10 Mapper Done : 0.486000 s
+11 Mapper Done : 0.499000 s
+3 Reducer Done : 0.506000 s
+1 Reducer Done : 0.519000 s
+11 Reducer Done : 0.530000 s
+10 Reducer Done : 0.558000 s
+7 Mapper Done : 0.564000 s
+7 Reducer Done : 0.598000 s
+13 Mapper Done : 0.611000 s
+13 Reducer Done : 0.647000 s
+9 Mapper Done : 0.655000 s
+9 Reducer Done : 0.689000 s
+4 Reader Done : 0.788000 s
+0 All Files Requested : 0.797000 s
+14 Reducer Done : 1.489000 s
+12 Reducer Done : 1.547000 s
+8 Reducer Done : 1.670000 s
+4 Mapper Done : 2.202000 s
+5 Reducer Done : 2.284000 s
+6 Reducer Done : 2.327000 s
+4 Reducer Done : 2.434000 s
+2 Reducer Done : 2.584000 s
+0 Reducer Done : 2.909000 s
+
+                             Total Words Identified: 2888234
+                                              Cores: 16
+                               Time (exclude print): 2.909000 s
+                                       Time (total): 3.040000 s

@@ -1,0 +1,9 @@
+Name: Yinglai Wang
+Login: wang1105
+
+All features in the handout except subshell have been implemented.
+
+
+Extra featrues:
+	history: display the command history by typing "history".
+	Tab:	 an easy tab function has benn implemented.

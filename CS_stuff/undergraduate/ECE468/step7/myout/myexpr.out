@@ -1,0 +1,1415 @@
+; LABEL   main
+;      successor   LINK   
+;      gen
+;      kill
+;      in     newline
+;      out     newline
+;      free   0  
+;      free   1  
+;      free   2  
+;      free   3  
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LINK   
+;      predecessor   LABEL   main
+;      successor   STOREI 1  $T1
+;      gen
+;      kill
+;      in     newline
+;      out     newline
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREI 1  $T1
+;      predecessor   LINK   
+;      successor   STOREI $T1  a
+;      gen
+;      kill     $T1
+;      in     newline
+;      out     newline     $T1
+;      ensure  $-1
+;      allocate   $-1
+;      r0 null;      r1 null;      r2 null;      r3 $-1
+; STOREI $T1  a
+;      predecessor   STOREI 1  $T1
+;      successor   STOREI 2  $T2
+;      gen     $T1
+;      kill     a
+;      in     newline     $T1
+;      out     newline     a
+;      ensure  $-1
+;      ensure  a
+;      allocate   a
+;      free   3  $-1
+;      r0 null;      r1 null;      r2 a;      r3 null
+; STOREI 2  $T2
+;      predecessor   STOREI $T1  a
+;      successor   STOREI $T2  b
+;      gen
+;      kill     $T2
+;      in     newline     a
+;      out     newline     a     $T2
+;      ensure  $-2
+;      allocate   $-2
+;      r0 null;      r1 null;      r2 a;      r3 $-2
+; STOREI $T2  b
+;      predecessor   STOREI 2  $T2
+;      successor   STOREI 10  $T3
+;      gen     $T2
+;      kill     b
+;      in     newline     a     $T2
+;      out     newline     a     b
+;      ensure  $-2
+;      ensure  b
+;      allocate   b
+;      free   3  $-2
+;      r0 null;      r1 b;      r2 a;      r3 null
+; STOREI 10  $T3
+;      predecessor   STOREI $T2  b
+;      successor   STOREI $T3  c
+;      gen
+;      kill     $T3
+;      in     newline     a     b
+;      out     newline     a     b     $T3
+;      ensure  $-3
+;      allocate   $-3
+;      r0 null;      r1 b;      r2 a;      r3 $-3
+; STOREI $T3  c
+;      predecessor   STOREI 10  $T3
+;      successor   STOREI 20  $T4
+;      gen     $T3
+;      kill     c
+;      in     newline     a     b     $T3
+;      out     newline     c     a     b
+;      ensure  $-3
+;      ensure  c
+;      allocate   c
+;      free   3  $-3
+;      r0 c;      r1 b;      r2 a;      r3 null
+; STOREI 20  $T4
+;      predecessor   STOREI $T3  c
+;      successor   STOREI $T4  d
+;      gen
+;      kill     $T4
+;      in     newline     c     a     b
+;      out     newline     c     a     b     $T4
+;      ensure  $-4
+;      allocate   $-4
+;      r0 c;      r1 b;      r2 a;      r3 $-4
+; STOREI $T4  d
+;      predecessor   STOREI 20  $T4
+;      successor   WRITEI   a
+;      gen     $T4
+;      kill     d
+;      in     newline     c     a     b     $T4
+;      out     newline     d     c     a     b
+;      ensure  $-4
+;      ensure  d
+;      allocate   d
+;      free   2  a
+;      free   3  $-4
+;      r0 c;      r1 b;      r2 d;      r3 null
+; WRITEI   a
+;      predecessor   STOREI $T4  d
+;      successor   WRITES   newline
+;      gen     a
+;      kill
+;      in     newline     d     c     a     b
+;      out     newline     d     c     a     b
+;      r0 c;      r1 b;      r2 d;      r3 null
+; WRITES   newline
+;      predecessor   WRITEI   a
+;      successor   WRITEI   b
+;      gen     newline
+;      kill
+;      in     newline     d     c     a     b
+;      out     newline     d     c     a     b
+;      r0 c;      r1 b;      r2 d;      r3 null
+; WRITEI   b
+;      predecessor   WRITES   newline
+;      successor   WRITES   newline
+;      gen     b
+;      kill
+;      in     newline     d     c     a     b
+;      out     newline     d     c     a     b
+;      r0 c;      r1 b;      r2 d;      r3 null
+; WRITES   newline
+;      predecessor   WRITEI   b
+;      successor   WRITEI   c
+;      gen     newline
+;      kill
+;      in     newline     d     c     a     b
+;      out     newline     d     c     a     b
+;      r0 c;      r1 b;      r2 d;      r3 null
+; WRITEI   c
+;      predecessor   WRITES   newline
+;      successor   WRITES   newline
+;      gen     c
+;      kill
+;      in     newline     d     c     a     b
+;      out     newline     d     c     a     b
+;      r0 c;      r1 b;      r2 d;      r3 null
+; WRITES   newline
+;      predecessor   WRITEI   c
+;      successor   WRITEI   d
+;      gen     newline
+;      kill
+;      in     newline     d     c     a     b
+;      out     newline     d     c     a     b
+;      r0 c;      r1 b;      r2 d;      r3 null
+; WRITEI   d
+;      predecessor   WRITES   newline
+;      successor   WRITES   newline
+;      gen     d
+;      kill
+;      in     newline     d     c     a     b
+;      out     newline     d     c     a     b
+;      r0 c;      r1 b;      r2 d;      r3 null
+; WRITES   newline
+;      predecessor   WRITEI   d
+;      successor   ADDI a b $T5
+;      gen     newline
+;      kill
+;      in     newline     d     c     a     b
+;      out     newline     d     c     a     b
+;      r0 c;      r1 b;      r2 d;      r3 null
+; ADDI a b $T5
+;      predecessor   WRITES   newline
+;      successor   STOREI $T5  a
+;      gen     a     b
+;      kill     $T5
+;      in     newline     d     c     a     b
+;      out     newline     d     c     $T5
+;      ensure  a
+;      allocate   a
+;      ensure  b
+;      free   3  a
+;      free   1  b
+;      r0 c;      r1 null;      r2 d;      r3 $-5
+; STOREI $T5  a
+;      predecessor   ADDI a b $T5
+;      successor   WRITEI   a
+;      gen     $T5
+;      kill     a
+;      in     newline     d     c     $T5
+;      out     newline     a     d     c
+;      ensure  $-5
+;      ensure  a
+;      allocate   a
+;      free   3  $-5
+;      r0 c;      r1 a;      r2 d;      r3 null
+; WRITEI   a
+;      predecessor   STOREI $T5  a
+;      successor   WRITES   newline
+;      gen     a
+;      kill
+;      in     newline     a     d     c
+;      out     newline     a     d     c
+;      r0 c;      r1 a;      r2 d;      r3 null
+; WRITES   newline
+;      predecessor   WRITEI   a
+;      successor   MULTI a c $T6
+;      gen     newline
+;      kill
+;      in     newline     a     d     c
+;      out     newline     a     d     c
+;      r0 c;      r1 a;      r2 d;      r3 null
+; MULTI a c $T6
+;      predecessor   WRITES   newline
+;      successor   STOREI $T6  b
+;      gen     a     c
+;      kill     $T6
+;      in     newline     a     d     c
+;      out     newline     a     d     $T6
+;      ensure  a
+;      ensure  c
+;      free   0  c
+;      free   1  a
+;      r0 null;      r1 $-6;      r2 d;      r3 null
+; STOREI $T6  b
+;      predecessor   MULTI a c $T6
+;      successor   WRITEI   b
+;      gen     $T6
+;      kill     b
+;      in     newline     a     d     $T6
+;      out     newline     b     a     d
+;      ensure  $-6
+;      ensure  b
+;      allocate   b
+;      free   1  $-6
+;      r0 null;      r1 null;      r2 d;      r3 b
+; WRITEI   b
+;      predecessor   STOREI $T6  b
+;      successor   WRITES   newline
+;      gen     b
+;      kill
+;      in     newline     b     a     d
+;      out     newline     b     a     d
+;      r0 null;      r1 null;      r2 d;      r3 b
+; WRITES   newline
+;      predecessor   WRITEI   b
+;      successor   STOREI 0  $T7
+;      gen     newline
+;      kill
+;      in     newline     b     a     d
+;      out     newline     b     a     d
+;      r0 null;      r1 null;      r2 d;      r3 b
+; STOREI 0  $T7
+;      predecessor   WRITES   newline
+;      successor   SUBI $T7 a $T8
+;      gen
+;      kill     $T7
+;      in     newline     b     a     d
+;      out     newline     b     a     d     $T7
+;      ensure  $-7
+;      allocate   $-7
+;      r0 null;      r1 $-7;      r2 d;      r3 b
+; SUBI $T7 a $T8
+;      predecessor   STOREI 0  $T7
+;      successor   ADDI $T8 b $T9
+;      gen     $T7     a
+;      kill     $T8
+;      in     newline     b     a     d     $T7
+;      out     newline     b     a     d     $T8
+;      ensure  $-7
+;      ensure  a
+;      allocate   a
+;      free   1  $-7
+;      r0 a;      r1 $-8;      r2 d;      r3 b
+; ADDI $T8 b $T9
+;      predecessor   SUBI $T7 a $T8
+;      successor   STOREI $T9  c
+;      gen     $T8     b
+;      kill     $T9
+;      in     newline     b     a     d     $T8
+;      out     newline     b     a     d     $T9
+;      ensure  $-8
+;      ensure  b
+;      free   1  $-8
+;      r0 a;      r1 $-9;      r2 d;      r3 b
+; STOREI $T9  c
+;      predecessor   ADDI $T8 b $T9
+;      successor   WRITEI   c
+;      gen     $T9
+;      kill     c
+;      in     newline     b     a     d     $T9
+;      out     newline     b     a     c     d
+;      ensure  $-9
+;      ensure  c
+;      allocate   c
+;      free   2  d
+;      free   1  $-9
+;      r0 a;      r1 null;      r2 c;      r3 b
+; WRITEI   c
+;      predecessor   STOREI $T9  c
+;      successor   WRITES   newline
+;      gen     c
+;      kill
+;      in     newline     b     a     c     d
+;      out     newline     b     a     c     d
+;      r0 a;      r1 null;      r2 c;      r3 b
+; WRITES   newline
+;      predecessor   WRITEI   c
+;      successor   STOREI 0  $T10
+;      gen     newline
+;      kill
+;      in     newline     b     a     c     d
+;      out     newline     b     a     c     d
+;      r0 a;      r1 null;      r2 c;      r3 b
+; STOREI 0  $T10
+;      predecessor   WRITES   newline
+;      successor   SUBI $T10 d $T11
+;      gen
+;      kill     $T10
+;      in     newline     b     a     c     d
+;      out     newline     b     a     c     $T10     d
+;      ensure  $-10
+;      allocate   $-10
+;      r0 a;      r1 $-10;      r2 c;      r3 b
+; SUBI $T10 d $T11
+;      predecessor   STOREI 0  $T10
+;      successor   STOREI $T11  d
+;      gen     $T10     d
+;      kill     $T11
+;      in     newline     b     a     c     $T10     d
+;      out     newline     b     a     c     $T11
+;      ensure  $-10
+;      ensure  d
+;      allocate   d
+;      free   0  a
+;      free   1  $-10
+;      free   0  d
+;      r0 null;      r1 $-11;      r2 c;      r3 b
+; STOREI $T11  d
+;      predecessor   SUBI $T10 d $T11
+;      successor   WRITEI   d
+;      gen     $T11
+;      kill     d
+;      in     newline     b     a     c     $T11
+;      out     newline     b     a     d     c
+;      ensure  $-11
+;      ensure  d
+;      allocate   d
+;      free   1  $-11
+;      r0 d;      r1 null;      r2 c;      r3 b
+; WRITEI   d
+;      predecessor   STOREI $T11  d
+;      successor   WRITES   newline
+;      gen     d
+;      kill
+;      in     newline     b     a     d     c
+;      out     newline     b     a     d     c
+;      r0 d;      r1 null;      r2 c;      r3 b
+; WRITES   newline
+;      predecessor   WRITEI   d
+;      successor   ADDI a b $T12
+;      gen     newline
+;      kill
+;      in     newline     b     a     d     c
+;      out     newline     b     a     d     c
+;      r0 d;      r1 null;      r2 c;      r3 b
+; ADDI a b $T12
+;      predecessor   WRITES   newline
+;      successor   ADDI d c $T13
+;      gen     a     b
+;      kill     $T12
+;      in     newline     b     a     d     c
+;      out     newline     b     a     d     c     $T12
+;      ensure  a
+;      allocate   a
+;      ensure  b
+;      free   1  a
+;      r0 d;      r1 $-12;      r2 c;      r3 b
+; ADDI d c $T13
+;      predecessor   ADDI a b $T12
+;      successor   MULTI $T12 $T13 $T14
+;      gen     d     c
+;      kill     $T13
+;      in     newline     b     a     d     c     $T12
+;      out     newline     b     a     d     c     $T12     $T13
+;      ensure  d
+;      ensure  c
+;      free   0  d
+;      r0 $-13;      r1 $-12;      r2 c;      r3 b
+; MULTI $T12 $T13 $T14
+;      predecessor   ADDI d c $T13
+;      successor   ADDI a b $T15
+;      gen     $T12     $T13
+;      kill     $T14
+;      in     newline     b     a     d     c     $T12     $T13
+;      out     newline     b     $T14     a     d     c
+;      ensure  $-12
+;      ensure  $-13
+;      free   1  $-12
+;      free   0  $-13
+;      r0 null;      r1 $-14;      r2 c;      r3 b
+; ADDI a b $T15
+;      predecessor   MULTI $T12 $T13 $T14
+;      successor   ADDI $T15 c $T16
+;      gen     a     b
+;      kill     $T15
+;      in     newline     b     $T14     a     d     c
+;      out     newline     b     $T14     a     d     $T15     c
+;      ensure  a
+;      allocate   a
+;      ensure  b
+;      free   0  a
+;      r0 $-15;      r1 $-14;      r2 c;      r3 b
+; ADDI $T15 c $T16
+;      predecessor   ADDI a b $T15
+;      successor   ADDI $T16 d $T17
+;      gen     $T15     c
+;      kill     $T16
+;      in     newline     b     $T14     a     d     $T15     c
+;      out     newline     b     $T14     a     $T16     d
+;      ensure  $-15
+;      ensure  c
+;      free   0  $-15
+;      free   2  c
+;      r0 $-16;      r1 $-14;      r2 null;      r3 b
+; ADDI $T16 d $T17
+;      predecessor   ADDI $T15 c $T16
+;      successor   DIVI $T17 a $T18
+;      gen     $T16     d
+;      kill     $T17
+;      in     newline     b     $T14     a     $T16     d
+;      out     newline     b     $T14     $T17     a
+;      ensure  $-16
+;      ensure  d
+;      allocate   d
+;      free   0  $-16
+;      free   2  d
+;      r0 $-17;      r1 $-14;      r2 null;      r3 b
+; DIVI $T17 a $T18
+;      predecessor   ADDI $T16 d $T17
+;      successor   SUBI $T14 $T18 $T19
+;      gen     $T17     a
+;      kill     $T18
+;      in     newline     b     $T14     $T17     a
+;      out     newline     b     $T14     $T18
+;      ensure  $-17
+;      ensure  a
+;      allocate   a
+;      free   0  $-17
+;      free   2  a
+;      r0 $-18;      r1 $-14;      r2 null;      r3 b
+; SUBI $T14 $T18 $T19
+;      predecessor   DIVI $T17 a $T18
+;      successor   STOREI $T19  a
+;      gen     $T14     $T18
+;      kill     $T19
+;      in     newline     b     $T14     $T18
+;      out     newline     b     $T19
+;      ensure  $-14
+;      ensure  $-18
+;      free   1  $-14
+;      free   0  $-18
+;      r0 null;      r1 $-19;      r2 null;      r3 b
+; STOREI $T19  a
+;      predecessor   SUBI $T14 $T18 $T19
+;      successor   WRITEI   a
+;      gen     $T19
+;      kill     a
+;      in     newline     b     $T19
+;      out     newline     b     a
+;      ensure  $-19
+;      ensure  a
+;      allocate   a
+;      free   1  $-19
+;      r0 null;      r1 null;      r2 a;      r3 b
+; WRITEI   a
+;      predecessor   STOREI $T19  a
+;      successor   WRITES   newline
+;      gen     a
+;      kill
+;      in     newline     b     a
+;      out     newline     b     a
+;      r0 null;      r1 null;      r2 a;      r3 b
+; WRITES   newline
+;      predecessor   WRITEI   a
+;      successor   STOREI 10  $T20
+;      gen     newline
+;      kill
+;      in     newline     b     a
+;      out     newline     b     a
+;      r0 null;      r1 null;      r2 a;      r3 b
+; STOREI 10  $T20
+;      predecessor   WRITES   newline
+;      successor   ADDI a $T20 $T21
+;      gen
+;      kill     $T20
+;      in     newline     b     a
+;      out     newline     b     a     $T20
+;      ensure  $-20
+;      allocate   $-20
+;      r0 null;      r1 $-20;      r2 a;      r3 b
+; ADDI a $T20 $T21
+;      predecessor   STOREI 10  $T20
+;      successor   STOREI $T21  a
+;      gen     a     $T20
+;      kill     $T21
+;      in     newline     b     a     $T20
+;      out     newline     b     $T21
+;      ensure  a
+;      ensure  $-20
+;      free   2  a
+;      free   1  $-20
+;      r0 null;      r1 null;      r2 $-21;      r3 b
+; STOREI $T21  a
+;      predecessor   ADDI a $T20 $T21
+;      successor   WRITEI   a
+;      gen     $T21
+;      kill     a
+;      in     newline     b     $T21
+;      out     newline     b     a
+;      ensure  $-21
+;      ensure  a
+;      allocate   a
+;      free   2  $-21
+;      r0 null;      r1 a;      r2 null;      r3 b
+; WRITEI   a
+;      predecessor   STOREI $T21  a
+;      successor   WRITES   newline
+;      gen     a
+;      kill
+;      in     newline     b     a
+;      out     newline     b     a
+;      r0 null;      r1 a;      r2 null;      r3 b
+; WRITES   newline
+;      predecessor   WRITEI   a
+;      successor   ADDI b a $T22
+;      gen     newline
+;      kill
+;      in     newline     b     a
+;      out     newline     b     a
+;      r0 null;      r1 a;      r2 null;      r3 b
+; ADDI b a $T22
+;      predecessor   WRITES   newline
+;      successor   STOREI 10  $T23
+;      gen     b     a
+;      kill     $T22
+;      in     newline     b     a
+;      out     newline     $T22
+;      ensure  b
+;      ensure  a
+;      free   3  b
+;      free   1  a
+;      r0 null;      r1 null;      r2 null;      r3 $-22
+; STOREI 10  $T23
+;      predecessor   ADDI b a $T22
+;      successor   ADDI $T22 $T23 $T24
+;      gen
+;      kill     $T23
+;      in     newline     $T22
+;      out     newline     $T22     $T23
+;      ensure  $-23
+;      allocate   $-23
+;      r0 null;      r1 null;      r2 $-23;      r3 $-22
+; ADDI $T22 $T23 $T24
+;      predecessor   STOREI 10  $T23
+;      successor   STOREI $T24  b
+;      gen     $T22     $T23
+;      kill     $T24
+;      in     newline     $T22     $T23
+;      out     newline     $T24
+;      ensure  $-22
+;      ensure  $-23
+;      free   3  $-22
+;      free   2  $-23
+;      r0 null;      r1 null;      r2 null;      r3 $-24
+; STOREI $T24  b
+;      predecessor   ADDI $T22 $T23 $T24
+;      successor   WRITEI   b
+;      gen     $T24
+;      kill     b
+;      in     newline     $T24
+;      out     newline     b
+;      ensure  $-24
+;      ensure  b
+;      allocate   b
+;      free   3  $-24
+;      r0 null;      r1 null;      r2 b;      r3 null
+; WRITEI   b
+;      predecessor   STOREI $T24  b
+;      successor   WRITES   newline
+;      gen     b
+;      kill
+;      in     newline     b
+;      out     newline
+;      r0 null;      r1 null;      r2 b;      r3 null
+; WRITES   newline
+;      predecessor   WRITEI   b
+;      successor   STOREI 0  $T25
+;      gen     newline
+;      kill
+;      in     newline
+;      out     newline
+;      r0 null;      r1 null;      r2 b;      r3 null
+; STOREI 0  $T25
+;      predecessor   WRITES   newline
+;      successor   STOREI 10  $T26
+;      gen
+;      kill     $T25
+;      in     newline
+;      out     newline     $T25
+;      ensure  $-25
+;      allocate   $-25
+;      r0 null;      r1 null;      r2 b;      r3 $-25
+; STOREI 10  $T26
+;      predecessor   STOREI 0  $T25
+;      successor   SUBI $T25 $T26 $T27
+;      gen
+;      kill     $T26
+;      in     newline     $T25
+;      out     newline     $T25     $T26
+;      ensure  $-26
+;      allocate   $-26
+;      r0 null;      r1 $-26;      r2 b;      r3 $-25
+; SUBI $T25 $T26 $T27
+;      predecessor   STOREI 10  $T26
+;      successor   STOREI $T27  c
+;      gen     $T25     $T26
+;      kill     $T27
+;      in     newline     $T25     $T26
+;      out     newline     $T27
+;      ensure  $-25
+;      ensure  $-26
+;      free   3  $-25
+;      free   1  $-26
+;      r0 null;      r1 null;      r2 b;      r3 $-27
+; STOREI $T27  c
+;      predecessor   SUBI $T25 $T26 $T27
+;      successor   WRITEI   c
+;      gen     $T27
+;      kill     c
+;      in     newline     $T27
+;      out     newline     c
+;      ensure  $-27
+;      ensure  c
+;      allocate   c
+;      free   3  $-27
+;      r0 null;      r1 c;      r2 b;      r3 null
+; WRITEI   c
+;      predecessor   STOREI $T27  c
+;      successor   WRITES   newline
+;      gen     c
+;      kill
+;      in     newline     c
+;      out     newline
+;      r0 null;      r1 c;      r2 b;      r3 null
+; WRITES   newline
+;      predecessor   WRITEI   c
+;      successor   STOREF 1.0  $T28
+;      gen     newline
+;      kill
+;      in     newline
+;      out     newline
+;      r0 null;      r1 c;      r2 b;      r3 null
+; STOREF 1.0  $T28
+;      predecessor   WRITES   newline
+;      successor   STOREF $T28  x
+;      gen
+;      kill     $T28
+;      in     newline
+;      out     newline     $T28
+;      ensure  $-28
+;      allocate   $-28
+;      r0 null;      r1 c;      r2 b;      r3 $-28
+; STOREF $T28  x
+;      predecessor   STOREF 1.0  $T28
+;      successor   STOREF 2.0  $T29
+;      gen     $T28
+;      kill     x
+;      in     newline     $T28
+;      out     newline     x
+;      ensure  $-28
+;      ensure  x
+;      allocate   x
+;      free   3  $-28
+;      r0 x;      r1 c;      r2 b;      r3 null
+; STOREF 2.0  $T29
+;      predecessor   STOREF $T28  x
+;      successor   STOREF $T29  y
+;      gen
+;      kill     $T29
+;      in     newline     x
+;      out     newline     x     $T29
+;      ensure  $-29
+;      allocate   $-29
+;      r0 x;      r1 c;      r2 b;      r3 $-29
+; STOREF $T29  y
+;      predecessor   STOREF 2.0  $T29
+;      successor   STOREF 3.14159  $T30
+;      gen     $T29
+;      kill     y
+;      in     newline     x     $T29
+;      out     newline     y     x
+;      ensure  $-29
+;      ensure  y
+;      allocate   y
+;      free   2  b
+;      free   3  $-29
+;      r0 x;      r1 c;      r2 y;      r3 null
+; STOREF 3.14159  $T30
+;      predecessor   STOREF $T29  y
+;      successor   STOREF $T30  z
+;      gen
+;      kill     $T30
+;      in     newline     y     x
+;      out     newline     y     x     $T30
+;      ensure  $-30
+;      allocate   $-30
+;      r0 x;      r1 c;      r2 y;      r3 $-30
+; STOREF $T30  z
+;      predecessor   STOREF 3.14159  $T30
+;      successor   WRITEF   x
+;      gen     $T30
+;      kill     z
+;      in     newline     y     x     $T30
+;      out     newline     z     y     x
+;      ensure  $-30
+;      ensure  z
+;      allocate   z
+;      free   1  c
+;      free   3  $-30
+;      r0 x;      r1 z;      r2 y;      r3 null
+; WRITEF   x
+;      predecessor   STOREF $T30  z
+;      successor   WRITES   newline
+;      gen     x
+;      kill
+;      in     newline     z     y     x
+;      out     newline     z     y
+;      r0 x;      r1 z;      r2 y;      r3 null
+; WRITES   newline
+;      predecessor   WRITEF   x
+;      successor   WRITEF   z
+;      gen     newline
+;      kill
+;      in     newline     z     y
+;      out     newline     z     y
+;      r0 x;      r1 z;      r2 y;      r3 null
+; WRITEF   z
+;      predecessor   WRITES   newline
+;      successor   WRITES   newline
+;      gen     z
+;      kill
+;      in     newline     z     y
+;      out     newline     z     y
+;      r0 x;      r1 z;      r2 y;      r3 null
+; WRITES   newline
+;      predecessor   WRITEF   z
+;      successor   WRITEF   y
+;      gen     newline
+;      kill
+;      in     newline     z     y
+;      out     newline     z     y
+;      r0 x;      r1 z;      r2 y;      r3 null
+; WRITEF   y
+;      predecessor   WRITES   newline
+;      successor   WRITES   newline
+;      gen     y
+;      kill
+;      in     newline     z     y
+;      out     newline     z     y
+;      r0 x;      r1 z;      r2 y;      r3 null
+; WRITES   newline
+;      predecessor   WRITEF   y
+;      successor   STOREF 2.0  $T31
+;      gen     newline
+;      kill
+;      in     newline     z     y
+;      out     newline     z     y
+;      r0 x;      r1 z;      r2 y;      r3 null
+; STOREF 2.0  $T31
+;      predecessor   WRITES   newline
+;      successor   DIVF z $T31 $T32
+;      gen
+;      kill     $T31
+;      in     newline     z     y
+;      out     newline     z     y     $T31
+;      ensure  $-31
+;      allocate   $-31
+;      r0 x;      r1 z;      r2 y;      r3 $-31
+; DIVF z $T31 $T32
+;      predecessor   STOREF 2.0  $T31
+;      successor   STOREF $T32  x
+;      gen     z     $T31
+;      kill     $T32
+;      in     newline     z     y     $T31
+;      out     newline     z     y     $T32
+;      ensure  z
+;      ensure  $-31
+;      free   3  $-31
+;      free   1  z
+;      r0 x;      r1 $-32;      r2 y;      r3 null
+; STOREF $T32  x
+;      predecessor   DIVF z $T31 $T32
+;      successor   DIVF z y $T33
+;      gen     $T32
+;      kill     x
+;      in     newline     z     y     $T32
+;      out     newline     z     x     y
+;      ensure  $-32
+;      ensure  x
+;      free   1  $-32
+;      r0 x;      r1 null;      r2 y;      r3 null
+; DIVF z y $T33
+;      predecessor   STOREF $T32  x
+;      successor   STOREF $T33  y
+;      gen     z     y
+;      kill     $T33
+;      in     newline     z     x     y
+;      out     newline     z     x     $T33
+;      ensure  z
+;      allocate   z
+;      ensure  y
+;      free   2  y
+;      free   3  z
+;      r0 x;      r1 null;      r2 null;      r3 $-33
+; STOREF $T33  y
+;      predecessor   DIVF z y $T33
+;      successor   WRITEF   x
+;      gen     $T33
+;      kill     y
+;      in     newline     z     x     $T33
+;      out     newline     z     x     y
+;      ensure  $-33
+;      ensure  y
+;      allocate   y
+;      free   3  $-33
+;      r0 x;      r1 null;      r2 y;      r3 null
+; WRITEF   x
+;      predecessor   STOREF $T33  y
+;      successor   WRITES   newline
+;      gen     x
+;      kill
+;      in     newline     z     x     y
+;      out     newline     z     x     y
+;      r0 x;      r1 null;      r2 y;      r3 null
+; WRITES   newline
+;      predecessor   WRITEF   x
+;      successor   WRITEF   y
+;      gen     newline
+;      kill
+;      in     newline     z     x     y
+;      out     newline     z     x     y
+;      r0 x;      r1 null;      r2 y;      r3 null
+; WRITEF   y
+;      predecessor   WRITES   newline
+;      successor   WRITES   newline
+;      gen     y
+;      kill
+;      in     newline     z     x     y
+;      out     newline     z     x     y
+;      r0 x;      r1 null;      r2 y;      r3 null
+; WRITES   newline
+;      predecessor   WRITEF   y
+;      successor   ADDF x y $T34
+;      gen     newline
+;      kill
+;      in     newline     z     x     y
+;      out     newline     z     x     y
+;      r0 x;      r1 null;      r2 y;      r3 null
+; ADDF x y $T34
+;      predecessor   WRITES   newline
+;      successor   ADDF $T34 z $T35
+;      gen     x     y
+;      kill     $T34
+;      in     newline     z     x     y
+;      out     newline     z     $T34
+;      ensure  x
+;      ensure  y
+;      free   0  x
+;      free   2  y
+;      r0 $-34;      r1 null;      r2 null;      r3 null
+; ADDF $T34 z $T35
+;      predecessor   ADDF x y $T34
+;      successor   DIVF $T35 z $T36
+;      gen     $T34     z
+;      kill     $T35
+;      in     newline     z     $T34
+;      out     newline     z     $T35
+;      ensure  $-34
+;      ensure  z
+;      allocate   z
+;      free   0  $-34
+;      r0 $-35;      r1 null;      r2 null;      r3 z
+; DIVF $T35 z $T36
+;      predecessor   ADDF $T34 z $T35
+;      successor   STOREF $T36  t
+;      gen     $T35     z
+;      kill     $T36
+;      in     newline     z     $T35
+;      out     newline     z     $T36
+;      ensure  $-35
+;      ensure  z
+;      free   0  $-35
+;      r0 $-36;      r1 null;      r2 null;      r3 z
+; STOREF $T36  t
+;      predecessor   DIVF $T35 z $T36
+;      successor   WRITEF   t
+;      gen     $T36
+;      kill     t
+;      in     newline     z     $T36
+;      out     newline     z     t
+;      ensure  $-36
+;      ensure  t
+;      allocate   t
+;      free   0  $-36
+;      r0 null;      r1 null;      r2 t;      r3 z
+; WRITEF   t
+;      predecessor   STOREF $T36  t
+;      successor   WRITES   newline
+;      gen     t
+;      kill
+;      in     newline     z     t
+;      out     newline     z     t
+;      r0 null;      r1 null;      r2 t;      r3 z
+; WRITES   newline
+;      predecessor   WRITEF   t
+;      successor   MULTF t t $T37
+;      gen     newline
+;      kill
+;      in     newline     z     t
+;      out     newline     z     t
+;      r0 null;      r1 null;      r2 t;      r3 z
+; MULTF t t $T37
+;      predecessor   WRITES   newline
+;      successor   STOREF $T37  t
+;      gen     t     t
+;      kill     $T37
+;      in     newline     z     t
+;      out     newline     z     $T37
+;      ensure  t
+;      ensure  t
+;      free   2  t
+;      free   2  t
+;      r0 null;      r1 null;      r2 $-37;      r3 z
+; STOREF $T37  t
+;      predecessor   MULTF t t $T37
+;      successor   WRITEF   t
+;      gen     $T37
+;      kill     t
+;      in     newline     z     $T37
+;      out     newline     z     t
+;      ensure  $-37
+;      ensure  t
+;      allocate   t
+;      free   2  $-37
+;      r0 null;      r1 t;      r2 null;      r3 z
+; WRITEF   t
+;      predecessor   STOREF $T37  t
+;      successor   WRITES   newline
+;      gen     t
+;      kill
+;      in     newline     z     t
+;      out     newline     z     t
+;      r0 null;      r1 t;      r2 null;      r3 z
+; WRITES   newline
+;      predecessor   WRITEF   t
+;      successor   ADDF t z $T38
+;      gen     newline
+;      kill
+;      in     newline     z     t
+;      out     newline     z     t
+;      r0 null;      r1 t;      r2 null;      r3 z
+; ADDF t z $T38
+;      predecessor   WRITES   newline
+;      successor   ADDF $T38 t $T39
+;      gen     t     z
+;      kill     $T38
+;      in     newline     z     t
+;      out     newline     z     t     $T38
+;      ensure  t
+;      ensure  z
+;      free   1  t
+;      r0 null;      r1 $-38;      r2 null;      r3 z
+; ADDF $T38 t $T39
+;      predecessor   ADDF t z $T38
+;      successor   STOREF 2.0  $T40
+;      gen     $T38     t
+;      kill     $T39
+;      in     newline     z     t     $T38
+;      out     newline     z     $T39     t
+;      ensure  $-38
+;      ensure  t
+;      allocate   t
+;      free   1  $-38
+;      r0 null;      r1 $-39;      r2 t;      r3 z
+; STOREF 2.0  $T40
+;      predecessor   ADDF $T38 t $T39
+;      successor   DIVF t $T40 $T41
+;      gen
+;      kill     $T40
+;      in     newline     z     $T39     t
+;      out     newline     z     $T39     t     $T40
+;      ensure  $-40
+;      allocate   $-40
+;      r0 $-40;      r1 $-39;      r2 t;      r3 z
+; DIVF t $T40 $T41
+;      predecessor   STOREF 2.0  $T40
+;      successor   ADDF $T39 $T41 $T42
+;      gen     t     $T40
+;      kill     $T41
+;      in     newline     z     $T39     t     $T40
+;      out     newline     z     $T39     $T41
+;      ensure  t
+;      ensure  $-40
+;      free   2  t
+;      free   0  $-40
+;      r0 null;      r1 $-39;      r2 $-41;      r3 z
+; ADDF $T39 $T41 $T42
+;      predecessor   DIVF t $T40 $T41
+;      successor   STOREF 4.0  $T43
+;      gen     $T39     $T41
+;      kill     $T42
+;      in     newline     z     $T39     $T41
+;      out     newline     z     $T42
+;      ensure  $-39
+;      ensure  $-41
+;      free   1  $-39
+;      free   2  $-41
+;      r0 null;      r1 $-42;      r2 null;      r3 z
+; STOREF 4.0  $T43
+;      predecessor   ADDF $T39 $T41 $T42
+;      successor   DIVF z $T43 $T44
+;      gen
+;      kill     $T43
+;      in     newline     z     $T42
+;      out     newline     z     $T42     $T43
+;      ensure  $-43
+;      allocate   $-43
+;      r0 null;      r1 $-42;      r2 $-43;      r3 z
+; DIVF z $T43 $T44
+;      predecessor   STOREF 4.0  $T43
+;      successor   ADDF $T42 $T44 $T45
+;      gen     z     $T43
+;      kill     $T44
+;      in     newline     z     $T42     $T43
+;      out     newline     z     $T42     $T44
+;      ensure  z
+;      ensure  $-43
+;      free   2  $-43
+;      free   3  z
+;      r0 null;      r1 $-42;      r2 null;      r3 $-44
+; ADDF $T42 $T44 $T45
+;      predecessor   DIVF z $T43 $T44
+;      successor   STOREF 5.0  $T46
+;      gen     $T42     $T44
+;      kill     $T45
+;      in     newline     z     $T42     $T44
+;      out     newline     z     $T45
+;      ensure  $-42
+;      ensure  $-44
+;      free   1  $-42
+;      free   3  $-44
+;      r0 null;      r1 $-45;      r2 null;      r3 null
+; STOREF 5.0  $T46
+;      predecessor   ADDF $T42 $T44 $T45
+;      successor   DIVF z $T46 $T47
+;      gen
+;      kill     $T46
+;      in     newline     z     $T45
+;      out     newline     z     $T45     $T46
+;      ensure  $-46
+;      allocate   $-46
+;      r0 null;      r1 $-45;      r2 null;      r3 $-46
+; DIVF z $T46 $T47
+;      predecessor   STOREF 5.0  $T46
+;      successor   ADDF $T45 $T47 $T48
+;      gen     z     $T46
+;      kill     $T47
+;      in     newline     z     $T45     $T46
+;      out     newline     z     $T45     $T47
+;      ensure  z
+;      allocate   z
+;      ensure  $-46
+;      free   3  $-46
+;      free   2  z
+;      r0 null;      r1 $-45;      r2 $-47;      r3 null
+; ADDF $T45 $T47 $T48
+;      predecessor   DIVF z $T46 $T47
+;      successor   STOREF 6.0  $T49
+;      gen     $T45     $T47
+;      kill     $T48
+;      in     newline     z     $T45     $T47
+;      out     newline     z     $T48
+;      ensure  $-45
+;      ensure  $-47
+;      free   1  $-45
+;      free   2  $-47
+;      r0 null;      r1 $-48;      r2 null;      r3 null
+; STOREF 6.0  $T49
+;      predecessor   ADDF $T45 $T47 $T48
+;      successor   DIVF z $T49 $T50
+;      gen
+;      kill     $T49
+;      in     newline     z     $T48
+;      out     newline     z     $T48     $T49
+;      ensure  $-49
+;      allocate   $-49
+;      r0 null;      r1 $-48;      r2 null;      r3 $-49
+; DIVF z $T49 $T50
+;      predecessor   STOREF 6.0  $T49
+;      successor   ADDF $T48 $T50 $T51
+;      gen     z     $T49
+;      kill     $T50
+;      in     newline     z     $T48     $T49
+;      out     newline     z     $T48     $T50
+;      ensure  z
+;      allocate   z
+;      ensure  $-49
+;      free   3  $-49
+;      free   2  z
+;      r0 null;      r1 $-48;      r2 $-50;      r3 null
+; ADDF $T48 $T50 $T51
+;      predecessor   DIVF z $T49 $T50
+;      successor   STOREF 7.0  $T52
+;      gen     $T48     $T50
+;      kill     $T51
+;      in     newline     z     $T48     $T50
+;      out     newline     $T51     z
+;      ensure  $-48
+;      ensure  $-50
+;      free   1  $-48
+;      free   2  $-50
+;      r0 null;      r1 $-51;      r2 null;      r3 null
+; STOREF 7.0  $T52
+;      predecessor   ADDF $T48 $T50 $T51
+;      successor   DIVF z $T52 $T53
+;      gen
+;      kill     $T52
+;      in     newline     $T51     z
+;      out     newline     $T51     z     $T52
+;      ensure  $-52
+;      allocate   $-52
+;      r0 null;      r1 $-51;      r2 null;      r3 $-52
+; DIVF z $T52 $T53
+;      predecessor   STOREF 7.0  $T52
+;      successor   ADDF $T51 $T53 $T54
+;      gen     z     $T52
+;      kill     $T53
+;      in     newline     $T51     z     $T52
+;      out     newline     $T51     $T53
+;      ensure  z
+;      allocate   z
+;      ensure  $-52
+;      free   2  z
+;      free   3  $-52
+;      r0 null;      r1 $-51;      r2 $-53;      r3 null
+; ADDF $T51 $T53 $T54
+;      predecessor   DIVF z $T52 $T53
+;      successor   STOREF $T54  t
+;      gen     $T51     $T53
+;      kill     $T54
+;      in     newline     $T51     $T53
+;      out     newline     $T54
+;      ensure  $-51
+;      ensure  $-53
+;      free   1  $-51
+;      free   2  $-53
+;      r0 null;      r1 $-54;      r2 null;      r3 null
+; STOREF $T54  t
+;      predecessor   ADDF $T51 $T53 $T54
+;      successor   WRITEF   t
+;      gen     $T54
+;      kill     t
+;      in     newline     $T54
+;      out     newline     t
+;      ensure  $-54
+;      ensure  t
+;      allocate   t
+;      free   1  $-54
+;      r0 null;      r1 null;      r2 null;      r3 t
+; WRITEF   t
+;      predecessor   STOREF $T54  t
+;      successor   WRITES   newline
+;      gen     t
+;      kill
+;      in     newline     t
+;      out     newline
+;      r0 null;      r1 null;      r2 null;      r3 t
+; WRITES   newline
+;      predecessor   WRITEF   t
+;      successor   RET   
+;      gen     newline
+;      kill
+;      in     newline
+;      out
+;      r0 null;      r1 null;      r2 null;      r3 t
+; RET   
+;      predecessor   WRITES   newline
+;      gen
+;      kill
+;      in
+;      out
+;      free   0  $-40
+;      free   1  $-54
+;      free   2  $-53
+;      free   3  t
+;      r0 null;      r1 null;      r2 null;      r3 null
+;tiny code
+var a
+var b
+var c
+var d
+var x
+var y
+var z
+var t
+str newline "\n"
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label main
+link 15
+move $-1 r3
+move 1 r3
+move a r2
+move r3 a
+move r3 r2
+move $-2 r3
+move 2 r3
+move b r1
+move r3 b
+move r3 r1
+move $-3 r3
+move 10 r3
+move c r0
+move r3 c
+move r3 r0
+move $-4 r3
+move 20 r3
+move d r2
+move r3 d
+move r3 r2
+sys writei a
+sys writes newline
+sys writei b
+sys writes newline
+sys writei c
+sys writes newline
+sys writei d
+sys writes newline
+move a r3
+addi r1 r3
+move a r1
+move r3 a
+move r3 r1
+sys writei a
+sys writes newline
+muli r0 r1
+move b r3
+move r1 b
+move r1 r3
+sys writei b
+sys writes newline
+move $-7 r1
+move 0 r1
+move a r0
+subi r0 r1
+addi r3 r1
+move c r2
+move r1 c
+move r1 r2
+sys writei c
+sys writes newline
+move $-10 r1
+move 0 r1
+move d r0
+subi r0 r1
+move d r0
+move r1 d
+move r1 r0
+sys writei d
+sys writes newline
+move a r1
+addi r3 r1
+addi r2 r0
+muli r0 r1
+move a r0
+addi r3 r0
+addi r2 r0
+move d r2
+addi r2 r0
+move a r2
+divi r2 r0
+subi r0 r1
+move a r2
+move r1 a
+move r1 r2
+sys writei a
+sys writes newline
+move $-20 r1
+move 10 r1
+addi r1 r2
+move a r1
+move r2 a
+move r2 r1
+sys writei a
+sys writes newline
+addi r1 r3
+move $-23 r2
+move 10 r2
+addi r2 r3
+move b r2
+move r3 b
+move r3 r2
+sys writei b
+sys writes newline
+move $-25 r3
+move 0 r3
+move $-26 r1
+move 10 r1
+subi r1 r3
+move c r1
+move r3 c
+move r3 r1
+sys writei c
+sys writes newline
+move $-28 r3
+move 1.0 r3
+move x r0
+move r3 x
+move r3 r0
+move $-29 r3
+move 2.0 r3
+move y r2
+move r3 y
+move r3 r2
+move $-30 r3
+move 3.14159 r3
+move z r1
+move r3 z
+move r3 r1
+sys writer x
+sys writes newline
+sys writer z
+sys writes newline
+sys writer y
+sys writes newline
+move $-31 r3
+move 2.0 r3
+divr r3 r1
+move r1 x
+move r1 r0
+move z r3
+divr r2 r3
+move y r2
+move r3 y
+move r3 r2
+sys writer x
+sys writes newline
+sys writer y
+sys writes newline
+addr r2 r0
+move z r3
+addr r3 r0
+divr r3 r0
+move t r2
+move r0 t
+move r0 r2
+sys writer t
+sys writes newline
+mulr r2 r2
+move t r1
+move r2 t
+move r2 r1
+sys writer t
+sys writes newline
+addr r3 r1
+move t r2
+addr r2 r1
+move $-40 r0
+move 2.0 r0
+divr r0 r2
+addr r2 r1
+move $-43 r2
+move 4.0 r2
+divr r2 r3
+addr r3 r1
+move $-46 r3
+move 5.0 r3
+move z r2
+divr r3 r2
+addr r2 r1
+move $-49 r3
+move 6.0 r3
+move z r2
+divr r3 r2
+addr r2 r1
+move $-52 r3
+move 7.0 r3
+move z r2
+divr r3 r2
+addr r2 r1
+move t r3
+move r1 t
+move r1 r3
+sys writer t
+sys writes newline
+unlnk
+ret
+end

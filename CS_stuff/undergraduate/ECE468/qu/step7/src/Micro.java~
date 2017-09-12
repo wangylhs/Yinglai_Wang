@@ -1,0 +1,40 @@
+import java.io.IOException;
+
+import org.antlr.v4.runtime.*;
+
+public class Micro {
+	public static void main(String argv[]) {
+		CharStream input = null;
+		try {
+			input = new ANTLRFileStream(argv[0]);
+			System.out.println("Accepted");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+//			System.out.println("File error");
+			System.out.println("Not Accepted");
+			System.exit(0);
+		}
+		
+		MicroLexer lex = new MicroLexer(input);
+		Token temp = null;
+		while ((temp = lex.nextToken()).getText() != "<EOF>") {
+//			if (temp.getType() == 3)
+//				System.out.println("Token Type: KEYWORD");
+//			if (temp.getType() == 4)
+//				System.out.println("Token Type: INTLITERAL");
+//			if (temp.getType() == 5)
+//				System.out.println("Token Type: FLOATLITERAL");
+//			if (temp.getType() == 8)
+//				System.out.println("Token Type: IDENTIFIER");
+//			if (temp.getType() == 6)
+//				System.out.println("Token Type: STRINGLITERAL");
+//			if (temp.getType() == 2)
+//				System.out.println("Token Type: OPERATOR");
+//			if (temp.getType() != 7)
+//			System.out.println("Value: " + temp.getText());
+			System.out.println(temp.getType()+"   "+temp.getText());
+		}
+		
+	}
+}

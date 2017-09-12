@@ -1,0 +1,79 @@
+Nathan Tornquist
+ECE 563
+HW4
+
+Cores = 4
+
+For full algorithms, look at the included source files.
+
+————————————————————————————————————————————————————————————————————
+————————————————————————————————————————————————————————————————————
+————————————————————————————————————————————————————————————————————
+
+Without Reduction:
+                           10000      100000     1000000     10000000
+Parallel Run (s)     |     0.000    |  0.002  |   0.006    |  0.230
+Sequential Run (s)   |     0.000    |  0.000  |   0.003    |  0.036
+Speedup (%)          |     nan      |   0.00  |   50.00    |  15.65
+
+Parallel Algorithm (Subset of full program):
+
+  int row, col, off;
+  double t = 0;
+  double temp[cores];
+  int i = 0;
+  #pragma omp parallel shared(a, temp) private(i)
+  {
+    #pragma omp for schedule(static)
+    for (int i = 0; i < size; i++)
+    {
+      temp[omp_get_thread_num()] = temp[omp_get_thread_num()] + a[i];
+    }
+  }
+  for (int i = 0; i < cores; i++)
+  {
+    t = t + temp[i];
+  }
+
+The logic that I employ is pretty simple.  Instead of having a shared
+space for all threads to write to, each thread gets its own temporary
+location to write to.  After all threads have completed, the temporary
+results are all summed together to get the full sum over the entire array.
+
+————————————————————————————————————————————————————————————————————
+————————————————————————————————————————————————————————————————————
+————————————————————————————————————————————————————————————————————
+
+With Reduction:
+                           10000      100000     1000000     10000000
+Parallel Run (s)     |     0.000    |  0.000  |   0.001    |  0.018
+Sequential Run (s)   |     0.001    |  0.000  |   0.004    |  0.074
+Speedup (%)          |     inf      |   nan   |  400.00    | 411.11
+
+Parallel Algorithm (Subset of full program):
+
+  int row, col, off;
+  double t = 0;
+  double temp[cores];
+  int i = 0;
+  #pragma omp parallel for reduction(+:t) private(i)
+  for (int i = 0; i < size; i++)
+  {
+    t = t + a[i];
+  }
+
+Unlike the above program, this one simply uses gives openMP more verbose
+descriptions of the task and uses the provided algorithm.  It is a simple,
+but much more effective implementation because it makes use of all of the
+optimizations that Intel developed.
+
+————————————————————————————————————————————————————————————————————
+————————————————————————————————————————————————————————————————————
+————————————————————————————————————————————————————————————————————
+
+Summary:
+Both methods work, but for numbers with measurable time (>=1000000) it is
+very clear that the algorithm utilizing the reduction clause is significantly
+more powerful.  The code I wrote is not optimized, but it is still surprisingly
+slower than the sequential version of the program. This alone is a strong
+argument for using the reduction clause whenever possible.

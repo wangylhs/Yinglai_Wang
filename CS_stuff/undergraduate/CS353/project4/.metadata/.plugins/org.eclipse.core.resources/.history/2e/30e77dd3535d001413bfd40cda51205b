@@ -1,0 +1,8 @@
+
+public class PseudoRandom {
+	public int calculateNext(int s){
+		s ^= s << 6;
+		s ^= s >> 21;
+		return s;
+	}
+}

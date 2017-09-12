@@ -1,0 +1,13 @@
+(val temp 0)
+(val result 0)
+(define fib(m)
+    (if(= m 0) 0 
+        (if(= m 1) 1
+            (begin
+            (set temp (- m 1))
+            (set m (- m 2))
+            (set result (+ (fib temp) (fib m)))
+            )
+        )
+    )
+)

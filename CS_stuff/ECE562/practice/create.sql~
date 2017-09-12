@@ -1,0 +1,10 @@
+create table S(
+	s# varchar2(2) primary key,
+	sname varchar2(10),
+	status int,
+	city varchar2(10)
+);
+
+create table P(
+	p# varchar2(2) primary key,
+		

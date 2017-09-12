@@ -1,0 +1,30 @@
+In Random gen=new Random(), Random denotes
+an object
+a class
+a variable
+a constant
+In double r1=gen.nextDouble( ), gen denotes
+an object
+a class
+a variable
+a constant
+In float r2=r1, r1 denotes
+an object
+a class
+a variable
+a constant
+We wish to generate a random number between 70.0 and 100.0 and denote it by age. Which of the following is the correct statement for doing so?
+double age=gen.nextDouble()*30+70;
+double age=gen.nextDouble()*70+30;
+double age=gen.nextDouble()+70;
+double age=gen.nextDouble())*70+100;
+One of the following statements is incorrect. Which one?
+String is a primitive type.
+JVM is a virtual machine.
+short is a primitive type.
+boolean is a primitive type.
+Assume that x, y, and z are declared to be of type int, and p and q of type double. One of the following statements will lead to a compile time error. Which one?
+x=y%z;
+p=x+q;
+p=q/x;
+x=p+y;

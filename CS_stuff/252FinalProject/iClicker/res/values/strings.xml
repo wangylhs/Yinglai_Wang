@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Welcome -->
+    <color name="white">#FFFFFF</color>
+    <string name="app_name">iClicker</string>
+    
+    <!-- MainMenu -->
+    <string name="student">Student</string>
+    
+    <!-- Login -->
+	<string name="login">Login</string>
+	<string name="register">Register</string>
+  	<string name="Login_validUser">Please enter a valid username</string>
+  	<string name="Login_validPass">Please enter a valid password</string>
+  	<string name="Login_rememberPassword">Remember password?</string>
+  	
+  	<!-- SubmitAnswer -->
+    <string name="answer_A">A</string>
+    <string name="answer_B">B</string>
+    <string name="answer_C">C</string>
+    <string name="answer_D">D</string>
+    <string name="answer_E">E</string>
+    <string name="refresh">Refresh Question</string>
+    
+    <!-- Free Response -->
+    <string name="putAnswer">Answer:</string>
+    <string name="submit">Submit!</string>
+</resources>

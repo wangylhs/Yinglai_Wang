@@ -1,0 +1,57 @@
+; LABEL   main
+;      successor   LINK   
+;      gen
+;      kill
+;      in     eol     one     zero     prompt
+;      out     eol     one     zero     prompt
+;      free   0  
+;      free   1  
+;      free   2  
+;      free   3  
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LINK   
+;      predecessor   LABEL   main
+;      successor   WRITES   prompt
+;      gen
+;      kill
+;      in     eol     one     zero     prompt
+;      out     eol     one     zero     prompt
+;      r0 null;      r1 null;      r2 null;      r3 null
+; WRITES   prompt
+;      predecessor   LINK   
+;      successor   READI   $L1
+;      gen     prompt
+;      kill
+;      in     eol     one     zero     prompt
+;      out     eol     one     zero
+;      r0 null;      r1 null;      r2 null;      r3 null
+; READI   $L1
+;      predecessor   WRITES   prompt
+;      successor   LABEL   label1
+;      gen
+;      kill     $L1
+;      in     eol     one     zero
+;      out     eol     one     $L1     zero
+;      allocate   $-1
+;      r0 null;      r1 null;      r2 null;      r3 $-1
+; LABEL   label1
+;      predecessor   READI   $L1
+;      predecessor   JUMP   label1
+;      successor   STOREF null  $T1
+;      gen
+;      kill
+;      in     eol     one     $L1     zero
+;      out     eol     one     $L1     zero
+;      free   0  
+;      free   1  
+;      free   2  
+;      free   3  $-1
+;      store 3  $-1
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREF null  $T1
+;      predecessor   LABEL   label1
+;      successor   NE $T1 1 label3
+;      gen
+;      kill     $T1
+;      in     eol     one     $L1     zero
+;      out     eol     one     $L1     zero     $T1

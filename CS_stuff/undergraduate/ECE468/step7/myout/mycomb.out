@@ -1,0 +1,355 @@
+; LABEL   main
+;      successor   LINK   
+;      gen
+;      kill
+;      in
+;      out
+;      free   0  
+;      free   1  
+;      free   2  
+;      free   3  
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LINK   
+;      predecessor   LABEL   main
+;      successor   STOREI 20  $T1
+;      gen
+;      kill
+;      in
+;      out
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREI 20  $T1
+;      predecessor   LINK   
+;      successor   STOREI $T1  a
+;      gen
+;      kill     $T1
+;      in
+;      out     $T1
+;      ensure  $-1
+;      allocate   $-1
+;      r0 null;      r1 null;      r2 null;      r3 $-1
+; STOREI $T1  a
+;      predecessor   STOREI 20  $T1
+;      successor   STOREI 30  $T2
+;      gen     $T1
+;      kill     a
+;      in     $T1
+;      out     a
+;      ensure  $-1
+;      ensure  a
+;      allocate   a
+;      free   3  $-1
+;      r0 null;      r1 null;      r2 a;      r3 null
+; STOREI 30  $T2
+;      predecessor   STOREI $T1  a
+;      successor   STOREI $T2  b
+;      gen
+;      kill     $T2
+;      in     a
+;      out     a     $T2
+;      ensure  $-2
+;      allocate   $-2
+;      r0 null;      r1 null;      r2 a;      r3 $-2
+; STOREI $T2  b
+;      predecessor   STOREI 30  $T2
+;      successor   STOREI 40  $T3
+;      gen     $T2
+;      kill     b
+;      in     a     $T2
+;      out     a     b
+;      ensure  $-2
+;      ensure  b
+;      allocate   b
+;      free   3  $-2
+;      r0 null;      r1 b;      r2 a;      r3 null
+; STOREI 40  $T3
+;      predecessor   STOREI $T2  b
+;      successor   STOREI $T3  c
+;      gen
+;      kill     $T3
+;      in     a     b
+;      out     a     b     $T3
+;      ensure  $-3
+;      allocate   $-3
+;      r0 null;      r1 b;      r2 a;      r3 $-3
+; STOREI $T3  c
+;      predecessor   STOREI 40  $T3
+;      successor   MULTI a b $T4
+;      gen     $T3
+;      kill     c
+;      in     a     b     $T3
+;      out     a     b     c
+;      ensure  $-3
+;      ensure  c
+;      allocate   c
+;      free   3  $-3
+;      r0 c;      r1 b;      r2 a;      r3 null
+; MULTI a b $T4
+;      predecessor   STOREI $T3  c
+;      successor   ADDI c $T4 $T5
+;      gen     a     b
+;      kill     $T4
+;      in     a     b     c
+;      out     a     b     c     $T4
+;      ensure  a
+;      ensure  b
+;      free   2  a
+;      r0 c;      r1 b;      r2 $-4;      r3 null
+; ADDI c $T4 $T5
+;      predecessor   MULTI a b $T4
+;      successor   MULTI a b $T6
+;      gen     c     $T4
+;      kill     $T5
+;      in     a     b     c     $T4
+;      out     a     b     $T5     c
+;      ensure  c
+;      ensure  $-4
+;      free   2  $-4
+;      free   0  c
+;      r0 $-5;      r1 b;      r2 null;      r3 null
+; MULTI a b $T6
+;      predecessor   ADDI c $T4 $T5
+;      successor   ADDI $T6 c $T7
+;      gen     a     b
+;      kill     $T6
+;      in     a     b     $T5     c
+;      out     a     b     $T5     $T6     c
+;      ensure  a
+;      allocate   a
+;      ensure  b
+;      free   3  a
+;      r0 $-5;      r1 b;      r2 null;      r3 $-6
+; ADDI $T6 c $T7
+;      predecessor   MULTI a b $T6
+;      successor   DIVI $T7 a $T8
+;      gen     $T6     c
+;      kill     $T7
+;      in     a     b     $T5     $T6     c
+;      out     a     b     $T5     $T7
+;      ensure  $-6
+;      ensure  c
+;      allocate   c
+;      free   3  $-6
+;      free   2  c
+;      r0 $-5;      r1 b;      r2 null;      r3 $-7
+; DIVI $T7 a $T8
+;      predecessor   ADDI $T6 c $T7
+;      successor   ADDI $T5 $T8 $T9
+;      gen     $T7     a
+;      kill     $T8
+;      in     a     b     $T5     $T7
+;      out     a     b     $T5     $T8
+;      ensure  $-7
+;      ensure  a
+;      allocate   a
+;      free   3  $-7
+;      r0 $-5;      r1 b;      r2 a;      r3 $-8
+; ADDI $T5 $T8 $T9
+;      predecessor   DIVI $T7 a $T8
+;      successor   STOREI 20  $T10
+;      gen     $T5     $T8
+;      kill     $T9
+;      in     a     b     $T5     $T8
+;      out     a     b     $T9
+;      ensure  $-5
+;      ensure  $-8
+;      free   0  $-5
+;      free   3  $-8
+;      r0 $-9;      r1 b;      r2 a;      r3 null
+; STOREI 20  $T10
+;      predecessor   ADDI $T5 $T8 $T9
+;      successor   ADDI $T9 $T10 $T11
+;      gen
+;      kill     $T10
+;      in     a     b     $T9
+;      out     a     b     $T9     $T10
+;      ensure  $-10
+;      allocate   $-10
+;      r0 $-9;      r1 b;      r2 a;      r3 $-10
+; ADDI $T9 $T10 $T11
+;      predecessor   STOREI 20  $T10
+;      successor   STOREI $T11  c
+;      gen     $T9     $T10
+;      kill     $T11
+;      in     a     b     $T9     $T10
+;      out     a     b     $T11
+;      ensure  $-9
+;      ensure  $-10
+;      free   0  $-9
+;      free   3  $-10
+;      r0 $-11;      r1 b;      r2 a;      r3 null
+; STOREI $T11  c
+;      predecessor   ADDI $T9 $T10 $T11
+;      successor   MULTI b b $T12
+;      gen     $T11
+;      kill     c
+;      in     a     b     $T11
+;      out     c     a     b
+;      ensure  $-11
+;      ensure  c
+;      allocate   c
+;      free   0  $-11
+;      r0 null;      r1 b;      r2 a;      r3 c
+; MULTI b b $T12
+;      predecessor   STOREI $T11  c
+;      successor   ADDI $T12 a $T13
+;      gen     b     b
+;      kill     $T12
+;      in     c     a     b
+;      out     c     a     $T12
+;      ensure  b
+;      ensure  b
+;      free   1  b
+;      free   1  b
+;      r0 null;      r1 $-12;      r2 a;      r3 c
+; ADDI $T12 a $T13
+;      predecessor   MULTI b b $T12
+;      successor   STOREI $T13  b
+;      gen     $T12     a
+;      kill     $T13
+;      in     c     a     $T12
+;      out     c     a     $T13
+;      ensure  $-12
+;      ensure  a
+;      free   1  $-12
+;      r0 null;      r1 $-13;      r2 a;      r3 c
+; STOREI $T13  b
+;      predecessor   ADDI $T12 a $T13
+;      successor   MULTI b a $T14
+;      gen     $T13
+;      kill     b
+;      in     c     a     $T13
+;      out     b     c     a
+;      ensure  $-13
+;      ensure  b
+;      allocate   b
+;      free   1  $-13
+;      r0 b;      r1 null;      r2 a;      r3 c
+; MULTI b a $T14
+;      predecessor   STOREI $T13  b
+;      successor   DIVI $T14 a $T15
+;      gen     b     a
+;      kill     $T14
+;      in     b     c     a
+;      out     b     c     $T14     a
+;      ensure  b
+;      ensure  a
+;      free   0  b
+;      r0 $-14;      r1 null;      r2 a;      r3 c
+; DIVI $T14 a $T15
+;      predecessor   MULTI b a $T14
+;      successor   STOREI $T15  a
+;      gen     $T14     a
+;      kill     $T15
+;      in     b     c     $T14     a
+;      out     b     c     $T15
+;      ensure  $-14
+;      ensure  a
+;      free   0  $-14
+;      free   2  a
+;      r0 $-15;      r1 null;      r2 null;      r3 c
+; STOREI $T15  a
+;      predecessor   DIVI $T14 a $T15
+;      successor   WRITEI   c
+;      gen     $T15
+;      kill     a
+;      in     b     c     $T15
+;      out     a     b     c
+;      ensure  $-15
+;      ensure  a
+;      allocate   a
+;      free   0  $-15
+;      r0 null;      r1 null;      r2 a;      r3 c
+; WRITEI   c
+;      predecessor   STOREI $T15  a
+;      successor   WRITEI   b
+;      gen     c
+;      kill
+;      in     a     b     c
+;      out     a     b
+;      r0 null;      r1 null;      r2 a;      r3 c
+; WRITEI   b
+;      predecessor   WRITEI   c
+;      successor   WRITEI   a
+;      gen     b
+;      kill
+;      in     a     b
+;      out     a
+;      r0 null;      r1 null;      r2 a;      r3 c
+; WRITEI   a
+;      predecessor   WRITEI   b
+;      successor   RET   
+;      gen     a
+;      kill
+;      in     a
+;      out
+;      r0 null;      r1 null;      r2 a;      r3 c
+; RET   
+;      predecessor   WRITEI   a
+;      gen
+;      kill
+;      in
+;      out
+;      free   0  $-15
+;      free   1  $-13
+;      free   2  a
+;      free   3  c
+;      r0 null;      r1 null;      r2 null;      r3 null
+;tiny code
+var a
+var b
+var c
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label main
+link 15
+move $-1 r3
+move 20 r3
+move a r2
+move r3 a
+move r3 r2
+move $-2 r3
+move 30 r3
+move b r1
+move r3 b
+move r3 r1
+move $-3 r3
+move 40 r3
+move c r0
+move r3 c
+move r3 r0
+muli r1 r2
+addi r2 r0
+move a r3
+muli r1 r3
+move c r2
+addi r2 r3
+move a r2
+divi r2 r3
+addi r3 r0
+move $-10 r3
+move 20 r3
+addi r3 r0
+move c r3
+move r0 c
+move r0 r3
+muli r1 r1
+addi r2 r1
+move b r0
+move r1 b
+move r1 r0
+muli r2 r0
+divi r2 r0
+move a r2
+move r0 a
+move r0 r2
+sys writei c
+sys writei b
+sys writei a
+unlnk
+ret
+end

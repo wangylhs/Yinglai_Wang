@@ -1,0 +1,22 @@
+Minitab Portable Worksheet P1.1             2010 713 Release 9.1               .
+%      3      1     45    -10 Treatment                                        .
+Control    Control    Control    Control    Control    Control    Control      .
+Control    Control    Control    Control    Control    Control    Control      .
+Control    LowDose    LowDose    LowDose    LowDose    LowDose    LowDose      .
+LowDose    LowDose    LowDose    LowDose    LowDose    LowDose    LowDose      .
+LowDose    LowDose    HighDose   HighDose   HighDose   HighDose   HighDose     .
+HighDose   HighDose   HighDose   HighDose   HighDose   HighDose   HighDose     .
+HighDose   HighDose   HighDose                                                 .
+%      3      2     45      0 BMD                                              .
+ 2.280000000E-01 2.070000000E-01 2.340000000E-01 2.200000000E-01 2.170000000E-01
+ 2.280000000E-01 2.090000000E-01 2.210000000E-01 2.040000000E-01 2.200000000E-01
+ 2.030000000E-01 2.190000000E-01 2.180000000E-01 2.450000000E-01 2.100000000E-01
+ 2.110000000E-01 2.200000000E-01 2.110000000E-01 2.330000000E-01 2.190000000E-01
+ 2.330000000E-01 2.260000000E-01 2.280000000E-01 2.160000000E-01 2.250000000E-01
+ 2.000000000E-01 2.080000000E-01 1.980000000E-01 2.080000000E-01 2.030000000E-01
+ 2.500000000E-01 2.370000000E-01 2.170000000E-01 2.060000000E-01 2.470000000E-01
+ 2.280000000E-01 2.450000000E-01 2.320000000E-01 2.670000000E-01 2.610000000E-01
+ 2.210000000E-01 2.190000000E-01 2.320000000E-01 2.090000000E-01 2.550000000E-01
+%    100      0      0      0                                                  .
+%    101      0      0      0                                                  .
+%    102      0      0      0                                                  .

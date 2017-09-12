@@ -1,0 +1,16 @@
+Name: 	Yinglai Wang
+Login: 	wang1105
+
+All features in the handout have been implemented:
+		
+	- Backing up directory
+	- Creates a directory if it does not exists
+	- Limiting backup to max-backups
+	- Sending user an e-mail notification
+
+To RUN:
+	backup.sh <dir> <backupdir> <interval-secs> <max-backups>
+
+Extra features:
+	- Display usage example when the number of arguments is not 4
+	- Show greeting when logout

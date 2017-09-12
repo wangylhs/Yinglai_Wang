@@ -1,0 +1,27 @@
+Notes on how to build a windows installer
+=========================================
+
+We use the free program Inno Setup:
+    http://www.jrsoftware.org/isdl.php
+
+The latest installer was built using Inno Setup 5.5.5 non-unicode version.
+
+The configuration script is in the file mosml.iss.
+
+Current status of the resulting installer is:
+
+    * Should work as intended on Windows Vista or newer.
+    * Doesn't currently remove Moscow ML directory from path on uninstall.
+
+How to build an installer step by step:
+---------------------------------------
+
+1. Prepare a binary distrubution of mosml (ie. cross-compile everything)
+
+2. Place binary distribution in "mosml" subdirectory.
+
+3. Update mosml.iss as needed (version number etc.)
+
+4. Run Inno Setup on mosml.iss
+
+5. The installer can now be found the directory "Output"

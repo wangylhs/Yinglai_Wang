@@ -1,0 +1,10 @@
+struct lnode;
+struct lnode *nodeGetNext(struct lnode *);
+struct lnode *newNode(struct lnode **, struct lnode **, char *, int);
+struct lnode *getNode(struct lnode **, struct lnode **, char *, int);
+void deleteList(struct lnode **, struct lnode **);
+void deleteNode(struct lnode **, struct lnode **, struct lnode *);
+char *nodeGetWord(struct lnode *);
+int nodeGetLine(struct lnode *);
+int nodeGetCount(struct lnode *);
+int nodeIncCount(struct lnode *);

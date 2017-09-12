@@ -1,0 +1,13 @@
+(val result 0)              ;;final result of the function
+(val remainder 0)
+(val factor 1)
+(define binary(m)
+    (if(!= m 0) (begin
+                (set remainder (mod m 2))
+                (set result (+ result (* remainder factor)))
+                (set factor (* factor 10))
+                (binary (/ m 2))
+                )
+                result
+    )
+)

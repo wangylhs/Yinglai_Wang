@@ -1,0 +1,60 @@
+Nathan Tornquist
+ECE 563
+HW8 - Queue Results
+
+W = 1:
+Total Time:   10.385000 s
+Process  1 -- No More Work Received at 9.260000s -- Work Complete 9.260000s
+Process  3 -- No More Work Received at 9.262000s -- Work Complete 9.262000s
+Process  7 -- No More Work Received at 9.242000s -- Work Complete 9.242000s
+Process 11 -- No More Work Received at 10.395000s -- Work Complete 10.395000s
+Process 12 -- No More Work Received at 10.385000s -- Work Complete 10.385000s
+Process  2 -- No More Work Received at 10.384000s -- Work Complete 10.384000s
+Process  5 -- No More Work Received at 9.242000s -- Work Complete 9.242000s
+Process  6 -- No More Work Received at 9.251000s -- Work Complete 9.251000s
+Process  9 -- No More Work Received at 9.261000s -- Work Complete 9.261000s
+Process 10 -- No More Work Received at 9.242000s -- Work Complete 9.242000s
+Process 13 -- No More Work Received at 10.384000s -- Work Complete 10.384000s
+Process 15 -- No More Work Received at 10.383000s -- Work Complete 10.383000s
+Process  4 -- No More Work Received at 9.302000s -- Work Complete 9.302000s
+Process  8 -- No More Work Received at 9.259000s -- Work Complete 9.259000s
+Process 14 -- No More Work Received at 9.281000s -- Work Complete 9.281000s
+
+
+
+W = 4:
+Total Time:   10.159000 s
+Process  4 -- No More Work Received at 8.039000s -- Work Complete 10.046000s
+Process  5 -- No More Work Received at 8.039000s -- Work Complete 10.050000s
+Process  6 -- No More Work Received at 9.023000s -- Work Complete 10.026000s
+Process  9 -- No More Work Received at 8.046000s -- Work Complete 10.062000s
+Process 14 -- No More Work Received at 7.044000s -- Work Complete 8.045000s
+Process 15 -- No More Work Received at 8.047000s -- Work Complete 10.065000s
+Process  1 -- No More Work Received at 8.047000s -- Work Complete 10.062000s
+Process  3 -- No More Work Received at 9.045000s -- Work Complete 10.071000s
+Process 10 -- No More Work Received at 8.039000s -- Work Complete 10.043000s
+Process 12 -- No More Work Received at 8.038000s -- Work Complete 10.049000s
+Process 11 -- No More Work Received at 9.024000s -- Work Complete 11.027000s
+Process  7 -- No More Work Received at 9.042000s -- Work Complete 11.058000s
+Process  2 -- No More Work Received at 8.045000s -- Work Complete 11.070000s
+Process  8 -- No More Work Received at 10.158000s -- Work Complete 12.162000s
+Process 13 -- No More Work Received at 10.158000s -- Work Complete 13.162000s
+
+
+W = 16:
+Process  8 -- No More Work Received at 7.021000s -- Work Complete 13.038000s
+Process 13 -- No More Work Received at 7.021000s -- Work Complete 13.038000s
+Process 15 -- No More Work Received at 7.020000s -- Work Complete 13.037000s
+Total Time:   13.070000 s
+Process  9 -- No More Work Received at 5.015000s -- Work Complete 10.027000s
+Process  3 -- No More Work Received at 6.018000s -- Work Complete 12.033000s
+Process  4 -- No More Work Received at 6.032000s -- Work Complete 12.047000s
+Process  6 -- No More Work Received at 8.026000s -- Work Complete 15.046000s
+Process 11 -- No More Work Received at 8.036000s -- Work Complete 15.056000s
+Process  5 -- No More Work Received at 8.036000s -- Work Complete 15.061000s
+Process 10 -- No More Work Received at 9.027000s -- Work Complete 17.052999s
+Process 14 -- No More Work Received at 9.026000s -- Work Complete 17.052000s
+Process  7 -- No More Work Received at 10.027000s -- Work Complete 19.056000s
+Process  2 -- No More Work Received at 11.035000s -- Work Complete 21.062000s
+Process 12 -- No More Work Received at 13.074000s -- Work Complete 21.084000s
+Process  1 -- No More Work Received at 11.045000s -- Work Complete 22.072001s

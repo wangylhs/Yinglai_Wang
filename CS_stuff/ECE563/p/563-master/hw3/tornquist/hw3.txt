@@ -1,0 +1,60 @@
+Nathan Tornquist
+ECE 563
+HW3
+
+Part 1:
+
+Changes to Code:
+1) Updated doWork to millisecond sleep
+2) Changed range of random work times to fit millisecond delay.
+
+Results:
+Static, Default:   18.438999 s
+Static, Block 50:  14.263000 s
+Dynamic, Default:  10.813000 s
+Dynamic, Block 50: 15.048000 s
+Guided:            10.952000 s
+
+Dynamic and guided were very similar.  Under multiple tests they both
+ranged from roughly 10.6 to 10.9 s.
+
+Part 2:
+
+Tested with Dynamic Scheduling
+These tests were run on ecegrid.  With 4 cores the average time is:
+10.202000 s
+
+With 16 cores the time is:
+2.865000 s
+
+Which is slightly under 4x faster.  This makes sense, because there is
+slightly more overhead.
+
+Part 3:
+
+In this one, I am manually breaking up the iteration space.  It could be
+the exact same logic as Part 1, just with a block size of
+array_size/#threads.  That would work too and be cleaner, but I'm
+showing how segmented code can be written.
+
+This code has four distinct sections that will be run based on thread id.
+The logic within each section can technically be identical, but I'm
+showing that it does not need to be.
+
+When the sections are intentially distinct, you loose the advantages
+that come with scheduling.  So the speedup I found was betwen 144% and
+233%.  When you mash it all together like Part 1, the speedup is right
+below 400%, which is the maximum.
+
+Part 4:
+
+With a work queue size of 100,000 elements, parallel execution takes
+0.486000 s and sequential takes 0.009000 s.  This disparity is due to
+the amount of time it takes to do the work in this program.  If the work
+processing time is lengthy, a shared queue has negligable overhead time.
+If the work processing time is 0 (like this program) then the overhead
+becomes significant and produces a visible performance hit because
+accessing the queue has to be atomic, and when the access is granted,
+you must once again check if the queue is empty, because you may have
+been been waiting on a job that took the last item in the queue after
+you checked that the queue was not empty.

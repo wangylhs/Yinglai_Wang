@@ -1,0 +1,75 @@
+#include	<stdio.h>
+#include	<mpi.h>
+
+int min(int a1, int a2) {
+   if (a1 < a2) return a1; else return a2;
+}
+
+int main(int argc, char* argv[ ]) {
+
+   int numProc, pid;
+   int globalUB;
+   float *a, *b;
+
+   // block information
+   int blockLB; 
+   int blockUB; 
+   int localBS;
+
+   // cyclic information
+   int cyclicLB; 
+   int cyclicUB; 
+   int cyclicStride; 
+   int cyclicEltCnt;
+
+   MPI_Init(&argc,&argv);
+   MPI_Comm_size(MPI_COMM_WORLD,&numProc);
+   MPI_Comm_rank(MPI_COMM_WORLD, &pid);
+
+   globalUB = numProc*32+3;
+   printf("\non processor %d, number of processors is %d, global array size is %d\n", pid, numProc, globalUB);
+
+   // compute block distribution parameters
+   blockLB = pid*globalUB/numProc;
+   blockUB = min(globalUB, (pid+1)*globalUB/numProc - 1);
+   localBS = blockUB - blockLB + 1; 
+   a = (float *) malloc(sizeof(float)*(localBS));
+
+   printf("\nblock: on processor %d, the local bounds are [%d:%d], and the global bounds are [%d:%d]", pid, 0, localBS, blockLB, blockUB); 
+
+   // compute cyclic distribution
+   cyclicLB = pid;
+   cyclicEltCnt = (int) (((float) (globalUB+1 - pid) / numProc + 0.5));
+   cyclicUB = min(globalUB, pid+(cyclicEltCnt-1)*numProc);
+   printf("\ncyclic: on processor %d, the local bounds are [%d:%d:%d], and the global bounds are [%d:%d:%d]", pid, 0, cyclicEltCnt, numProc, cyclicLB, cyclicUB, numProc); 
+   b = (float *) malloc(sizeof(float)*cyclicEltCnt);
+
+   MPI_Finalize();
+
+   return 0;
+}
+
+
+
+[smidkiff@algol01 ~]$ mpicc hw5MPI.c
+hw5MPI.c: In function 'main':
+hw5MPI.c:36: warning: incompatible implicit declaration of built-in function 'malloc'
+[smidkiff@algol01 ~]$ mpirun -n 4 ./a.out
+
+on processor 0, number of processors is 4, global array size is 131
+
+block: on processor 0, the local bounds are [0:32], and the global bounds are [0:31]
+cyclic: on processor 0, the local bounds are [0:33:4], and the global bounds are [0:128:4]
+on processor 1, number of processors is 4, global array size is 131
+
+block: on processor 1, the local bounds are [0:33], and the global bounds are [32:64]
+cyclic: on processor 1, the local bounds are [0:33:4], and the global bounds are [1:129:4]
+on processor 2, number of processors is 4, global array size is 131
+
+block: on processor 2, the local bounds are [0:33], and the global bounds are [65:97]
+cyclic: on processor 2, the local bounds are [0:33:4], and the global bounds are [2:130:4]
+on processor 3, number of processors is 4, global array size is 131
+
+block: on processor 3, the local bounds are [0:33], and the global bounds are [98:130]
+cyclic: on processor 3, the local bounds are [0:32:4], and the global bounds are [3:127:4][smidkiff@algol01 ~]$ 
+

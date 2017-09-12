@@ -1,0 +1,954 @@
+; LABEL   F
+;      successor   LINK   
+;      gen
+;      kill
+;      in     $P1
+;      out     $P1
+;      free   0  
+;      free   1  
+;      free   2  
+;      free   3  
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LINK   
+;      predecessor   LABEL   F
+;      successor   MULTI $P1 $P1 $T1
+;      gen
+;      kill
+;      in     $P1
+;      out     $P1
+;      r0 null;      r1 null;      r2 null;      r3 null
+; MULTI $P1 $P1 $T1
+;      predecessor   LINK   
+;      successor   STOREI 8  $T2
+;      gen     $P1     $P1
+;      kill     $T1
+;      in     $P1
+;      out     $P1     $T1
+;      ensure  $6
+;      allocate   $6
+;      ensure  $6
+;      free   3  $6
+;      r0 null;      r1 null;      r2 null;      r3 $-1
+; STOREI 8  $T2
+;      predecessor   MULTI $P1 $P1 $T1
+;      successor   MULTI $T2 $P1 $T3
+;      gen
+;      kill     $T2
+;      in     $P1     $T1
+;      out     $P1     $T1     $T2
+;      ensure  $-2
+;      allocate   $-2
+;      r0 null;      r1 null;      r2 $-2;      r3 $-1
+; MULTI $T2 $P1 $T3
+;      predecessor   STOREI 8  $T2
+;      successor   MULTI $T3 $P1 $T4
+;      gen     $T2     $P1
+;      kill     $T3
+;      in     $P1     $T1     $T2
+;      out     $P1     $T1     $T3
+;      ensure  $-2
+;      ensure  $6
+;      allocate   $6
+;      free   2  $-2
+;      r0 null;      r1 $6;      r2 $-3;      r3 $-1
+; MULTI $T3 $P1 $T4
+;      predecessor   MULTI $T2 $P1 $T3
+;      successor   MULTI $T4 $P1 $T5
+;      gen     $T3     $P1
+;      kill     $T4
+;      in     $P1     $T1     $T3
+;      out     $P1     $T1     $T4
+;      ensure  $-3
+;      ensure  $6
+;      free   2  $-3
+;      r0 null;      r1 $6;      r2 $-4;      r3 $-1
+; MULTI $T4 $P1 $T5
+;      predecessor   MULTI $T3 $P1 $T4
+;      successor   ADDI $T1 $T5 $T6
+;      gen     $T4     $P1
+;      kill     $T5
+;      in     $P1     $T1     $T4
+;      out     $P1     $T1     $T5
+;      ensure  $-4
+;      ensure  $6
+;      free   2  $-4
+;      r0 null;      r1 $6;      r2 $-5;      r3 $-1
+; ADDI $T1 $T5 $T6
+;      predecessor   MULTI $T4 $P1 $T5
+;      successor   STOREI 9  $T7
+;      gen     $T1     $T5
+;      kill     $T6
+;      in     $P1     $T1     $T5
+;      out     $T6     $P1
+;      ensure  $-1
+;      ensure  $-5
+;      free   3  $-1
+;      free   2  $-5
+;      r0 null;      r1 $6;      r2 null;      r3 $-6
+; STOREI 9  $T7
+;      predecessor   ADDI $T1 $T5 $T6
+;      successor   MULTI $T7 $P1 $T8
+;      gen
+;      kill     $T7
+;      in     $T6     $P1
+;      out     $T6     $T7     $P1
+;      ensure  $-7
+;      allocate   $-7
+;      r0 null;      r1 $6;      r2 $-7;      r3 $-6
+; MULTI $T7 $P1 $T8
+;      predecessor   STOREI 9  $T7
+;      successor   ADDI $T6 $T8 $T9
+;      gen     $T7     $P1
+;      kill     $T8
+;      in     $T6     $T7     $P1
+;      out     $T6     $T8
+;      ensure  $-7
+;      ensure  $6
+;      free   2  $-7
+;      free   1  $6
+;      r0 null;      r1 null;      r2 $-8;      r3 $-6
+; ADDI $T6 $T8 $T9
+;      predecessor   MULTI $T7 $P1 $T8
+;      successor   STOREI 5  $T10
+;      gen     $T6     $T8
+;      kill     $T9
+;      in     $T6     $T8
+;      out     $T9
+;      ensure  $-6
+;      ensure  $-8
+;      free   3  $-6
+;      free   2  $-8
+;      r0 null;      r1 null;      r2 null;      r3 $-9
+; STOREI 5  $T10
+;      predecessor   ADDI $T6 $T8 $T9
+;      successor   ADDI $T9 $T10 $T11
+;      gen
+;      kill     $T10
+;      in     $T9
+;      out     $T9     $T10
+;      ensure  $-10
+;      allocate   $-10
+;      r0 null;      r1 null;      r2 $-10;      r3 $-9
+; ADDI $T9 $T10 $T11
+;      predecessor   STOREI 5  $T10
+;      successor   STOREI $T11  $R
+;      gen     $T9     $T10
+;      kill     $T11
+;      in     $T9     $T10
+;      out     $T11
+;      ensure  $-9
+;      ensure  $-10
+;      free   3  $-9
+;      free   2  $-10
+;      r0 null;      r1 null;      r2 null;      r3 $-11
+; STOREI $T11  $R
+;      predecessor   ADDI $T9 $T10 $T11
+;      successor   RET   
+;      gen     $T11
+;      kill     $R
+;      in     $T11
+;      out
+;      ensure  $-11
+;      free   3  $-11
+;      free   3  $-11
+;      r0 null;      r1 null;      r2 null;      r3 null
+; RET   
+;      predecessor   STOREI $T11  $R
+;      gen
+;      kill
+;      in
+;      out
+;      free   0  
+;      free   1  $6
+;      free   2  $-10
+;      free   3  $-11
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   iapprox
+;      successor   LINK   
+;      gen
+;      kill
+;      in     eol     $P1     $P3     dxis     $P2
+;      out     eol     $P1     $P3     dxis     $P2
+;      free   0  
+;      free   1  $6
+;      free   2  $-10
+;      free   3  $-11
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LINK   
+;      predecessor   LABEL   iapprox
+;      successor   DIVF $P2 $P1 $T1
+;      gen
+;      kill
+;      in     eol     $P1     $P3     dxis     $P2
+;      out     eol     $P1     $P3     dxis     $P2
+;      r0 null;      r1 null;      r2 null;      r3 null
+; DIVF $P2 $P1 $T1
+;      predecessor   LINK   
+;      successor   STOREF $T1  $L3
+;      gen     $P2     $P1
+;      kill     $T1
+;      in     eol     $P1     $P3     dxis     $P2
+;      out     eol     $P1     $P3     dxis     $T1
+;      ensure  $8
+;      allocate   $8
+;      ensure  $9
+;      allocate   $9
+;      free   3  $8
+;      r0 null;      r1 null;      r2 $9;      r3 $-4
+; STOREF $T1  $L3
+;      predecessor   DIVF $P2 $P1 $T1
+;      successor   STOREF 0  $T2
+;      gen     $T1
+;      kill     $L3
+;      in     eol     $P1     $P3     dxis     $T1
+;      out     eol     $P1     $L3     $P3     dxis
+;      ensure  $-4
+;      ensure  $-3
+;      allocate   $-3
+;      free   3  $-4
+;      free   3  $-4
+;      r0 null;      r1 $-3;      r2 $9;      r3 null
+; STOREF 0  $T2
+;      predecessor   STOREF $T1  $L3
+;      successor   STOREF $T2  $L2
+;      gen
+;      kill     $T2
+;      in     eol     $P1     $L3     $P3     dxis
+;      out     eol     $P1     $L3     $P3     dxis     $T2
+;      ensure  $-5
+;      allocate   $-5
+;      r0 null;      r1 $-3;      r2 $9;      r3 $-5
+; STOREF $T2  $L2
+;      predecessor   STOREF 0  $T2
+;      successor   STOREF 1  $T3
+;      gen     $T2
+;      kill     $L2
+;      in     eol     $P1     $L3     $P3     dxis     $T2
+;      out     eol     $P1     $L2     $L3     $P3     dxis
+;      ensure  $-5
+;      ensure  $-2
+;      allocate   $-2
+;      free   3  $-5
+;      free   3  $-5
+;      r0 $-2;      r1 $-3;      r2 $9;      r3 null
+; STOREF 1  $T3
+;      predecessor   STOREF $T2  $L2
+;      successor   STOREF $T3  $L1
+;      gen
+;      kill     $T3
+;      in     eol     $P1     $L2     $L3     $P3     dxis
+;      out     eol     $P1     $L2     $L3     $P3     dxis     $T3
+;      ensure  $-6
+;      allocate   $-6
+;      r0 $-2;      r1 $-3;      r2 $9;      r3 $-6
+; STOREF $T3  $L1
+;      predecessor   STOREF 1  $T3
+;      successor   WRITES   dxis
+;      gen     $T3
+;      kill     $L1
+;      in     eol     $P1     $L2     $L3     $P3     dxis     $T3
+;      out     eol     $P1     $L1     $L2     $L3     $P3     dxis
+;      ensure  $-6
+;      ensure  $-1
+;      allocate   $-1
+;      free   2  $9
+;      free   3  $-6
+;      free   3  $-6
+;      r0 $-2;      r1 $-3;      r2 $-1;      r3 null
+; WRITES   dxis
+;      predecessor   STOREF $T3  $L1
+;      successor   WRITEF   $L3
+;      gen     dxis
+;      kill
+;      in     eol     $P1     $L1     $L2     $L3     $P3     dxis
+;      out     eol     $P1     $L1     $L2     $L3     $P3
+;      r0 $-2;      r1 $-3;      r2 $-1;      r3 null
+; WRITEF   $L3
+;      predecessor   WRITES   dxis
+;      successor   WRITES   eol
+;      gen     $L3
+;      kill
+;      in     eol     $P1     $L1     $L2     $L3     $P3
+;      out     eol     $P1     $L1     $L2     $L3     $P3
+;      ensure  $-3
+;      r0 $-2;      r1 $-3;      r2 $-1;      r3 null
+; WRITES   eol
+;      predecessor   WRITEF   $L3
+;      successor   LABEL   label1
+;      gen     eol
+;      kill
+;      in     eol     $P1     $L1     $L2     $L3     $P3
+;      out     eol     $P1     $L1     $L2     $L3     $P3
+;      r0 $-2;      r1 $-3;      r2 $-1;      r3 null
+; LABEL   label1
+;      predecessor   WRITES   eol
+;      predecessor   JUMP   label1
+;      successor   MULTF $L1 $L3 $T4
+;      gen
+;      kill
+;      in     eol     $P1     $L1     $L2     $L3     $P3
+;      out     eol     $P1     $L1     $L2     $L3     $P3
+;      free   0  $-2
+;      store 0  $-2
+;      free   1  $-3
+;      store 1  $-3
+;      free   2  $-1
+;      store 2  $-1
+;      free   3  $-6
+;      r0 null;      r1 null;      r2 null;      r3 null
+; MULTF $L1 $L3 $T4
+;      predecessor   LABEL   label1
+;      successor   ADDF $T4 $P3 $T5
+;      gen     $L1     $L3
+;      kill     $T4
+;      in     eol     $P1     $L1     $L2     $L3     $P3
+;      out     eol     $P1     $L1     $L2     $L3     $T4     $P3
+;      ensure  $-1
+;      allocate   $-1
+;      ensure  $-3
+;      allocate   $-3
+;      free   3  $-1
+;      r0 null;      r1 null;      r2 $-3;      r3 $-7
+; ADDF $T4 $P3 $T5
+;      predecessor   MULTF $L1 $L3 $T4
+;      successor   PUSH   
+;      gen     $T4     $P3
+;      kill     $T5
+;      in     eol     $P1     $L1     $L2     $L3     $T4     $P3
+;      out     eol     $P1     $L1     $L2     $L3     $T5     $P3
+;      ensure  $-7
+;      ensure  $7
+;      allocate   $7
+;      free   3  $-7
+;      r0 null;      r1 $7;      r2 $-3;      r3 $-8
+; PUSH   
+;      predecessor   ADDF $T4 $P3 $T5
+;      successor   PUSH   $T5
+;      gen
+;      kill
+;      in     eol     $P1     $L1     $L2     $L3     $T5     $P3
+;      out     eol     $P1     $L1     $L2     $L3     $T5     $P3
+;      r0 null;      r1 $7;      r2 $-3;      r3 $-8
+; PUSH   $T5
+;      predecessor   PUSH   
+;      successor   JSR   F
+;      gen     $T5
+;      kill
+;      in     eol     $P1     $L1     $L2     $L3     $T5     $P3
+;      out     eol     $P1     $L1     $L2     $L3     $P3
+;      ensure  $-8
+;      free   3  $-8
+;      r0 null;      r1 $7;      r2 $-3;      r3 null
+; JSR   F
+;      predecessor   PUSH   $T5
+;      successor   POP   
+;      gen
+;      kill
+;      in     eol     $P1     $L1     $L2     $L3     $P3
+;      out     eol     $P1     $L1     $L2     $L3     $P3
+;      free   3  $-8
+;      r0 null;      r1 $7;      r2 $-3;      r3 null
+; POP   
+;      predecessor   JSR   F
+;      successor   POP   $T6
+;      gen
+;      kill
+;      in     eol     $P1     $L1     $L2     $L3     $P3
+;      out     eol     $P1     $L1     $L2     $L3     $P3
+;      r0 null;      r1 $7;      r2 $-3;      r3 null
+; POP   $T6
+;      predecessor   POP   
+;      successor   MULTF $T6 $L3 $T7
+;      gen
+;      kill     $T6
+;      in     eol     $P1     $L1     $L2     $L3     $P3
+;      out     eol     $P1     $L1     $L2     $T6     $L3     $P3
+;      allocate   $-9
+;      r0 null;      r1 $7;      r2 $-3;      r3 $-9
+; MULTF $T6 $L3 $T7
+;      predecessor   POP   $T6
+;      successor   ADDF $L2 $T7 $T8
+;      gen     $T6     $L3
+;      kill     $T7
+;      in     eol     $P1     $L1     $L2     $T6     $L3     $P3
+;      out     eol     $P1     $L1     $L2     $T7     $L3     $P3
+;      ensure  $-9
+;      ensure  $-3
+;      free   3  $-9
+;      r0 null;      r1 $7;      r2 $-3;      r3 $-10
+; ADDF $L2 $T7 $T8
+;      predecessor   MULTF $T6 $L3 $T7
+;      successor   STOREF $T8  $L2
+;      gen     $L2     $T7
+;      kill     $T8
+;      in     eol     $P1     $L1     $L2     $T7     $L3     $P3
+;      out     eol     $P1     $L1     $T8     $L3     $P3
+;      ensure  $-2
+;      allocate   $-2
+;      ensure  $-10
+;      free   0  $-2
+;      free   3  $-10
+;      r0 $-11;      r1 $7;      r2 $-3;      r3 null
+; STOREF $T8  $L2
+;      predecessor   ADDF $L2 $T7 $T8
+;      successor   STOREF 1  $T9
+;      gen     $T8
+;      kill     $L2
+;      in     eol     $P1     $L1     $T8     $L3     $P3
+;      out     $L2     eol     $P1     $L1     $L3     $P3
+;      ensure  $-11
+;      ensure  $-2
+;      allocate   $-2
+;      free   0  $-11
+;      free   0  $-11
+;      r0 null;      r1 $7;      r2 $-3;      r3 $-2
+; STOREF 1  $T9
+;      predecessor   STOREF $T8  $L2
+;      successor   ADDF $L1 $T9 $T10
+;      gen
+;      kill     $T9
+;      in     $L2     eol     $P1     $L1     $L3     $P3
+;      out     $L2     eol     $P1     $L1     $T9     $L3     $P3
+;      ensure  $-12
+;      allocate   $-12
+;      r0 $-12;      r1 $7;      r2 $-3;      r3 $-2
+; ADDF $L1 $T9 $T10
+;      predecessor   STOREF 1  $T9
+;      successor   STOREF $T10  $L1
+;      gen     $L1     $T9
+;      kill     $T10
+;      in     $L2     eol     $P1     $L1     $T9     $L3     $P3
+;      out     $L2     eol     $P1     $T10     $L3     $P3
+;      ensure  $-1
+;      allocate   $-1
+;      free   1  $7
+;      ensure  $-12
+;      free   1  $-1
+;      free   0  $-12
+;      r0 null;      r1 $-13;      r2 $-3;      r3 $-2
+; STOREF $T10  $L1
+;      predecessor   ADDF $L1 $T9 $T10
+;      successor   STOREF $P1  $T11
+;      gen     $T10
+;      kill     $L1
+;      in     $L2     eol     $P1     $T10     $L3     $P3
+;      out     $L2     eol     $L1     $P1     $L3     $P3
+;      ensure  $-13
+;      ensure  $-1
+;      allocate   $-1
+;      free   1  $-13
+;      free   1  $-13
+;      r0 $-1;      r1 null;      r2 $-3;      r3 $-2
+; STOREF $P1  $T11
+;      predecessor   STOREF $T10  $L1
+;      successor   GE $L1 $T11 label2
+;      gen     $P1
+;      kill     $T11
+;      in     $L2     eol     $L1     $P1     $L3     $P3
+;      out     $L2     eol     $L1     $T11     $P1     $L3     $P3
+;      ensure  $9
+;      allocate   $9
+;      ensure  $-14
+;      allocate   $-14
+;      free   2  $-3
+;      r0 $-1;      r1 $9;      r2 $-14;      r3 $-2
+; GE $L1 $T11 label2
+;      predecessor   STOREF $P1  $T11
+;      successor   JUMP   label1
+;      successor   LABEL   label2
+;      gen     $L1     $T11
+;      kill
+;      in     $L2     eol     $L1     $T11     $P1     $L3     $P3
+;      out     $L2     eol     $P1     $L1     $L3     $P3
+;      ensure  $-1
+;      ensure  $-14
+;           GE || GT
+;      free   2  $-14
+;      free   0  $-1
+;      store 0  $-1
+;      free   1  $9
+;      free   2  $-14
+;      free   3  $-2
+;      store 3  $-2
+;      r0 null;      r1 null;      r2 null;      r3 null
+; JUMP   label1
+;      predecessor   GE $L1 $T11 label2
+;      successor   LABEL   label1
+;      gen
+;      kill
+;      in     eol     $P1     $L1     $L2     $L3     $P3
+;      out     eol     $P1     $L1     $L2     $L3     $P3
+;      free   0  $-1
+;      free   1  $9
+;      free   2  $-14
+;      free   3  $-2
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   label2
+;      predecessor   GE $L1 $T11 label2
+;      successor   WRITES   eol
+;      gen
+;      kill
+;      in     $L2     eol
+;      out     $L2     eol
+;      free   0  $-1
+;      free   1  $9
+;      free   2  $-14
+;      free   3  $-2
+;      r0 null;      r1 null;      r2 null;      r3 null
+; WRITES   eol
+;      predecessor   LABEL   label2
+;      successor   STOREF $L2  $R
+;      gen     eol
+;      kill
+;      in     $L2     eol
+;      out     $L2
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREF $L2  $R
+;      predecessor   WRITES   eol
+;      successor   RET   
+;      gen     $L2
+;      kill     $R
+;      in     $L2
+;      out
+;      ensure  $-2
+;      allocate   $-2
+;      free   3  $-2
+;      free   3  $-2
+;      r0 null;      r1 null;      r2 null;      r3 null
+; RET   
+;      predecessor   STOREF $L2  $R
+;      gen
+;      kill
+;      in
+;      out
+;      free   0  $-1
+;      free   1  $9
+;      free   2  $-14
+;      free   3  $-2
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   main
+;      successor   LINK   
+;      gen
+;      kill
+;      in     ins     ins3     ins2     eol     intro
+;      out     ins     ins3     ins2     eol     intro
+;      free   0  $-1
+;      free   1  $9
+;      free   2  $-14
+;      free   3  $-2
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LINK   
+;      predecessor   LABEL   main
+;      successor   WRITES   intro
+;      gen
+;      kill
+;      in     ins     ins3     ins2     eol     intro
+;      out     ins     ins3     ins2     eol     intro
+;      r0 null;      r1 null;      r2 null;      r3 null
+; WRITES   intro
+;      predecessor   LINK   
+;      successor   WRITES   eol
+;      gen     intro
+;      kill
+;      in     ins     ins3     ins2     eol     intro
+;      out     ins     ins3     ins2     eol
+;      r0 null;      r1 null;      r2 null;      r3 null
+; WRITES   eol
+;      predecessor   WRITES   intro
+;      successor   WRITES   ins2
+;      gen     eol
+;      kill
+;      in     ins     ins3     ins2     eol
+;      out     ins     ins3     ins2
+;      r0 null;      r1 null;      r2 null;      r3 null
+; WRITES   ins2
+;      predecessor   WRITES   eol
+;      successor   READF   $L2
+;      gen     ins2
+;      kill
+;      in     ins     ins3     ins2
+;      out     ins     ins3
+;      r0 null;      r1 null;      r2 null;      r3 null
+; READF   $L2
+;      predecessor   WRITES   ins2
+;      successor   WRITES   ins3
+;      gen
+;      kill     $L2
+;      in     ins     ins3
+;      out     $L2     ins     ins3
+;      allocate   $-2
+;      r0 null;      r1 null;      r2 null;      r3 $-2
+; WRITES   ins3
+;      predecessor   READF   $L2
+;      successor   READF   $L3
+;      gen     ins3
+;      kill
+;      in     $L2     ins     ins3
+;      out     $L2     ins
+;      r0 null;      r1 null;      r2 null;      r3 $-2
+; READF   $L3
+;      predecessor   WRITES   ins3
+;      successor   WRITES   ins
+;      gen
+;      kill     $L3
+;      in     $L2     ins
+;      out     $L3     $L2     ins
+;      allocate   $-3
+;      r0 null;      r1 null;      r2 $-3;      r3 $-2
+; WRITES   ins
+;      predecessor   READF   $L3
+;      successor   READF   $L4
+;      gen     ins
+;      kill
+;      in     $L3     $L2     ins
+;      out     $L3     $L2
+;      r0 null;      r1 null;      r2 $-3;      r3 $-2
+; READF   $L4
+;      predecessor   WRITES   ins
+;      successor   STOREF $L2  $T1
+;      gen
+;      kill     $L4
+;      in     $L3     $L2
+;      out     $L3     $L4     $L2
+;      allocate   $-4
+;      r0 null;      r1 $-4;      r2 $-3;      r3 $-2
+; STOREF $L2  $T1
+;      predecessor   READF   $L4
+;      successor   SUBF $L3 $T1 $T2
+;      gen     $L2
+;      kill     $T1
+;      in     $L3     $L4     $L2
+;      out     $L3     $L4     $L2     $T1
+;      ensure  $-2
+;      ensure  $-5
+;      allocate   $-5
+;      r0 $-5;      r1 $-4;      r2 $-3;      r3 $-2
+; SUBF $L3 $T1 $T2
+;      predecessor   STOREF $L2  $T1
+;      successor   STOREF $L2  $T3
+;      gen     $L3     $T1
+;      kill     $T2
+;      in     $L3     $L4     $L2     $T1
+;      out     $L3     $T2     $L4     $L2
+;      ensure  $-3
+;      ensure  $-5
+;      free   0  $-5
+;      free   2  $-3
+;      store 2  $-3
+;      r0 null;      r1 $-4;      r2 $-6;      r3 $-2
+; STOREF $L2  $T3
+;      predecessor   SUBF $L3 $T1 $T2
+;      successor   PUSH   
+;      gen     $L2
+;      kill     $T3
+;      in     $L3     $T2     $L4     $L2
+;      out     $L3     $T3     $T2     $L4
+;      ensure  $-2
+;      ensure  $-7
+;      allocate   $-7
+;      free   3  $-2
+;      free   3  $-2
+;      r0 $-7;      r1 $-4;      r2 $-6;      r3 null
+; PUSH   
+;      predecessor   STOREF $L2  $T3
+;      successor   PUSH   $L4
+;      gen
+;      kill
+;      in     $L3     $T3     $T2     $L4
+;      out     $L3     $T3     $T2     $L4
+;      r0 $-7;      r1 $-4;      r2 $-6;      r3 null
+; PUSH   $L4
+;      predecessor   PUSH   
+;      successor   PUSH   $T2
+;      gen     $L4
+;      kill
+;      in     $L3     $T3     $T2     $L4
+;      out     $L3     $T3     $T2
+;      ensure  $-4
+;      free   1  $-4
+;      r0 $-7;      r1 null;      r2 $-6;      r3 null
+; PUSH   $T2
+;      predecessor   PUSH   $L4
+;      successor   PUSH   $T3
+;      gen     $T2
+;      kill
+;      in     $L3     $T3     $T2
+;      out     $L3     $T3
+;      ensure  $-6
+;      free   2  $-6
+;      r0 $-7;      r1 null;      r2 null;      r3 null
+; PUSH   $T3
+;      predecessor   PUSH   $T2
+;      successor   PUSH   $L3
+;      gen     $T3
+;      kill
+;      in     $L3     $T3
+;      out     $L3
+;      ensure  $-7
+;      free   0  $-7
+;      r0 null;      r1 null;      r2 null;      r3 null
+; PUSH   $L3
+;      predecessor   PUSH   $T3
+;      successor   JSR   iapprox
+;      gen     $L3
+;      kill
+;      in     $L3
+;      out
+;      ensure  $-3
+;      allocate   $-3
+;      free   3  $-3
+;      r0 null;      r1 null;      r2 null;      r3 null
+; JSR   iapprox
+;      predecessor   PUSH   $L3
+;      successor   POP   
+;      gen
+;      kill
+;      in
+;      out
+;      free   0  $-7
+;      free   1  $-4
+;      free   2  $-6
+;      free   3  $-3
+;      r0 null;      r1 null;      r2 null;      r3 null
+; POP   
+;      predecessor   JSR   iapprox
+;      successor   POP   
+;      gen
+;      kill
+;      in
+;      out
+;      r0 null;      r1 null;      r2 null;      r3 null
+; POP   
+;      predecessor   POP   
+;      successor   POP   
+;      gen
+;      kill
+;      in
+;      out
+;      r0 null;      r1 null;      r2 null;      r3 null
+; POP   
+;      predecessor   POP   
+;      successor   POP   
+;      gen
+;      kill
+;      in
+;      out
+;      r0 null;      r1 null;      r2 null;      r3 null
+; POP   
+;      predecessor   POP   
+;      successor   POP   $T4
+;      gen
+;      kill
+;      in
+;      out
+;      r0 null;      r1 null;      r2 null;      r3 null
+; POP   $T4
+;      predecessor   POP   
+;      successor   STOREF $T4  $L1
+;      gen
+;      kill     $T4
+;      in
+;      out     $T4
+;      allocate   $-8
+;      r0 null;      r1 null;      r2 null;      r3 $-8
+; STOREF $T4  $L1
+;      predecessor   POP   $T4
+;      successor   WRITEF   $L1
+;      gen     $T4
+;      kill     $L1
+;      in     $T4
+;      out     $L1
+;      ensure  $-8
+;      ensure  $-1
+;      allocate   $-1
+;      free   3  $-8
+;      free   3  $-8
+;      r0 null;      r1 null;      r2 $-1;      r3 null
+; WRITEF   $L1
+;      predecessor   STOREF $T4  $L1
+;      successor   STOREI 0  $T5
+;      gen     $L1
+;      kill
+;      in     $L1
+;      out
+;      ensure  $-1
+;      free   2  $-1
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREI 0  $T5
+;      predecessor   WRITEF   $L1
+;      successor   STOREI $T5  $R
+;      gen
+;      kill     $T5
+;      in
+;      out     $T5
+;      ensure  $-9
+;      allocate   $-9
+;      r0 null;      r1 null;      r2 null;      r3 $-9
+; STOREI $T5  $R
+;      predecessor   STOREI 0  $T5
+;      successor   RET   
+;      gen     $T5
+;      kill     $R
+;      in     $T5
+;      out
+;      ensure  $-9
+;      free   3  $-9
+;      free   3  $-9
+;      r0 null;      r1 null;      r2 null;      r3 null
+; RET   
+;      predecessor   STOREI $T5  $R
+;      gen
+;      kill
+;      in
+;      out
+;      free   0  $-7
+;      free   1  $-4
+;      free   2  $-1
+;      free   3  $-9
+;      r0 null;      r1 null;      r2 null;      r3 null
+;tiny code
+str dxis "dx = "
+str eol "\n"
+str intro "Integrating f(x) = 8x^3 + x^2 + 9x + 5"
+str ins "Enter number of partitions to use to approximate: "
+str ins2 "Integration range from x= "
+str ins3 "to x= "
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label F
+link 15
+move $6 r3
+muli r3 r3
+move $-2 r2
+move 8 r2
+move $6 r1
+muli r1 r2
+muli r1 r2
+muli r1 r2
+addi r2 r3
+move $-7 r2
+move 9 r2
+muli r1 r2
+addi r2 r3
+move $-10 r2
+move 5 r2
+addi r2 r3
+move r3 $7
+unlnk
+ret
+label iapprox
+link 18
+move $8 r3
+move $9 r2
+divr r2 r3
+move $-3 r1
+move r3 r1
+move $-5 r3
+move 0 r3
+move $-2 r0
+move r3 r0
+move $-6 r3
+move 1 r3
+move $-1 r2
+move r3 r2
+sys writes dxis
+sys writer r1
+sys writes eol
+move r0 $-2
+move r1 $-3
+move r2 $-1
+label label1
+move $-1 r3
+move $-3 r2
+mulr r2 r3
+move $7 r1
+addr r1 r3
+push
+push r3
+push r0
+push r1
+push r2
+push r3
+jsr F
+pop r3
+pop r2
+pop r1
+pop r0
+pop
+pop r3
+mulr r2 r3
+move $-2 r0
+addr r3 r0
+move $-2 r3
+move r0 r3
+move $-12 r0
+move 1 r0
+move $-1 r1
+addr r0 r1
+move $-1 r0
+move r1 r0
+move $9 r1
+move $9 r1
+move $-14 r2
+move r1 r2
+cmpr r0 r2
+move r0 $-1
+move r3 $-2
+jge label2
+jmp label1
+label label2
+sys writes eol
+move $-2 r3
+move r3 $10
+unlnk
+ret
+label main
+link 19
+sys writes intro
+sys writes eol
+sys writes ins2
+sys readr r3
+sys writes ins3
+sys readr r2
+sys writes ins
+sys readr r1
+move $-5 r0
+move r3 r0
+move r2 $-3
+subr r0 r2
+move $-7 r0
+move r3 r0
+push
+push r1
+push r2
+push r0
+move $-3 r3
+push r3
+push r0
+push r1
+push r2
+push r3
+jsr iapprox
+pop r3
+pop r2
+pop r1
+pop r0
+pop
+pop
+pop
+pop
+pop r3
+move $-1 r2
+move r3 r2
+sys writer r2
+move $-9 r3
+move 0 r3
+move r3 $6
+unlnk
+ret
+end

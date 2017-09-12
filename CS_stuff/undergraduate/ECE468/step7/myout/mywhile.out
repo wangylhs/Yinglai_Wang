@@ -1,0 +1,348 @@
+; LABEL   main
+;      successor   LINK   
+;      gen
+;      kill
+;      in
+;      out
+;      free   0  
+;      free   1  
+;      free   2  
+;      free   3  
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LINK   
+;      predecessor   LABEL   main
+;      successor   STOREF 7.0  $T1
+;      gen
+;      kill
+;      in
+;      out
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREF 7.0  $T1
+;      predecessor   LINK   
+;      successor   STOREF $T1  num
+;      gen
+;      kill     $T1
+;      in
+;      out     $T1
+;      ensure  $-1
+;      allocate   $-1
+;      r0 null;      r1 null;      r2 null;      r3 $-1
+; STOREF $T1  num
+;      predecessor   STOREF 7.0  $T1
+;      successor   STOREI 100  $T2
+;      gen     $T1
+;      kill     num
+;      in     $T1
+;      out     num
+;      ensure  $-1
+;      ensure  num
+;      allocate   num
+;      free   3  $-1
+;      r0 null;      r1 null;      r2 num;      r3 null
+; STOREI 100  $T2
+;      predecessor   STOREF $T1  num
+;      successor   STOREI $T2  i
+;      gen
+;      kill     $T2
+;      in     num
+;      out     num     $T2
+;      ensure  $-2
+;      allocate   $-2
+;      r0 null;      r1 null;      r2 num;      r3 $-2
+; STOREI $T2  i
+;      predecessor   STOREI 100  $T2
+;      successor   STOREI 1  $T3
+;      gen     $T2
+;      kill     i
+;      in     num     $T2
+;      out     i     num
+;      ensure  $-2
+;      ensure  i
+;      allocate   i
+;      free   3  $-2
+;      r0 null;      r1 i;      r2 num;      r3 null
+; STOREI 1  $T3
+;      predecessor   STOREI $T2  i
+;      successor   STOREI $T3  j
+;      gen
+;      kill     $T3
+;      in     i     num
+;      out     i     num     $T3
+;      ensure  $-3
+;      allocate   $-3
+;      r0 null;      r1 i;      r2 num;      r3 $-3
+; STOREI $T3  j
+;      predecessor   STOREI 1  $T3
+;      successor   STOREF num  approx
+;      gen     $T3
+;      kill     j
+;      in     i     num     $T3
+;      out     i     num
+;      ensure  $-3
+;      ensure  j
+;      allocate   j
+;      free   3  $-3
+;      r0 j;      r1 i;      r2 num;      r3 null
+; STOREF num  approx
+;      predecessor   STOREI $T3  j
+;      successor   LABEL   label1
+;      gen     num
+;      kill     approx
+;      in     i     num
+;      out     i     approx     num
+;      ensure  num
+;      ensure  approx
+;      allocate   approx
+;      r0 j;      r1 i;      r2 num;      r3 approx
+; LABEL   label1
+;      predecessor   STOREF num  approx
+;      predecessor   JUMP   label1
+;      successor   STOREF 0.5  $T4
+;      gen
+;      kill
+;      in     i     approx     num
+;      out     i     approx     num
+;      free   0  j
+;      free   1  i
+;      free   2  num
+;      free   3  approx
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREF 0.5  $T4
+;      predecessor   LABEL   label1
+;      successor   DIVF num approx $T5
+;      gen
+;      kill     $T4
+;      in     i     approx     num
+;      out     i     $T4     approx     num
+;      ensure  $-4
+;      allocate   $-4
+;      r0 null;      r1 null;      r2 null;      r3 $-4
+; DIVF num approx $T5
+;      predecessor   STOREF 0.5  $T4
+;      successor   ADDF approx $T5 $T6
+;      gen     num     approx
+;      kill     $T5
+;      in     i     $T4     approx     num
+;      out     i     $T4     approx     $T5     num
+;      ensure  num
+;      allocate   num
+;      ensure  approx
+;      allocate   approx
+;      free   2  num
+;      r0 null;      r1 approx;      r2 $-5;      r3 $-4
+; ADDF approx $T5 $T6
+;      predecessor   DIVF num approx $T5
+;      successor   MULTF $T4 $T6 $T7
+;      gen     approx     $T5
+;      kill     $T6
+;      in     i     $T4     approx     $T5     num
+;      out     i     $T4     $T6     num
+;      ensure  approx
+;      ensure  $-5
+;      free   1  approx
+;      free   2  $-5
+;      r0 null;      r1 $-6;      r2 null;      r3 $-4
+; MULTF $T4 $T6 $T7
+;      predecessor   ADDF approx $T5 $T6
+;      successor   STOREF $T7  newapprox
+;      gen     $T4     $T6
+;      kill     $T7
+;      in     i     $T4     $T6     num
+;      out     i     $T7     num
+;      ensure  $-4
+;      ensure  $-6
+;      free   3  $-4
+;      free   1  $-6
+;      r0 null;      r1 null;      r2 null;      r3 $-7
+; STOREF $T7  newapprox
+;      predecessor   MULTF $T4 $T6 $T7
+;      successor   STOREF newapprox  approx
+;      gen     $T7
+;      kill     newapprox
+;      in     i     $T7     num
+;      out     i     newapprox     num
+;      ensure  $-7
+;      ensure  newapprox
+;      allocate   newapprox
+;      free   3  $-7
+;      r0 null;      r1 null;      r2 newapprox;      r3 null
+; STOREF newapprox  approx
+;      predecessor   STOREF $T7  newapprox
+;      successor   STOREI 1  $T8
+;      gen     newapprox
+;      kill     approx
+;      in     i     newapprox     num
+;      out     approx     i     num
+;      ensure  newapprox
+;      ensure  approx
+;      allocate   approx
+;      free   2  newapprox
+;      r0 null;      r1 null;      r2 null;      r3 approx
+; STOREI 1  $T8
+;      predecessor   STOREF newapprox  approx
+;      successor   SUBI i $T8 $T9
+;      gen
+;      kill     $T8
+;      in     approx     i     num
+;      out     approx     i     $T8     num
+;      ensure  $-8
+;      allocate   $-8
+;      r0 null;      r1 null;      r2 $-8;      r3 approx
+; SUBI i $T8 $T9
+;      predecessor   STOREI 1  $T8
+;      successor   STOREI $T9  i
+;      gen     i     $T8
+;      kill     $T9
+;      in     approx     i     $T8     num
+;      out     approx     $T9     num
+;      ensure  i
+;      allocate   i
+;      ensure  $-8
+;      free   1  i
+;      free   2  $-8
+;      r0 null;      r1 $-9;      r2 null;      r3 approx
+; STOREI $T9  i
+;      predecessor   SUBI i $T8 $T9
+;      successor   STOREI 0  $T10
+;      gen     $T9
+;      kill     i
+;      in     approx     $T9     num
+;      out     approx     i     num
+;      ensure  $-9
+;      ensure  i
+;      allocate   i
+;      free   1  $-9
+;      r0 null;      r1 null;      r2 i;      r3 approx
+; STOREI 0  $T10
+;      predecessor   STOREI $T9  i
+;      successor   EQ i $T10 label2
+;      gen
+;      kill     $T10
+;      in     approx     i     num
+;      out     approx     i     $T10     num
+;      ensure  $-10
+;      allocate   $-10
+;      r0 null;      r1 $-10;      r2 i;      r3 approx
+; EQ i $T10 label2
+;      predecessor   STOREI 0  $T10
+;      successor   JUMP   label1
+;      successor   LABEL   label2
+;      gen     i     $T10
+;      kill
+;      in     approx     i     $T10     num
+;      out     approx     i     num
+;      ensure  i
+;      ensure  $-10
+;      free   1  $-10
+;      free   0  j
+;      free   1  $-10
+;      free   2  i
+;      free   3  approx
+;      r0 null;      r1 null;      r2 null;      r3 null
+; JUMP   label1
+;      predecessor   EQ i $T10 label2
+;      successor   LABEL   label1
+;      gen
+;      kill
+;      in     i     approx     num
+;      out     i     approx     num
+;      free   0  j
+;      free   1  $-10
+;      free   2  i
+;      free   3  approx
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   label2
+;      predecessor   EQ i $T10 label2
+;      successor   WRITEF   approx
+;      gen
+;      kill
+;      in     approx
+;      out     approx
+;      free   0  j
+;      free   1  $-10
+;      free   2  i
+;      free   3  approx
+;      r0 null;      r1 null;      r2 null;      r3 null
+; WRITEF   approx
+;      predecessor   LABEL   label2
+;      successor   RET   
+;      gen     approx
+;      kill
+;      in     approx
+;      out
+;      r0 null;      r1 null;      r2 null;      r3 null
+; RET   
+;      predecessor   WRITEF   approx
+;      gen
+;      kill
+;      in
+;      out
+;      free   0  j
+;      free   1  $-10
+;      free   2  i
+;      free   3  approx
+;      r0 null;      r1 null;      r2 null;      r3 null
+;tiny code
+var i
+var j
+var newapprox
+var approx
+var num
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label main
+link 15
+move $-1 r3
+move 7.0 r3
+move num r2
+move r3 num
+move r3 r2
+move $-2 r3
+move 100 r3
+move i r1
+move r3 i
+move r3 r1
+move $-3 r3
+move 1 r3
+move j r0
+move r3 j
+move r3 r0
+move approx r3
+move r2 approx
+move r2 r3
+label label1
+move $-4 r3
+move 0.5 r3
+move num r2
+move approx r1
+divr r1 r2
+addr r2 r1
+mulr r1 r3
+move newapprox r2
+move r3 newapprox
+move r3 r2
+move approx r3
+move r2 approx
+move r2 r3
+move $-8 r2
+move 1 r2
+move i r1
+subi r2 r1
+move i r2
+move r1 i
+move r1 r2
+move $-10 r1
+move 0 r1
+cmpi r2 r1
+jeq label2
+jmp label1
+label label2
+sys writer approx
+unlnk
+ret
+end

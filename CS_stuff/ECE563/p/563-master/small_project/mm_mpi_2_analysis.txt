@@ -1,0 +1,60 @@
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+Generating a 1536x1536 matrix and a 1536x1536 matrix.
+Starting Parallel Operation
+Multiplication Completed
+Generating Solution for Verification
+Verifying Solution
+
+Results:
+Solution: Valid
+Parallel:   0.780000 s
+Sequential: 1.472000 s
+Speedup: 188.72 %
+Threads: 2
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+Generating a 1536x1536 matrix and a 1536x1536 matrix.
+Starting Parallel Operation
+Multiplication Completed
+Generating Solution for Verification
+Verifying Solution
+
+Results:
+Solution: Valid
+Parallel:   0.466000 s
+Sequential: 1.485000 s
+Speedup: 318.67 %
+Threads: 4
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+Generating a 1536x1536 matrix and a 1536x1536 matrix.
+Starting Parallel Operation
+Multiplication Completed
+Generating Solution for Verification
+Verifying Solution
+
+Results:
+Solution: Valid
+Parallel:   0.305000 s
+Sequential: 1.458000 s
+Speedup: 478.03 %
+Threads: 8
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+Generating a 1536x1536 matrix and a 1536x1536 matrix.
+Starting Parallel Operation
+Multiplication Completed
+Generating Solution for Verification
+Verifying Solution
+
+Results:
+Solution: Valid
+Parallel:   0.186000 s
+Sequential: 1.498000 s
+Speedup: 805.38 %
+Threads: 16

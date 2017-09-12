@@ -1,0 +1,68 @@
+
+/*
+ * 
+ * CS 180 Fall 2011
+ * Final Exam Solutions
+ * 
+ * Author: Aditya Mathur
+ * December 19, 2011
+ * 
+ * Q1
+ */
+public class Q1{
+    // Rotate right by 1 position the elements
+    // in an array of characters.
+    
+    public static void rotate(char []myChars){
+        if(myChars.length<=1)
+            return; // No need to rotate if the array has 1 or fewer elements.
+        char save=myChars[0]; // Save the leftmost element
+        myChars[0]=myChars[myChars.length-1];// get the length of the array.
+        for(int i=myChars.length-1; i>0; i--){ // Rotate starting from the right
+            myChars[i]=myChars[i-1];  // Rotate right
+        }
+        myChars[1]=save;
+    }// End of rotate()
+    
+    // Recursive generation of the next element in a series.
+    public static int nextItem(int n){
+        if(n==1) return 10;
+        else return(nextItem(n-1)-3);
+    }// End of nextItem()
+    
+   // Delayed printing. May not delay exactly by 10 seconds.
+    public static void simpleTimer(int d){
+        for(int i=1; i<=10; i++){
+              System.out.println(i);
+            try{
+                Thread.sleep(d*1000);
+            }catch(Exception e){}
+            
+          
+        }
+    }// End of simpleTimer()
+  
+    // Test the methods.
+    
+    
+    public static void main(String [] arg){
+        char [] a={'a', 'b', 'c', '0', '1'};
+        // Before rotation
+         for(int i=0; i<a.length; i++){
+            System.out.print(a[i]+" ");
+        }
+         System.out.println();
+        rotate(a);
+        // AFter rotation.
+        for(int i=0; i<a.length; i++){
+            System.out.print(a[i]+" ");
+        }
+          System.out.println();
+          int n=3;
+        System.out.println("Element "+n+" of the series: "+nextItem(n));
+        
+        System.out.println("Delayed printing");
+        simpleTimer(1);
+    }
+    
+}

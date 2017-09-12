@@ -1,0 +1,144 @@
+Circuit: Problem 8.87, Jager and Blalock Microelectronics 4th ed.
+--------------------------------------------------------------------------
+Problem 8.87, Jager and Blalock Microelectronics 4th ed.
+*Adam T. Neal, ECE 255, Purdue University, Fall 2013
+
+*transitor model, Vaf= inf by default for NPN model
+.model BJT1 npn is=1e-16 bf=50 br=0.25
+
+*bias resistors
+r1 NSupply NBase 68k
+r2 NBase 0 36k
+re NEmitter 0 33k
+rc NSupply NCollector 43k
+
+*dc supply
+
+vcc NSupply 0 dc 10V
+
+*  attach transistor (collector, base, emitter) described by model, BJT1
+q1 NCollector NBase NEmitter BJT1
+
+* find the dc operating point
+
+.op
+
+.options nopage
+.end
+
+--------------------------------------------------------------------------
+Note: no resource usage information for 'space',
+	or no active circuit available
+
+Circuit: Problem 8.87, Jager and Blalock Microelectronics 4th ed.
+
+Circuit: Problem 8.87, Jager and Blalock Microelectronics 4th ed.
+Date: Wed Oct  9 21:46:52  2013
+
+
+
+Operating point information:
+
+	Node	Voltage
+	----	-------
+	ncollector	6.532308e+00
+	nemitter	2.714477e+00
+	nbase	3.423574e+00
+	nsupply	1.000000e+01
+
+	Source	Current
+	------	-------
+
+	vcc#branch	-1.77356e-04
+
+ BJT models (Bipolar Junction Transistor)
+ model          bjt1
+
+      type       npn
+        is     1e-16
+        bf        50
+        nf         1
+       vaf         0
+       ikf         0
+       ise         0
+        ne       1.5
+        br      0.25
+        nr         1
+       var         0
+       ikr         0
+       isc         0
+        nc         2
+        rb         0
+       irb         0
+       rbm         0
+        re         0
+        rc         0
+       cje         0
+       vje      0.75
+       mje      0.33
+        tf         0
+       xtf         0
+       vtf         0
+       itf         0
+       ptf         0
+       cjc         0
+       vjc      0.75
+       mjc      0.33
+      xcjc         1
+        tr         0
+       cjs         0
+       ccs         0
+       vjs      0.75
+       mjs         0
+       xtb         0
+        eg      1.11
+       xti         3
+        fc       0.5
+      tnom        27
+        kf         0
+        af         0
+
+ Resistor models (Simple linear resistor)
+ model             R
+
+       rsh         0
+    narrow         0
+       tc1         0
+       tc2         0
+      defw     1e-05
+
+ BJT: Bipolar Junction Transistor
+ device           q1
+ model          bjt1
+        ic  8.07e-05
+        ib  1.61e-06
+        ie -8.23e-05
+       vbe     0.709
+       vbc     -3.11
+        gm   0.00312
+       gpi  6.24e-05
+       gmu     4e-12
+        gx         0
+        go     1e-12
+       cpi         0
+       cmu         0
+       cbx         0
+       ccs         0
+
+ Resistor: Simple linear resistor
+ device           rc        re        r2        r1
+ model             R         R         R         R
+resistance   4.3e+04   3.3e+04   3.6e+04   6.8e+04
+         i  8.06e-05  8.23e-05  9.51e-05  9.67e-05
+         p   0.00028  0.000223  0.000326  0.000636
+
+ Vsource: Independent voltage source
+ device          vcc
+        dc        10
+     acmag         0
+         i -0.000177
+         p   0.00177
+
+CPU time since last call: 0.004 seconds.
+
+Total CPU time: 0.004 seconds.

@@ -1,0 +1,797 @@
+; LABEL   main
+;      successor   LINK   
+;      gen
+;      kill
+;      in
+;      out
+;      free   0  
+;      free   1  
+;      free   2  
+;      free   3  
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LINK   
+;      predecessor   LABEL   main
+;      successor   STOREF 0.0001  $T1
+;      gen
+;      kill
+;      in
+;      out
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREF 0.0001  $T1
+;      predecessor   LINK   
+;      successor   STOREF $T1  tolerance
+;      gen
+;      kill     $T1
+;      in
+;      out     $T1
+;      ensure  $-1
+;      allocate   $-1
+;      r0 null;      r1 null;      r2 null;      r3 $-1
+; STOREF $T1  tolerance
+;      predecessor   STOREF 0.0001  $T1
+;      successor   STOREF 7.0  $T2
+;      gen     $T1
+;      kill     tolerance
+;      in     $T1
+;      out     tolerance
+;      ensure  $-1
+;      ensure  tolerance
+;      allocate   tolerance
+;      free   3  $-1
+;      r0 null;      r1 null;      r2 tolerance;      r3 null
+; STOREF 7.0  $T2
+;      predecessor   STOREF $T1  tolerance
+;      successor   STOREF $T2  num
+;      gen
+;      kill     $T2
+;      in     tolerance
+;      out     tolerance     $T2
+;      ensure  $-2
+;      allocate   $-2
+;      r0 null;      r1 null;      r2 tolerance;      r3 $-2
+; STOREF $T2  num
+;      predecessor   STOREF 7.0  $T2
+;      successor   STOREF num  approx
+;      gen     $T2
+;      kill     num
+;      in     tolerance     $T2
+;      out     tolerance     num
+;      ensure  $-2
+;      ensure  num
+;      allocate   num
+;      free   3  $-2
+;      r0 null;      r1 num;      r2 tolerance;      r3 null
+; STOREF num  approx
+;      predecessor   STOREF $T2  num
+;      successor   STOREI 0  $T3
+;      gen     num
+;      kill     approx
+;      in     tolerance     num
+;      out     tolerance     approx     num
+;      ensure  num
+;      ensure  approx
+;      allocate   approx
+;      r0 null;      r1 num;      r2 tolerance;      r3 approx
+; STOREI 0  $T3
+;      predecessor   STOREF num  approx
+;      successor   STOREI $T3  count
+;      gen
+;      kill     $T3
+;      in     tolerance     approx     num
+;      out     tolerance     approx     num     $T3
+;      ensure  $-3
+;      allocate   $-3
+;      r0 $-3;      r1 num;      r2 tolerance;      r3 approx
+; STOREI $T3  count
+;      predecessor   STOREI 0  $T3
+;      successor   STOREF 0.0  $T4
+;      gen     $T3
+;      kill     count
+;      in     tolerance     approx     num     $T3
+;      out     tolerance     approx     num     count
+;      ensure  $-3
+;      ensure  count
+;      allocate   count
+;      free   2  tolerance
+;      free   0  $-3
+;      r0 null;      r1 num;      r2 count;      r3 approx
+; STOREF 0.0  $T4
+;      predecessor   STOREI $T3  count
+;      successor   STOREF $T4  diff
+;      gen
+;      kill     $T4
+;      in     tolerance     approx     num     count
+;      out     tolerance     approx     num     count     $T4
+;      ensure  $-4
+;      allocate   $-4
+;      r0 $-4;      r1 num;      r2 count;      r3 approx
+; STOREF $T4  diff
+;      predecessor   STOREF 0.0  $T4
+;      successor   STOREI 0  $T5
+;      gen     $T4
+;      kill     diff
+;      in     tolerance     approx     num     count     $T4
+;      out     tolerance     approx     num     count
+;      ensure  $-4
+;      ensure  diff
+;      allocate   diff
+;      free   1  num
+;      free   0  $-4
+;      r0 null;      r1 diff;      r2 count;      r3 approx
+; STOREI 0  $T5
+;      predecessor   STOREF $T4  diff
+;      successor   STOREI $T5  enough
+;      gen
+;      kill     $T5
+;      in     tolerance     approx     num     count
+;      out     tolerance     approx     num     count     $T5
+;      ensure  $-5
+;      allocate   $-5
+;      r0 $-5;      r1 diff;      r2 count;      r3 approx
+; STOREI $T5  enough
+;      predecessor   STOREI 0  $T5
+;      successor   LABEL   label1
+;      gen     $T5
+;      kill     enough
+;      in     tolerance     approx     num     count     $T5
+;      out     tolerance     approx     num     count     enough
+;      ensure  $-5
+;      ensure  enough
+;      allocate   enough
+;      free   3  approx
+;      free   0  $-5
+;      r0 null;      r1 diff;      r2 count;      r3 enough
+; LABEL   label1
+;      predecessor   STOREI $T5  enough
+;      predecessor   JUMP   label1
+;      successor   STOREI 1  $T6
+;      gen
+;      kill
+;      in     tolerance     approx     num     count     enough
+;      out     tolerance     approx     num     count     enough
+;      free   0  $-5
+;      free   1  diff
+;      free   2  count
+;      free   3  enough
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREI 1  $T6
+;      predecessor   LABEL   label1
+;      successor   ADDI count $T6 $T7
+;      gen
+;      kill     $T6
+;      in     tolerance     approx     num     count     enough
+;      out     tolerance     approx     num     count     $T6     enough
+;      ensure  $-6
+;      allocate   $-6
+;      r0 null;      r1 null;      r2 null;      r3 $-6
+; ADDI count $T6 $T7
+;      predecessor   STOREI 1  $T6
+;      successor   STOREI $T7  count
+;      gen     count     $T6
+;      kill     $T7
+;      in     tolerance     approx     num     count     $T6     enough
+;      out     tolerance     approx     num     $T7     enough
+;      ensure  count
+;      allocate   count
+;      ensure  $-6
+;      free   2  count
+;      free   3  $-6
+;      r0 null;      r1 null;      r2 $-7;      r3 null
+; STOREI $T7  count
+;      predecessor   ADDI count $T6 $T7
+;      successor   STOREF 0.5  $T8
+;      gen     $T7
+;      kill     count
+;      in     tolerance     approx     num     $T7     enough
+;      out     count     tolerance     approx     num     enough
+;      ensure  $-7
+;      ensure  count
+;      allocate   count
+;      free   2  $-7
+;      r0 null;      r1 null;      r2 null;      r3 count
+; STOREF 0.5  $T8
+;      predecessor   STOREI $T7  count
+;      successor   DIVF num approx $T9
+;      gen
+;      kill     $T8
+;      in     count     tolerance     approx     num     enough
+;      out     count     tolerance     approx     $T8     num     enough
+;      ensure  $-8
+;      allocate   $-8
+;      r0 null;      r1 null;      r2 $-8;      r3 count
+; DIVF num approx $T9
+;      predecessor   STOREF 0.5  $T8
+;      successor   ADDF approx $T9 $T10
+;      gen     num     approx
+;      kill     $T9
+;      in     count     tolerance     approx     $T8     num     enough
+;      out     count     tolerance     approx     $T8     $T9     num     enough
+;      ensure  num
+;      allocate   num
+;      ensure  approx
+;      allocate   approx
+;      free   1  num
+;      r0 approx;      r1 $-9;      r2 $-8;      r3 count
+; ADDF approx $T9 $T10
+;      predecessor   DIVF num approx $T9
+;      successor   MULTF $T8 $T10 $T11
+;      gen     approx     $T9
+;      kill     $T10
+;      in     count     tolerance     approx     $T8     $T9     num     enough
+;      out     count     tolerance     approx     $T8     $T10     num     enough
+;      ensure  approx
+;      ensure  $-9
+;      free   1  $-9
+;      free   0  approx
+;      r0 $-10;      r1 null;      r2 $-8;      r3 count
+; MULTF $T8 $T10 $T11
+;      predecessor   ADDF approx $T9 $T10
+;      successor   STOREF $T11  newapprox
+;      gen     $T8     $T10
+;      kill     $T11
+;      in     count     tolerance     approx     $T8     $T10     num     enough
+;      out     count     tolerance     approx     $T11     num     enough
+;      ensure  $-8
+;      ensure  $-10
+;      free   2  $-8
+;      free   0  $-10
+;      r0 null;      r1 null;      r2 $-11;      r3 count
+; STOREF $T11  newapprox
+;      predecessor   MULTF $T8 $T10 $T11
+;      successor   SUBF approx newapprox $T12
+;      gen     $T11
+;      kill     newapprox
+;      in     count     tolerance     approx     $T11     num     enough
+;      out     count     newapprox     tolerance     approx     num     enough
+;      ensure  $-11
+;      ensure  newapprox
+;      allocate   newapprox
+;      free   2  $-11
+;      r0 null;      r1 newapprox;      r2 null;      r3 count
+; SUBF approx newapprox $T12
+;      predecessor   STOREF $T11  newapprox
+;      successor   STOREF $T12  diff
+;      gen     approx     newapprox
+;      kill     $T12
+;      in     count     newapprox     tolerance     approx     num     enough
+;      out     count     newapprox     tolerance     $T12     num     enough
+;      ensure  approx
+;      allocate   approx
+;      ensure  newapprox
+;      free   2  approx
+;      r0 null;      r1 newapprox;      r2 $-12;      r3 count
+; STOREF $T12  diff
+;      predecessor   SUBF approx newapprox $T12
+;      successor   STOREI 0.0  $T13
+;      gen     $T12
+;      kill     diff
+;      in     count     newapprox     tolerance     $T12     num     enough
+;      out     count     newapprox     diff     tolerance     num     enough
+;      ensure  $-12
+;      ensure  diff
+;      allocate   diff
+;      free   2  $-12
+;      r0 diff;      r1 newapprox;      r2 null;      r3 count
+; STOREI 0.0  $T13
+;      predecessor   STOREF $T12  diff
+;      successor   LE diff $T13 label3
+;      gen
+;      kill     $T13
+;      in     count     newapprox     diff     tolerance     num     enough
+;      out     count     newapprox     diff     tolerance     $T13     num     enough
+;      ensure  $-13
+;      allocate   $-13
+;      r0 diff;      r1 newapprox;      r2 $-13;      r3 count
+; LE diff $T13 label3
+;      predecessor   STOREI 0.0  $T13
+;      successor   STOREF tolerance  $T14
+;      successor   LABEL   label3
+;      gen     diff     $T13
+;      kill
+;      in     count     newapprox     diff     tolerance     $T13     num     enough
+;      out     count     newapprox     diff     tolerance     num     enough
+;      ensure  diff
+;      ensure  $-13
+;      free   2  $-13
+;      free   0  diff
+;      free   1  newapprox
+;      free   2  $-13
+;      free   3  count
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREF tolerance  $T14
+;      predecessor   LE diff $T13 label3
+;      successor   GE diff $T14 label5
+;      gen     tolerance
+;      kill     $T14
+;      in     count     newapprox     diff     tolerance     num     enough
+;      out     count     newapprox     diff     $T14     tolerance     num     enough
+;      ensure  tolerance
+;      allocate   tolerance
+;      ensure  $-14
+;      allocate   $-14
+;      r0 null;      r1 null;      r2 $-14;      r3 tolerance
+; GE diff $T14 label5
+;      predecessor   STOREF tolerance  $T14
+;      successor   STOREI 1  $T15
+;      successor   LABEL   label5
+;      gen     diff     $T14
+;      kill
+;      in     count     newapprox     diff     $T14     tolerance     num     enough
+;      out     count     newapprox     tolerance     num     enough
+;      ensure  diff
+;      allocate   diff
+;      ensure  $-14
+;           GE || GT
+;      free   1  diff
+;      free   2  $-14
+;      free   0  diff
+;      free   1  diff
+;      free   2  $-14
+;      free   3  tolerance
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREI 1  $T15
+;      predecessor   GE diff $T14 label5
+;      successor   STOREI $T15  enough
+;      gen
+;      kill     $T15
+;      in     count     newapprox     tolerance     num
+;      out     count     newapprox     $T15     tolerance     num
+;      ensure  $-15
+;      allocate   $-15
+;      r0 null;      r1 null;      r2 null;      r3 $-15
+; STOREI $T15  enough
+;      predecessor   STOREI 1  $T15
+;      successor   JUMP   label6
+;      gen     $T15
+;      kill     enough
+;      in     count     newapprox     $T15     tolerance     num
+;      out     count     enough     newapprox     tolerance     num
+;      ensure  $-15
+;      ensure  enough
+;      allocate   enough
+;      free   3  $-15
+;      r0 null;      r1 null;      r2 enough;      r3 null
+; JUMP   label6
+;      predecessor   STOREI $T15  enough
+;      successor   LABEL   label6
+;      gen
+;      kill
+;      in     count     enough     newapprox     tolerance     num
+;      out     count     enough     newapprox     tolerance     num
+;      free   0  diff
+;      free   1  diff
+;      free   2  enough
+;      free   3  $-15
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   label5
+;      predecessor   GE diff $T14 label5
+;      successor   LABEL   label6
+;      gen
+;      kill
+;      in     count     enough     newapprox     tolerance     num
+;      out     count     enough     newapprox     tolerance     num
+;      free   0  diff
+;      free   1  diff
+;      free   2  enough
+;      free   3  $-15
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   label6
+;      predecessor   JUMP   label6
+;      predecessor   LABEL   label5
+;      successor   JUMP   label4
+;      gen
+;      kill
+;      in     count     enough     newapprox     tolerance     num
+;      out     count     enough     newapprox     tolerance     num
+;      free   0  diff
+;      free   1  diff
+;      free   2  enough
+;      free   3  $-15
+;      r0 null;      r1 null;      r2 null;      r3 null
+; JUMP   label4
+;      predecessor   LABEL   label6
+;      successor   LABEL   label4
+;      gen
+;      kill
+;      in     count     enough     newapprox     tolerance     num
+;      out     count     enough     newapprox     tolerance     num
+;      free   0  diff
+;      free   1  diff
+;      free   2  enough
+;      free   3  $-15
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   label3
+;      predecessor   LE diff $T13 label3
+;      successor   STOREI 0.0  $T16
+;      gen
+;      kill
+;      in     count     newapprox     tolerance     num     diff     enough
+;      out     count     newapprox     tolerance     num     diff     enough
+;      free   0  diff
+;      free   1  diff
+;      free   2  enough
+;      free   3  $-15
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREI 0.0  $T16
+;      predecessor   LABEL   label3
+;      successor   GT diff $T16 label7
+;      gen
+;      kill     $T16
+;      in     count     newapprox     tolerance     num     diff     enough
+;      out     count     newapprox     tolerance     num     diff     $T16     enough
+;      ensure  $-16
+;      allocate   $-16
+;      r0 null;      r1 null;      r2 null;      r3 $-16
+; GT diff $T16 label7
+;      predecessor   STOREI 0.0  $T16
+;      successor   LABEL   label7
+;      successor   STOREF 0.0  $T18
+;      gen     diff     $T16
+;      kill
+;      in     count     newapprox     tolerance     num     diff     $T16     enough
+;      out     count     newapprox     tolerance     num     diff     enough
+;      ensure  diff
+;      allocate   diff
+;      ensure  $-16
+;           GE || GT
+;      free   3  $-16
+;      free   0  diff
+;      free   1  diff
+;      free   2  diff
+;      free   3  $-16
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREF 0.0  $T18
+;      predecessor   GT diff $T16 label7
+;      successor   SUBF $T18 tolerance $T19
+;      gen
+;      kill     $T18
+;      in     count     newapprox     tolerance     num     diff     enough
+;      out     count     newapprox     tolerance     num     diff     $T18     enough
+;      ensure  $-18
+;      allocate   $-18
+;      r0 null;      r1 null;      r2 null;      r3 $-18
+; SUBF $T18 tolerance $T19
+;      predecessor   STOREF 0.0  $T18
+;      successor   LE diff $T19 label8
+;      gen     $T18     tolerance
+;      kill     $T19
+;      in     count     newapprox     tolerance     num     diff     $T18     enough
+;      out     count     newapprox     tolerance     num     diff     $T19     enough
+;      ensure  $-18
+;      ensure  tolerance
+;      allocate   tolerance
+;      free   3  $-18
+;      r0 null;      r1 null;      r2 tolerance;      r3 $-19
+; LE diff $T19 label8
+;      predecessor   SUBF $T18 tolerance $T19
+;      successor   STOREI 1  $T20
+;      successor   LABEL   label8
+;      gen     diff     $T19
+;      kill
+;      in     count     newapprox     tolerance     num     diff     $T19     enough
+;      out     count     newapprox     tolerance     num     enough
+;      ensure  diff
+;      allocate   diff
+;      ensure  $-19
+;      free   1  diff
+;      free   3  $-19
+;      free   0  diff
+;      free   1  diff
+;      free   2  tolerance
+;      free   3  $-19
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREI 1  $T20
+;      predecessor   LE diff $T19 label8
+;      successor   STOREI $T20  enough
+;      gen
+;      kill     $T20
+;      in     count     newapprox     tolerance     num
+;      out     count     newapprox     tolerance     num     $T20
+;      ensure  $-20
+;      allocate   $-20
+;      r0 null;      r1 null;      r2 null;      r3 $-20
+; STOREI $T20  enough
+;      predecessor   STOREI 1  $T20
+;      successor   JUMP   label9
+;      gen     $T20
+;      kill     enough
+;      in     count     newapprox     tolerance     num     $T20
+;      out     count     enough     newapprox     tolerance     num
+;      ensure  $-20
+;      ensure  enough
+;      allocate   enough
+;      free   3  $-20
+;      r0 null;      r1 null;      r2 enough;      r3 null
+; JUMP   label9
+;      predecessor   STOREI $T20  enough
+;      successor   LABEL   label9
+;      gen
+;      kill
+;      in     count     enough     newapprox     tolerance     num
+;      out     count     enough     newapprox     tolerance     num
+;      free   0  diff
+;      free   1  diff
+;      free   2  enough
+;      free   3  $-20
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   label8
+;      predecessor   LE diff $T19 label8
+;      successor   LABEL   label9
+;      gen
+;      kill
+;      in     count     enough     newapprox     tolerance     num
+;      out     count     enough     newapprox     tolerance     num
+;      free   0  diff
+;      free   1  diff
+;      free   2  enough
+;      free   3  $-20
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   label9
+;      predecessor   JUMP   label9
+;      predecessor   LABEL   label8
+;      successor   JUMP   label4
+;      gen
+;      kill
+;      in     count     enough     newapprox     tolerance     num
+;      out     count     enough     newapprox     tolerance     num
+;      free   0  diff
+;      free   1  diff
+;      free   2  enough
+;      free   3  $-20
+;      r0 null;      r1 null;      r2 null;      r3 null
+; JUMP   label4
+;      predecessor   LABEL   label9
+;      successor   LABEL   label4
+;      gen
+;      kill
+;      in     count     enough     newapprox     tolerance     num
+;      out     count     enough     newapprox     tolerance     num
+;      free   0  diff
+;      free   1  diff
+;      free   2  enough
+;      free   3  $-20
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   label7
+;      predecessor   GT diff $T16 label7
+;      successor   LABEL   label4
+;      gen
+;      kill
+;      in     count     enough     newapprox     tolerance     num
+;      out     count     enough     newapprox     tolerance     num
+;      free   0  diff
+;      free   1  diff
+;      free   2  enough
+;      free   3  $-20
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   label4
+;      predecessor   JUMP   label4
+;      predecessor   JUMP   label4
+;      predecessor   LABEL   label7
+;      successor   STOREF newapprox  approx
+;      gen
+;      kill
+;      in     count     enough     newapprox     tolerance     num
+;      out     count     enough     newapprox     tolerance     num
+;      free   0  diff
+;      free   1  diff
+;      free   2  enough
+;      free   3  $-20
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREF newapprox  approx
+;      predecessor   LABEL   label4
+;      successor   STOREI 1  $T21
+;      gen     newapprox
+;      kill     approx
+;      in     count     enough     newapprox     tolerance     num
+;      out     count     approx     enough     tolerance     num
+;      ensure  newapprox
+;      allocate   newapprox
+;      ensure  approx
+;      allocate   approx
+;      free   3  newapprox
+;      r0 null;      r1 null;      r2 approx;      r3 null
+; STOREI 1  $T21
+;      predecessor   STOREF newapprox  approx
+;      successor   EQ enough $T21 label2
+;      gen
+;      kill     $T21
+;      in     count     approx     enough     tolerance     num
+;      out     count     approx     enough     $T21     tolerance     num
+;      ensure  $-21
+;      allocate   $-21
+;      r0 null;      r1 null;      r2 approx;      r3 $-21
+; EQ enough $T21 label2
+;      predecessor   STOREI 1  $T21
+;      successor   JUMP   label1
+;      successor   LABEL   label2
+;      gen     enough     $T21
+;      kill
+;      in     count     approx     enough     $T21     tolerance     num
+;      out     count     approx     tolerance     num     enough
+;      ensure  enough
+;      allocate   enough
+;      ensure  $-21
+;      free   3  $-21
+;      free   0  diff
+;      free   1  enough
+;      free   2  approx
+;      free   3  $-21
+;      r0 null;      r1 null;      r2 null;      r3 null
+; JUMP   label1
+;      predecessor   EQ enough $T21 label2
+;      successor   LABEL   label1
+;      gen
+;      kill
+;      in     tolerance     approx     num     count     enough
+;      out     tolerance     approx     num     count     enough
+;      free   0  diff
+;      free   1  enough
+;      free   2  approx
+;      free   3  $-21
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   label2
+;      predecessor   EQ enough $T21 label2
+;      successor   WRITEF   approx
+;      gen
+;      kill
+;      in     count     approx
+;      out     count     approx
+;      free   0  diff
+;      free   1  enough
+;      free   2  approx
+;      free   3  $-21
+;      r0 null;      r1 null;      r2 null;      r3 null
+; WRITEF   approx
+;      predecessor   LABEL   label2
+;      successor   WRITEI   count
+;      gen     approx
+;      kill
+;      in     count     approx
+;      out     count
+;      r0 null;      r1 null;      r2 null;      r3 null
+; WRITEI   count
+;      predecessor   WRITEF   approx
+;      successor   RET   
+;      gen     count
+;      kill
+;      in     count
+;      out
+;      r0 null;      r1 null;      r2 null;      r3 null
+; RET   
+;      predecessor   WRITEI   count
+;      gen
+;      kill
+;      in
+;      out
+;      free   0  diff
+;      free   1  enough
+;      free   2  approx
+;      free   3  $-21
+;      r0 null;      r1 null;      r2 null;      r3 null
+;tiny code
+var count
+var enough
+var newapprox
+var approx
+var num
+var tolerance
+var diff
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label main
+link 15
+move $-1 r3
+move 0.0001 r3
+move tolerance r2
+move r3 tolerance
+move r3 r2
+move $-2 r3
+move 7.0 r3
+move num r1
+move r3 num
+move r3 r1
+move approx r3
+move r1 approx
+move r1 r3
+move $-3 r0
+move 0 r0
+move count r2
+move r0 count
+move r0 r2
+move $-4 r0
+move 0.0 r0
+move diff r1
+move r0 diff
+move r0 r1
+move $-5 r0
+move 0 r0
+move enough r3
+move r0 enough
+move r0 r3
+label label1
+move $-6 r3
+move 1 r3
+move count r2
+addi r3 r2
+move count r3
+move r2 count
+move r2 r3
+move $-8 r2
+move 0.5 r2
+move num r1
+move approx r0
+divr r0 r1
+addr r1 r0
+mulr r0 r2
+move newapprox r1
+move r2 newapprox
+move r2 r1
+move approx r2
+subr r1 r2
+move diff r0
+move r2 diff
+move r2 r0
+move $-13 r2
+move 0.0 r2
+cmpr r0 r2
+jle label3
+move tolerance r3
+move $-14 r2
+move r3 r2
+move diff r1
+cmpr r1 r2
+jge label5
+move $-15 r3
+move 1 r3
+move enough r2
+move r3 enough
+move r3 r2
+jmp label6
+label label5
+label label6
+jmp label4
+label label3
+move $-16 r3
+move 0.0 r3
+move diff r2
+cmpr r2 r3
+jgt label7
+move $-18 r3
+move 0.0 r3
+move tolerance r2
+subr r2 r3
+move diff r1
+cmpr r1 r3
+jle label8
+move $-20 r3
+move 1 r3
+move enough r2
+move r3 enough
+move r3 r2
+jmp label9
+label label8
+label label9
+jmp label4
+label label7
+label label4
+move newapprox r3
+move approx r2
+move r3 approx
+move r3 r2
+move $-21 r3
+move 1 r3
+move enough r1
+cmpi r1 r3
+jeq label2
+jmp label1
+label label2
+sys writer approx
+sys writei count
+unlnk
+ret
+end

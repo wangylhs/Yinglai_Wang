@@ -1,0 +1,8 @@
+(val sum 0)
+(define sigma(m n)
+    (if(> m n) sum (begin (set sum (+ sum m))
+                          (set m(+ m 1)) 
+                          (sigma m n)
+                   )
+    )
+)

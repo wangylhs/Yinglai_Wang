@@ -1,0 +1,61 @@
+CS252 - LAB4 - README FILE
+-------------------------
+Name: Yinglai Wang
+login: wang1105
+-------------------------
+
+======================================================
+*NOTE: I have utilized 2 late days for this assignment 
+======================================================
+
+PART 1
+======
+
+thr1
+----
+The output from 'thr1' was as expected. As there is no synchronization in place
+there is no way to tell which thread would run first and for how long. Thus the
+output depends on the context switches which we don't have control over. Therefore
+A and B will be printed randomly. 
+
+thr2
+----
+
+The output from thr2.cc would simply keep printing 'C'. This is because, the function
+printC("C") was called before the threads were created. As a result, the code gets stuck
+in the while(1) loop forever, and the threads never end up being created. 
+
+
+PART 3
+======
+										System (Kernel) Time 		User Time 		Real Time
+										--------------------		---------       ---------
+pthread_mutex(count)				0m0.221s 				0m8.104s 		0m4.898s
+spin_lock (count_spin with thr_yield)		0m1.066s 				0m2.820s 		0m1.964s
+spin_lock (count_spin without thr_yield)	0m0.029s 				0m11.123s 		0m5.725s
+
+
+Q1. Explain the differences in the user time between count_spin with and without
+	thr_yield?
+
+Ans The user time for count_spin with thr_yield is significantly less than count_spin
+	without thr_yield. User time is the amount of CPU time used in executing the process.
+	Therefore when we call thr_yield the thread halts as a result of which the CPU
+	does'nt spend much time in executing the process. On the other hand, when we don't use
+	thr_yield the thread keeps running in the loop being processed by the CPU and thus
+	the CPU ends up spending a longer time in User Space executing processes which results in
+	an increase in User Time.
+
+Q2. Explain the difference in the system time between count and count_spin with 
+	thr_yield?
+
+Ans The System Time for count_spin with thr_yield is much higher than for count using mutexes.
+	The System Time is the amount of time that the CPU spends in the kernel mode within
+	the process. In count we implement a mutex lock, which only allows the thread with the lock
+	to execute. There is a context switch only when the lock is released. Meanwhile in spin_lock
+	with the function thr_yield yields the current thread and switches context to the next thread.
+	Thus calling thr_yield in the loop results in continous context switches and thus the CPU ends
+	up spending more time in kernel mode. This increases the System time for count_spin using 
+	thr_yield.
+
+

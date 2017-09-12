@@ -1,0 +1,44 @@
+PROGRAM factorial2
+BEGIN
+	STRING input := "Please enter an integer number: ";
+	STRING eol := "\n";
+	--STRING fac := "factorial";
+	--STRING else := "else";
+	
+	FUNCTION INT factorial(INT a)
+	BEGIN
+		INT ret;
+		INT tret;
+		--WRITE(fac);
+		IF (a = 1)
+		--WRITE(a);
+			RETURN 1;
+		ELSIF (TRUE)
+			--WRITE(else);
+			tret := factorial(a-1);
+			ret := tret*a;
+		ENDIF
+		
+		--WRITE(ret);
+		--WRITE(eol);
+		RETURN ret;
+	END
+
+	FUNCTION INT main ()
+	BEGIN
+		INT num;
+		INT result;
+		WRITE(input);
+		READ(num);
+		
+		IF(num = 1)
+			result := 1;
+		ELSIF(num >1)
+			  result := factorial(num); 
+	    ELSIF(TRUE)
+			  result := 0;
+		ENDIF
+		WRITE(result,eol);
+		RETURN 0;
+	END
+END

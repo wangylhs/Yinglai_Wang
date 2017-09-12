@@ -1,0 +1,2 @@
+From the speedup curve of my program, it is easy to see that at first, the curve goes down quickly, but as the core number increases, the curve tends to be flat. The reason is there is a part of the program can not be parallelized. For this program, the first part is not parallelized, which is the part that find the prime numbers from 0 to sqrt(max). 
+In this program, I did not consider the memory issue, so my program can only take maximum of 2 million numbers. The speedup curve I provided is based on the data that find the prime numbers from 0 to 2000000.

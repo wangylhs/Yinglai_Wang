@@ -1,0 +1,9 @@
+
+
+
+
+This is the first sample input file.
+Its output should match output1.txt.  Be sure to view output1.txt outside
+of a web browser.  Typing cat output1.txt from a terminal should work.
+
+

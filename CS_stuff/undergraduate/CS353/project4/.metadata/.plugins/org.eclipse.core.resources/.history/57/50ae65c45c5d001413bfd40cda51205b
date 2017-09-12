@@ -1,0 +1,72 @@
+
+
+public class TestDriver {
+	public static final int NO_OF_THREADS = 10;
+	static final int HOW_LONG_TO_RUN = 4000;
+	static ReentrantLockPseudoRandom myLPR = new ReentrantLockPseudoRandom(10);
+	static NonBlockingPseudoRandom myNBPR = new NonBlockingPseudoRandom(10);
+	
+	private static class LPR implements Runnable{
+		public int counter = 0;
+		public void run(){
+			while(true){
+				myLPR.nextInt(100);
+				counter++;
+			}
+		}
+	}
+	private static class NBPR implements Runnable{
+		public int counter = 0;
+		public void run(){
+			myNBPR.nextInt(100);
+			counter++;
+		}
+	}
+	
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) throws InterruptedException{
+		long start, end;
+		Thread[] threads;
+		int num;		//number generated
+		//test lock version random number generator
+		LPR[] lprs = new LPR[NO_OF_THREADS];
+		threads = new Thread[NO_OF_THREADS];
+		num = 0;
+		start = System.currentTimeMillis();
+		for(int i=0; i<NO_OF_THREADS; i++){
+			lprs[i] = new LPR();
+			threads[i] = new Thread(lprs[i]);
+		}
+		for (int i=0; i<NO_OF_THREADS; i++) {
+			threads[i].start();
+		}
+		Thread.sleep(HOW_LONG_TO_RUN);
+		for (int i=0; i<NO_OF_THREADS; i++) {
+			//threads[i].stop();
+			num += lprs[i].counter;
+		}
+		end = System.currentTimeMillis();
+		System.out.println("Lock version generated " + num + " random numbers in "
+				+ (end-start) + " ms.");
+		//test non-blocking version random numebr generator 
+		NBPR[] nbprs = new NBPR[NO_OF_THREADS];
+		threads = new Thread[NO_OF_THREADS];
+		num = 0;
+		start = System.currentTimeMillis();
+		for (int i=0; i<NO_OF_THREADS; i++) {
+			nbprs[i] = new NBPR();
+			threads[i] = new Thread(nbprs[i]);
+		}
+		for (int i=0; i<NO_OF_THREADS; i++) {
+			threads[i].start();
+		}
+		Thread.sleep(HOW_LONG_TO_RUN);
+		for (int i=0; i<NO_OF_THREADS; i++) {
+			//threads[i].stop();
+			num += nbprs[i].counter;
+		}
+		end = System.currentTimeMillis();
+		System.out.println("Non-blocking version generated " + num + " random numbers in "
+				+ (end-start) + " ms.");
+	}
+}

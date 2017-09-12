@@ -1,0 +1,7 @@
+times:
+
+static 3.299720 s
+static50 1.753521 s
+dynamic 1.560801 s
+dynamic50 1.682903 s
+guided 1.558313 s

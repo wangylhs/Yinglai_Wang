@@ -1,0 +1,7 @@
+No symbol table is loaded.  Use the "file" command.
+Make breakpoint pending on future shared library load? (y or [n]) 
+Breakpoint 1 (echo-lite.c:7) pending.
+Starting program: /home/shay/b/zhang951/ECE264Assignments/Spring2014/PA04/echo 
+
+Program exited normally.
+Missing separate debuginfos, use: debuginfo-install glibc-2.12-1.132.el6.x86_64

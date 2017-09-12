@@ -1,0 +1,12 @@
+
+In order to test this program, I made some change in makefile.
+
+To test my program, you can simply compile everything that is needed.
+make
+make run
+make sample2
+
+After compile all the files, just type ./run <files need to debug> in the command line.
+For example "./run sample2"
+
+Also, in chess.cpp, you can uncomment "#define DEBUG 1", then when you run the program, it will show all the actions. When thread get created, when context switch happened and some other actions.

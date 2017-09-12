@@ -1,0 +1,14 @@
+<help-message>
+Usage: grep-lite [OPTION]... PATTERN
+Search for PATTERN in standard input. PATTERN is a
+string. grep-lite will search standard input line by
+line, and (by default) print out those lines which
+contain pattern as a substring.
+
+  -v, --invert-match     select non-matching lines
+  -n, --line-number      print line numbers with output
+  -q, --quiet            suppress all output
+
+Exit status is 0 if any line is selected, 1 otherwise;
+if any error occurs, then the exit status is 2.
+</help-message>

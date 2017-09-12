@@ -1,0 +1,9 @@
+30
+Data Structures
+--blue
+Algorithms
+? 
+quadratic complexity
+- - 
+--red
+- ?

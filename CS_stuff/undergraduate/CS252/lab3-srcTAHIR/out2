@@ -1,0 +1,26 @@
+total 518
+drwx--S---   3 tijaz    tijaz       1024 Feb 18 18:55 .
+drwxr-sr-x   3 tijaz    tijaz        512 Feb  5 14:59 ..
+-rw-------   1 tijaz    tijaz      12288 Feb 18 18:54 .out.swp
+-rwx------   1 tijaz    tijaz        542 Feb  7  2011 Makefile
+-rwx------   1 tijaz    tijaz      12268 Feb 18 18:54 cat_grep
+-rwx------   1 tijaz    tijaz       2927 Feb  7  2011 cat_grep.cc
+-rwx------   1 tijaz    tijaz       5419 Feb  8 19:06 command.cc
+-rwx------   1 tijaz    tijaz        750 Feb  8 18:30 command.h
+-rw-------   1 tijaz    tijaz      16924 Feb 18 18:54 command.o
+-rwx------   1 tijaz    tijaz      10296 Feb 18 18:54 ctrl-c
+-rwx------   1 tijaz    tijaz        454 Feb  7  2011 ctrl-c.cc
+-rw-------   1 tijaz    tijaz          0 Feb 18 18:53 inp
+-rw-------   1 tijaz    tijaz      12442 Feb 18 18:54 lex.yy.c
+-rw-------   1 tijaz    tijaz      20944 Feb 18 18:54 lex.yy.o
+-rw-------   1 tijaz    tijaz          0 Feb 18 18:56 out
+-rwx------   1 tijaz    tijaz      11064 Feb 18 18:54 regular
+-rwx------   1 tijaz    tijaz       1493 Feb  7  2011 regular.cc
+-rwx------   1 tijaz    tijaz      42672 Feb 18 18:54 shell
+-rwx------   1 tijaz    tijaz        659 Feb  6 18:12 shell.l
+-rwx------   1 tijaz    tijaz       2461 Feb  8 18:32 shell.y
+drwx--S---   3 tijaz    tijaz       1024 Feb  7  2011 test-shell
+-rw-------   1 tijaz    tijaz      60416 Feb  7  2011 test-shell.tar
+-rw-------   1 tijaz    tijaz      18550 Feb 18 18:54 y.tab.c
+-rw-------   1 tijaz    tijaz        320 Feb 18 18:54 y.tab.h
+-rw-------   1 tijaz    tijaz      19744 Feb 18 18:54 y.tab.o

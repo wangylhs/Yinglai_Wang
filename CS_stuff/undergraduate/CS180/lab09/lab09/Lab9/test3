@@ -1,0 +1,12 @@
+rm -f out1 out
+java -jar MD.jar 3 > out
+java MedicalDatabase 3 > out1
+
+diff -b out out1
+if [ $? -ne 0 ]
+then
+  echo "Test3 failed"
+  exit -1
+fi
+echo Test3 OK
+exit 0

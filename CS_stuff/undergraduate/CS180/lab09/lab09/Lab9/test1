@@ -1,0 +1,17 @@
+rm -f out1 out
+java -jar MD.jar 1 > out
+java MedicalDatabase 1 > out1
+if [ $? -ne 0 ]
+then
+  echo "There was an error running your code."
+  exit 0
+fi
+
+diff out out1
+if [ $? -ne 0 ]
+then
+  echo "Test1 failed"
+  exit 0
+fi
+echo Test1 OK
+exit 0

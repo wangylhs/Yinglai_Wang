@@ -1,0 +1,51 @@
+Minitab Portable Worksheet P1.1             20101228 Rel    14.0               .
+%      3      1     48    -22 Country                                          .
+Albania                Armenia                Austria                          .
+Azerbaijan             Belarus                Belgium                          .
+Bosnia and Herzegovina Bulgaria               Croatia                          .
+Cyprus                 Czech Republic         Denmark                          .
+Estonia                Faeroe Islands         Finland                          .
+France                 Georgia                Germany                          .
+Greece                 Hungary                Iceland                          .
+Ireland                Italy                  Kazakhstan                       .
+Kyrgyz Republic        Latvia                 Lithuania                        .
+Luxembourg             Macedonia, FYR         Moldova                          .
+Montenegro             Netherlands            Norway                           .
+Poland                 Portugal               Romania                          .
+Russian Federation     San Marino             Slovak Republic                  .
+Slovenia               Spain                  Sweden                           .
+Switzerland            Turkey                 Turkmenistan                     .
+Ukraine                United Kingdom         Uzbekistan                       .
+%      3      2     48    -10 Code                                             .
+ALB        ARM        AUT        AZE        BLR        BEL        BIH          .
+BGR        HRV        CYP        CZE        DNK        EST        FRO          .
+FIN        FRA        GEO        DEU        GRC        HUN        ISL          .
+IRL        ITA        KAZ        KGZ        LVA        LTU        LUX          .
+MKD        MDA        MNE        NLD        NOR        POL        PRT          .
+ROM        RUS        SMR        SVK        SVN        ESP        SWE          .
+CHE        TUR        TKM        UKR        GBR        UZB                     .
+%      3      3     48      0 InternetUsers                                    .
+ 1.485583145E+01 5.742056368E+00 5.083052367E+01 9.772052237E+00 5.628050347E+01
+ 4.645448470E+01 2.515145887E+01 4.664222760E+01 3.793033571E+01 4.616270792E+01
+ 3.448489089E+01 5.833879553E+01 5.433378959E+01 7.039337474E+01 5.554920486E+01
+ 4.906069710E+01 7.489317008E+00 4.685805170E+01 1.837096783E+01 3.475197515E+01
+ 6.386158495E+01 3.382015423E+01 5.219412468E+01 8.431937008E+00 1.251901928E+01
+ 4.680132590E+01 3.190918782E+01 7.246005079E+01 1.316014331E+01 1.898657060E+01
+ 4.425794730E+01 8.564733048E+01 8.136157043E+01 3.693896311E+01 3.013885414E+01
+ 5.234470219E+01 1.802712281E+01 5.384615385E+01 4.184388914E+01 6.231750170E+01
+ 4.211128454E+01 7.688107655E+01 5.825813002E+01 1.801986982E+01 1.322595815E+00
+ 1.923580424E+01 6.238062074E+01 4.153168868E+00                               .
+%      3      4     48      0 LifeExpectancy                                   .
+ 7.633795122E+01 7.159619512E+01 7.983731707E+01 7.233170732E+01 6.858914308E+01
+ 7.948048780E+01 7.457253659E+01 7.261219512E+01 7.581707317E+01 7.929268293E+01
+ 7.648414634E+01 7.809951220E+01 7.257243902E+01 7.884146341E+01 7.922926829E+01
+ 8.055536585E+01 7.072468293E+01 7.913170732E+01 7.941463415E+01 7.308853659E+01
+ 8.117146341E+01 7.939268293E+01 8.108097561E+01 6.616097561E+01 6.769512195E+01
+ 7.086073171E+01 7.104170732E+01 7.917560976E+01 7.398980488E+01 6.852780488E+01
+ 7.442043902E+01 7.969756098E+01 8.033463415E+01 7.514390244E+01 7.838487805E+01
+ 7.218390244E+01 6.555607142E+01 8.218634146E+01 7.420487805E+01 7.766829268E+01
+ 8.080146341E+01 8.076829268E+01 8.151487805E+01 7.149024390E+01 6.301424390E+01
+ 6.804247927E+01 7.913743902E+01 6.749679464E+01                               .
+%    100      0      0      0                                                  .
+%    101      0      0      0                                                  .
+%    102      0      0      0                                                  .

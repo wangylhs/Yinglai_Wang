@@ -1,0 +1,39 @@
+CS252 - LAB4 
+-----------------------
+Name: Yinglai Wang
+login: wang1105
+-----------------------
+Part 1
+-----------------------
+thr1:
+The output was expected. Because there is no synchronization, so there is no way to tell which thread will run first and for how long. The output depends on the context switch which we can't control. Therefore the letters will be printed in random order.
+
+thr2:
+The output of thr2 was keep printing letter 'C', because the function printC() was called before the threads were created. The program gets stuck at the infinity loop of that function. The threads will never being created.
+
+Part 3
+----------------------
+-----------				System (Kernel) Time	User Time	Real Time
+pthread_mutex(count)			0m1.132s		0m1.624s	0m1.387s		
+spin_lock(count_spin with thr_yield)	0m0.320s		0m0.724s	0m0.526s
+spin_lock(count_spin without thr_yield)	0m0.000s		0m2.576s	0m1.295s
+
+1. Explain the differences in user time between count_spin with and without thr_yield.
+Ans:	The user time of count_spin with thr_yield is significantly less than without thr_yield. 
+	Since the user time is the amount of time that CPU used in executing the process, 
+	when thr_yield is called the threads paused. So that the CPU does not spend time on 
+	this process. On the contrary, when we do not use thr_yield, the thread will keep 
+	running the loop. As a result, CPU spends a longer time in executing this loop in user 
+	space. So the user time increased.
+
+2. Explain the difference in system time between count  and count_spin with thr_yield.
+Ans:	The system time is the amount of time that the CPU spends in kernel mode within the process.
+	System time of count_spin with thr_yield is much less than count.
+	The problem with mutexes is that putting threads to sleep and waking them up again are
+	both rather expensive operations, they'll need quite a lot of CPU instructions and thus also
+	take some time. Spin_locks are more effecient on multi-processor computers. 
+	On a multi-core/multi-CPU systems, 
+	with plenty of mutex_locks that are held for a short time, the time will be wasted for
+	constantly putting threads to sleep and waking them up again. These CPU operations might
+	decrease the runtime performance. When using psin_locks instead, threads get the chance 
+	to take advantage of their full runtime quantum.

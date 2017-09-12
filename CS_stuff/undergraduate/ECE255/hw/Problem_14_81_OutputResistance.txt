@@ -1,0 +1,188 @@
+Circuit: Output Resistance, Jaeger Blalock 14.81, ECE 255 HW 9 Solution, Adam T Neal, Purdue University, Fall 2013
+--------------------------------------------------------------------------
+Output Resistance, Jaeger Blalock 14.81, ECE 255 HW 9 Solution, Adam T Neal, Purdue University, Fall 2013
+
+.model BJT1 PNP Bf=50 Vaf=50
+
+*Connect the BJT collector base emitter
+Q1 Nc Nb Ne BJT1
+
+*Connect the DC supplies
+Vcc Ncc 0 DC -12V
+Vee Nee 0 DC 12V
+
+*Connect DC bias resistors
+Rc Nc Ncc 39000
+Re Ne Nee 82000
+Rb Nb 0 100000
+
+*Connect the load
+C3 Nc NL 10e-6
+*replace load with test source
+*R3 NL 0 100000
+Vx NL 0 0V AC 1e-3
+
+*Connect the input
+C2 Ne Ni2 47e-6
+RI Ni2 Ni1 500
+*AC ground Vi to test output resistance
+*Vi Ni1 0 0V AC 1e-3
+Vi Ni1 0 0V AC 0
+
+*Bypass the base resistor Rb
+C1 Nb 0 4.7e-6
+
+.op
+
+.ac LIN 1 12000 12000
+*.print AC V(NL) I(Vi)
+.print AC I(Vx)
+
+.options nopage
+.end
+
+--------------------------------------------------------------------------
+Note: no resource usage information for 'space',
+	or no active circuit available
+
+Circuit: Output Resistance, Jaeger Blalock 14.81, ECE 255 HW 9 Solution, Adam T Neal, Purdue University, Fall 2013
+
+Circuit: Output Resistance, Jaeger Blalock 14.81, ECE 255 HW 9 Solution, Adam T Neal, Purdue University, Fall 2013
+Date: Wed Oct 30 22:22:21  2013
+
+
+
+Operating point information:
+
+	Node	Voltage
+	----	-------
+	ni1	0.000000e+00
+	ni2	0.000000e+00
+	nl	0.000000e+00
+	nee	1.200000e+01
+	ncc	-1.20000e+01
+	ne	9.505555e-01
+	nb	2.320563e-01
+	nc	-6.83528e+00
+
+	Source	Current
+	------	-------
+
+	vcc#branch	1.324288e-04
+	vee#branch	-1.34749e-04
+	vx#branch	0.000000e+00
+	vi#branch	0.000000e+00
+
+ BJT models (Bipolar Junction Transistor)
+ model          bjt1
+
+      type       pnp
+        is     1e-16
+        bf        50
+        nf         1
+       vaf        50
+       ikf         0
+       ise         0
+        ne       1.5
+        br         1
+        nr         1
+       var         0
+       ikr         0
+       isc         0
+        nc         2
+        rb         0
+       irb         0
+       rbm         0
+        re         0
+        rc         0
+       cje         0
+       vje      0.75
+       mje      0.33
+        tf         0
+       xtf         0
+       vtf         0
+       itf         0
+       ptf         0
+       cjc         0
+       vjc      0.75
+       mjc      0.33
+      xcjc         1
+        tr         0
+       cjs         0
+       ccs         0
+       vjs      0.75
+       mjs         0
+       xtb         0
+        eg      1.11
+       xti         3
+        fc       0.5
+      tnom        27
+        kf         0
+        af         0
+
+ Capacitor models (Fixed capacitor)
+ model             C
+
+        cj         0
+      cjsw         0
+      defw     1e-05
+    narrow         0
+
+ Resistor models (Simple linear resistor)
+ model             R
+
+       rsh         0
+    narrow         0
+       tc1         0
+       tc2         0
+      defw     1e-05
+
+ BJT: Bipolar Junction Transistor
+ device           q1
+ model          bjt1
+        ic  0.000132
+        ib  2.32e-06
+        ie -0.000135
+       vbe     0.718
+       vbc     -7.07
+        gm   0.00512
+       gpi  8.97e-05
+       gmu     1e-12
+        gx         0
+        go  2.32e-06
+       cpi         0
+       cmu         0
+       cbx         0
+       ccs         0
+
+ Capacitor: Fixed capacitor
+ device           c1        c2        c3
+ model             C         C         C
+capacitanc   4.7e-06   4.7e-05     1e-05
+         i     1e-05     1e-05     1e-05
+         p     1e-05     1e-05     1e-05
+
+ Resistor: Simple linear resistor
+ device           ri        rb        re        rc
+ model             R         R         R         R
+resistance       500     1e+05   8.2e+04   3.9e+04
+         i         0  2.32e-06 -0.000135  0.000132
+         p         0  5.39e-07   0.00149  0.000684
+
+ Vsource: Independent voltage source
+ device           vi        vx       vee       vcc
+        dc         0         0        12       -12
+     acmag         0     0.001         0         0
+         i         0         0 -0.000135  0.000132
+         p        -0        -0   0.00162   0.00159
+
+Output Resistance, Jaeger Blalock 14.81, ECE 255 HW 9 Solution, Adam T Neal, Purdue University, Fall 2013
+AC Analysis  Wed Oct 30 22:22:21  2013
+--------------------------------------------------------------------------------
+Index   frequency                       vx#branch                       
+--------------------------------------------------------------------------------
+0	1.200000e+04,	0.000000e+00	-2.631641e-08,	-1.059655e-12	
+
+CPU time since last call: 0.004 seconds.
+
+Total CPU time: 0.004 seconds.

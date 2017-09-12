@@ -1,0 +1,124 @@
+(val sum 0)
+(define sigma(m n)
+    (if(> m n) sum (begin (set sum (+ sum m))
+                          (set m(+ m 1)) 
+                          (sigma m n)
+                   )
+    )
+)
+(define exp(m n)
+    (if(= n 1) m (begin (set n (- n 1))
+                        (set m (* m (exp m n)))
+                 )
+    )
+)
+
+
+
+(val result 0)
+(define log(m n)
+    (if(= 1 n) result (begin (set n (/ n m))
+                        (set result (+ 1 (log m n)))
+                 )
+    )
+)
+
+(val result 0)      ;;final result of choose(n k)
+(val temp 0)
+(define choose(n k)
+    (if(= k n) 1 
+        (if(= 0 k) 1
+            (begin (set n (- n 1))
+               (set temp k)
+               (set k (- k 1))
+               (set result (+ (choose n temp) (choose n k)))
+            )
+        )
+    )
+)
+
+(val temp 0)
+(val result 0)
+(define fib(m)
+    (if(= m 0) 0 
+        (if(= m 1) 1
+            (begin
+            (set temp (- m 1))
+            (set m (- m 2))
+            (set result (+ (fib temp) (fib m)))
+            )
+        )
+    )
+)
+;;isPrime(n d) is a helper function for prime(n)
+
+(define isPrime(n d)
+    (if(= d 1) 1
+        (if(= (mod n d) 0) 0 (isPrime n (- d 1))
+        )
+    )
+)
+
+(define prime(n)
+    (if(< n 2) 0 (isPrime n (- n 1))
+    )
+)
+
+(val num 1)         ;;natural numbers that keep incrementing
+(val i 0)           ;;counter of prime numbers
+(define nthprime(n)
+    (if(= i n) (- num 1)
+        (begin (if(= (prime num) 1)
+                (begin (set i (+ i 1))
+                       (set num (+ num 1))
+                )
+                (set num (+ num 1))
+               )
+            (nthprime n)
+        )
+    )
+)
+
+(val sum 0)         ;;final result of the function
+(val num 1)         ;;natural numbers(keep incrementing)
+(val i 0)           ;;counter of prime numbers
+(define sumprimes(n)
+    (if(= n i) sum
+        (begin (if(= (prime num) 1)
+                (begin (set i (+ i 1))
+                       (set sum (+ sum num))
+                       (set num (+ num 1))
+                )
+                (set num (+ num 1))
+               )
+            (sumprimes n)
+        )
+    )
+)
+
+;;gcd(m n) is a helper function for relprime(m n)
+
+(define gcd(m n)
+    (if(= n 0) m
+        (gcd n (mod m n))
+    )
+)
+
+(define relprime(m n)
+    (if(= (gcd m n) 1) 1 0)
+)
+
+
+(val result 0)              ;;final result of the function
+(val remainder 0)
+(val factor 1)
+(define binary(m)
+    (if(!= m 0) (begin
+                (set remainder (mod m 2))
+                (set result (+ result (* remainder factor)))
+                (set factor (* factor 10))
+                (binary (/ m 2))
+                )
+                result
+    )
+)

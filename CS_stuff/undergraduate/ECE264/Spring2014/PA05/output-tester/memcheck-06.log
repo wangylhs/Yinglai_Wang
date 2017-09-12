@@ -1,0 +1,80 @@
+==22431== Memcheck, a memory error detector
+==22431== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==22431== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==22431== Command: ./a.out images/bmps/02-cat-chess.bmp student-out-06_02-cat-chess.ee264
+==22431== Parent PID: 22430
+==22431== 
+--22431-- 
+--22431-- Valgrind options:
+--22431--    --tool=memcheck
+--22431--    --leak-check=full
+--22431--    --verbose
+--22431--    --log-file=memcheck-06.log
+--22431-- Contents of /proc/version:
+--22431--   Linux version 2.6.32-431.5.1.el6.x86_64 (mockbuild@x86-002.build.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-4) (GCC) ) #1 SMP Fri Jan 10 14:46:43 EST 2014
+--22431-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--22431-- Page sizes: currently 4096, max supported 4096
+--22431-- Valgrind library directory: /usr/lib64/valgrind
+--22431-- Reading syms from /tmp/.Ol1hdK/a.out
+--22431-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--22431--    object doesn't have a dynamic symbol table
+--22431-- Reading syms from /lib64/ld-2.12.so
+--22431-- Scheduler: using generic scheduler lock implementation.
+--22431-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==22431== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-22431-by-zhang951-on-ecelinux22.ecn.purdue.edu
+==22431== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-22431-by-zhang951-on-ecelinux22.ecn.purdue.edu
+==22431== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-22431-by-zhang951-on-ecelinux22.ecn.purdue.edu
+==22431== 
+==22431== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==22431== don't want to do, unless you know exactly what you're doing,
+==22431== or are doing some strange experiment):
+==22431==   /usr/lib64/valgrind/../../bin/vgdb --pid=22431 ...command...
+==22431== 
+==22431== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==22431==   /path/to/gdb ./a.out
+==22431== and then give GDB the following command
+==22431==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=22431
+==22431== --pid is optional if only one valgrind process is running
+==22431== 
+--22431-- REDIR: 0x36d8617530 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--22431-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--22431-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--22431-- REDIR: 0x36d86173a0 (index) redirected to 0x4a07bf0 (index)
+--22431-- REDIR: 0x36d8617420 (strcmp) redirected to 0x4a08530 (strcmp)
+--22431-- Reading syms from /lib64/libc-2.12.so
+--22431-- REDIR: 0x36d8a84fb0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--22431-- REDIR: 0x36d8a87270 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--22431-- REDIR: 0x36d8a82f20 (__GI_strrchr) redirected to 0x4a07a70 (__GI_strrchr)
+--22431-- REDIR: 0x36d8a7f9c0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--22431-- REDIR: 0x36d8b28590 (__strcmp_sse42) redirected to 0x4a08490 (strcmp)
+--22431-- REDIR: 0x36d8a81400 (strlen) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--22431-- REDIR: 0x36d8b33860 (__strlen_sse42) redirected to 0x4a07f50 (strlen)
+--22431-- REDIR: 0x36d8a8add0 (strchrnul) redirected to 0x4a09f10 (strchrnul)
+--22431-- REDIR: 0x36d8a847e0 (mempcpy) redirected to 0x4a09f80 (mempcpy)
+--22431-- REDIR: 0x36d8a7b800 (free) redirected to 0x4a06369 (free)
+--22431-- REDIR: 0x36d8a7a920 (malloc) redirected to 0x4a0696c (malloc)
+--22431-- REDIR: 0x36d8a89950 (memcpy) redirected to 0x4a08b20 (memcpy)
+--22431-- REDIR: 0x36d8a81440 (__GI_strlen) redirected to 0x4a07f70 (__GI_strlen)
+==22431== 
+==22431== HEAP SUMMARY:
+==22431==     in use at exit: 568 bytes in 1 blocks
+==22431==   total heap usage: 7 allocs, 6 frees, 271,225 bytes allocated
+==22431== 
+==22431== Searching for pointers to 1 not-freed blocks
+==22431== Checked 64,640 bytes
+==22431== 
+==22431== LEAK SUMMARY:
+==22431==    definitely lost: 0 bytes in 0 blocks
+==22431==    indirectly lost: 0 bytes in 0 blocks
+==22431==      possibly lost: 0 bytes in 0 blocks
+==22431==    still reachable: 568 bytes in 1 blocks
+==22431==         suppressed: 0 bytes in 0 blocks
+==22431== Reachable blocks (those to which a pointer was found) are not shown.
+==22431== To see them, rerun with: --leak-check=full --show-reachable=yes
+==22431== 
+==22431== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+--22431-- 
+--22431-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--22431-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==22431== 
+==22431== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)

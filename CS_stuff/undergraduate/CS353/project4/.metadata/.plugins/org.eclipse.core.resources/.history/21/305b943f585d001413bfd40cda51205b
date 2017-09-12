@@ -1,0 +1,9 @@
+
+public class TestDriver {
+	static ReentrantLockPseudoRandom myLPR = new ReentrantLockPseudoRandom(10);
+	static NonBlockingPseudoRandom myNBPR = new NonBlockingPseudoRandom(10);
+	
+	private static class LPR implements Runnable{
+		
+	}
+}

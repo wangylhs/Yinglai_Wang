@@ -1,0 +1,36 @@
+1.Mobile client command:
+Command : student|submit|<username>|<answer>\n
+	no return result
+
+Command : student|register|<username>|<password>\n
+	return "0\n" for sucessfully register
+	return "1\n" for duplicate username 
+
+Command : student|login|<username>|<password>\n
+	return "0\n" for sucessfully register
+	return "1\n" for incorrect username or password
+
+Command : student|getquestion\n
+
+2.PC admin client command:
+Command : admin|login|<username>|<password>\n
+	return:
+	0\n for successful login
+	1\n for unsuccessful login
+
+Command : admin|start|<question ID>|<quiz ID>\n
+	return no result
+
+Command : admin|stop\n
+	return no result
+
+Command : admin|answercount|<question ID>\n
+	return:
+	<count for A>|<count fot B>|<count for C>|<count for D>|<count for E>\n
+
+Command : admin|submitlist|<question ID>\n
+	return:
+	<total number of summit for the question>\n
+	<username1>|<answer of username1>\n
+	<username2>|<answer of username2>\n
+	...

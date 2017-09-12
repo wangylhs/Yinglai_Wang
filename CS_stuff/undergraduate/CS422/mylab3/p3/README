@@ -1,0 +1,21 @@
+My program works like follows:
+
+lunch vpnunneld and vpntunnel first(you can lunch mobilereminderd first if you want)
+
+./mobilereminder <reminder-file> <port-number> <secret-key>
+
+./vpntunneld <vpn-port-number>
+once it got the message from vpntunnel, it will sendback an ACK along with the second-port-number
+
+./vpntunnel <vpn-IP> <vpn-port-number> <server-IP> <server-port-number>
+this program will get the second-port-number and show it on the console.
+It will also show what IP(server IP) and port number(second-port-number) should user use to lunch mobilereminder
+
+./mobilereminder <server-IP> <second-port-number> <secret-key>
+
+
+
+
+
+vpntunneld will forward the messag to the server, if secret-key matches, server will send the reminder information to vpntunneld. The vpntunneld will forward the reminder information back to mobilereminder.
+

@@ -1,0 +1,86 @@
+Minitab Portable Worksheet P1.1             2010 713 Release 9.1               .
+%      3      1    100    -17 Brand                                            .
+Coca Cola         IBM               Microsoft         GE                       .
+NOKIA             TOYOTA            intel             McDonalds                .
+Disney            Google            Mercedes Benz     HP                       .
+BMW               AMERICAN EXPRESS  American Express  Louis Vuitton            .
+CISCO             Marlboro          Citi              HONDA                    .
+SAMSUNG           H & M             ORACLE            Apple                    .
+SONY              PEPSI             HSBC              NESCAFE                  .
+Nike              UPS               SAP               DELL                     .
+Budweiser         Merrill Lynch     IKEA              Canon                    .
+JPMorgan          Goldman Saks      Kellogg's         Nintendo                 .
+UBS               Morgan Stanley    PHILIPS           Thomson Reuters          .
+GUCCI             ebay              accenture         SIEMENS                  .
+Ford              HARLEY DAVIDSON   L'OREAL           MTV                      .
+Volkswagon        AIG               AXA               Heinz                    .
+Colgate           amazon.com        XEROX             CHANEL                   .
+WRIGLEY           ZARA              Nestle            KFC                      .
+YAHOO             DAMONE            Audi              CATERPILLAR              .
+AVON              adidas            ROLEX             HYUNDAI                  .
+BlackBerry        Kleenex           Porsche           HERMES                   .
+GAP               Panasonic         Cartier           TIFFANY & CO             .
+Pizza Hut         Allianz           MOET & CHANDON    bp                       .
+STARBUCKS COFFEE  ING               MOTOROLA          DURACELL                 .
+Smirnoff          LEXUS             PRADA             Johnson & Johnson        .
+Ferrari           GIORGIO ARMANI    Hennessy          Marriott                 .
+Shell             NIVEA             FedEx             VISA                     .
+%      3      2    100    -20 Sector                                           .
+Beverages            Computer Services    Computer Services                    .
+Diversified          Consumer Electronics Automotive                           .
+Computer Hardware    Restaurants          Media                                .
+Internet Services    Automotive           Computer Hardware                    .
+Automotive           Personal Care        Financial Services                   .
+Luxury               Computer Services    Tobacco                              .
+Financial Services   Automotive           Consumer Electronics                 .
+Apparel              Computer Software    Computer Hardware                    .
+Consumer Electronics Beverages            Financial Services                   .
+Beverages            Sporting Goods       Transportation                       .
+Computer Software    Computer Hardware    Alcohol                              .
+Financial Services   Home Furnishings     Computer Hardware                    .
+Financial Services   Financial Services   Food                                 .
+Consumer Electronics Financial Services   Financial Services                   .
+Diversified          Media                Luxury                               .
+Internet Services    Computer Services    Diversified                          .
+Automotive           Automotive           Personal Care                        .
+Media                Automotive           Financial Services                   .
+Financial Services   Food                 Personal Care                        .
+Internet Services    Computer Hardware    Luxury                               .
+Food                 Apparel              Food                                 .
+Restaurants          Internet Services    Food                                 .
+Automotive           Diversified          Personal Care                        .
+Sporting Goods       Luxury               Automotive                           .
+Consumer Electronics Personal Care        Automotive                           .
+Luxury               Apparel              Consumer Electronics                 .
+Luxury               Luxury               Restaurants                          .
+Financial Services   Alcohol              Energy                               .
+Restaurants          Financial Services   Consumer Electronics                 .
+Consumer Electronics Alcohol              Automotive                           .
+Luxury               Personal Care        Automotive                           .
+Luxury               Alcohol              Hospitality                          .
+Energy               Personal Care        Transportation                       .
+Financial Services                                                             .
+%      3      3    100      0 Value                                            .
+ 6.666700000E+04 5.903100000E+04 5.900700000E+04 5.308600000E+04 3.594200000E+04
+ 3.405000000E+04 3.126100000E+04 3.104900000E+04 2.925100000E+04 2.559000000E+04
+ 2.557700000E+04 2.350900000E+04 2.329800000E+04 2.268900000E+04 2.194000000E+04
+ 2.160200000E+04 2.130600000E+04 2.130000000E+04 2.017400000E+04 1.907900000E+04
+ 1.768900000E+04 1.384000000E+04 1.383100000E+04 1.372400000E+04 1.358300000E+04
+ 1.324900000E+04 1.314300000E+04 1.305600000E+04 1.267200000E+04 1.262100000E+04
+ 1.222800000E+04 1.169500000E+04 1.143800000E+04 1.139900000E+04 1.091300000E+04
+ 1.087600000E+04 1.077300000E+04 1.033100000E+04 9.710000000E+03 8.772000000E+03
+ 8.740000000E+03 8.696000000E+03 8.325000000E+03 8.313000000E+03 8.254000000E+03
+ 7.991000000E+03 7.948000000E+03 7.943000000E+03 7.896000000E+03 7.609000000E+03
+ 7.508000000E+03 7.193000000E+03 7.047000000E+03 7.022000000E+03 7.001000000E+03
+ 6.646000000E+03 6.437000000E+03 6.434000000E+03 6.393000000E+03 6.355000000E+03
+ 6.105000000E+03 5.955000000E+03 5.592000000E+03 5.582000000E+03 5.496000000E+03
+ 5.408000000E+03 5.407000000E+03 5.288000000E+03 5.264000000E+03 5.072000000E+03
+ 4.956000000E+03 4.846000000E+03 4.802000000E+03 4.636000000E+03 4.603000000E+03
+ 4.575000000E+03 4.357000000E+03 4.281000000E+03 4.236000000E+03 4.208000000E+03
+ 4.097000000E+03 4.033000000E+03 3.951000000E+03 3.911000000E+03 3.879000000E+03
+ 3.768000000E+03 3.721000000E+03 3.682000000E+03 3.590000000E+03 3.588000000E+03
+ 3.585000000E+03 3.582000000E+03 3.527000000E+03 3.526000000E+03 3.513000000E+03
+ 3.502000000E+03 3.471000000E+03 3.401000000E+03 3.359000000E+03 3.338000000E+03
+%    100      0      0      0                                                  .
+%    101      0      0      0                                                  .
+%    102      0      0      0                                                  .

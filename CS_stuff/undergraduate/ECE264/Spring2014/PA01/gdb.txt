@@ -1,0 +1,19 @@
+Undefined command: "pa01".  Try "help".
+Breakpoint 1 at 0x400790: file pa01.c, line 59.
+Starting program: /home/shay/b/zhang951/ECE264Assignments/Spring2014/PA01/pa01 
+
+Breakpoint 1, test_arrayCountNegative (array=0x7fffffffe2b0, len=4, expected=1) at pa01.c:61
+61	    printArray(array, len);
+Missing separate debuginfos, use: debuginfo-install glibc-2.12-1.132.el6.x86_64
+No symbol "argc" in current context.
+62	    int count = arrayCountNegative(array,len); 
+63	    printf(". count = %d, expected = %d.", count, expected);
+Continuing.
+
+Breakpoint 1, test_arrayCountNegative (array=0x7fffffffe2b0, len=0, expected=0) at pa01.c:61
+61	    printArray(array, len);
+A debugging session is active.
+
+	Inferior 1 [process 16625] will be killed.
+
+Quit anyway? (y or n) 

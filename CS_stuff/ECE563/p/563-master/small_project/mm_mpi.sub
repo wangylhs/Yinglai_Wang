@@ -1,0 +1,11 @@
+#!/bin/sh -l
+# FILENAME:  mm_mpi.sub
+
+module load devel
+cd $PBS_O_WORKDIR
+
+mpiexec -n 1 ./mm_mpi
+mpiexec -n 2 ./mm_mpi
+mpiexec -n 4 ./mm_mpi
+mpiexec -n 8 ./mm_mpi
+mpiexec -n 16 ./mm_mpi

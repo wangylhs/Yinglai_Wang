@@ -1,0 +1,15 @@
+a. The equals() method take a Child object as parameter and print "Inside of
+   Child.equals", then return false.
+
+b. I think the output will be:
+	0
+	1
+	2
+	3
+	Inside of Child.equals
+	4
+
+c. The call to the equals() method prints to the console because when an
+   object of Child class call the method and pass the Child object as a
+   parameter, the equals() method in Child class is called, not the method in
+   Object class. Then it prints to the console.

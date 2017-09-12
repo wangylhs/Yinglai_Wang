@@ -1,0 +1,755 @@
+
+
+<HTML>
+<HEAD>
+<TITLE> Week 14, Lecture 1
+</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="FFFFCC">
+
+<H1>
+Week 14, Lecture 1
+</H1>
+
+<I>(This material last modified 
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+    document.write (document.lastModified + ".)")
+//-->
+</SCRIPT>
+</I>
+
+<H2>
+Introduction to C++: Getting Started                
+</H2>
+
+<a href="http://en.wikipedia.org/wiki/Simula">The origins</a>
+<P>
+
+<a href="http://en.wikipedia.org/wiki/C%2B%2B">Some C++ background</a>
+<P>
+
+C files generally have .c extension
+<P>
+
+C++ files generally have .cpp (.cc) extension
+<P>
+
+In general C++ is a superset of C
+<P>
+
+
+<H2>
+Creating the Program 
+</H2>
+
+
+<a href="http://www.cplusplus.com/reference/iostream/iostream/">iostream</a>
+<P>
+
+<B><XMP>
+#include <iostream>
+
+int main()
+{
+ std::cout << "Hello World!\n";
+ return 0;
+}
+</XMP></B>
+<P>
+
+Note the use of iostream instead of stdio.h
+<P>
+
+Note also std::cout << instead of printf 
+<P>
+
+C++ ANSI standard header files do not use .h
+<P>
+
+Standard output in C++ is accomplished via 
+<P>
+
+std::cout << stuff-to-output; 
+<P>
+
+cout is object that directs output to standard output device stdout
+(usually screen)
+<P>
+
+<< is output operator 
+<P>
+
+<B><XMP>
+std::cout << "Please enter your age"; 
+</XMP></B>
+<P>
+
+To signify end-of-line: 
+<P>
+
+<B><XMP>
+std::cout << "Please enter your age" << "\n"; 
+
+std::cout << "Please enter your age" << std::endl;
+</XMP></B>
+<P>
+
+cout is able to determine variable's type (such as integer or float)
+and outputs it appropriately
+<P>
+
+endl is stream manipulator that sends '\n' character, and flushes the
+stream
+<P>
+
+<B><XMP>
+std::cout << "Gino is now age " << how_old << std::endl; 
+</XMP></B>
+<P>
+
+If how_old is integer variable with value 30... 
+<P>
+
+Gino is now age 30 
+<P>
+
+Where does cout go? 
+<P>
+
+Normally to screen 
+<P>
+
+Can be sent to file instead 
+<P>
+
+<B><XMP>
+a.out > file 
+</XMP></B>
+<P>
+
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/nlectures/w16-ex/1.c++/1.html"> simple C++ program that counts left braces</a>
+<P>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/nlectures/w16-ex/1.c++/2.html"> notice we include iostream without .h</a>
+<P>
+
+
+<H2>
+Using the Standard Namespace 
+</H2>
+
+The ANSI C++ standard defines the concept of namespaces in order
+to group software into groups.
+<P>
+
+All of the code that comes standard as part of any ANSI
+implementation of C++ comes in the std namespace.
+<P>
+
+Namespaces are also used to avoid name conflicts, and in case of
+conflicting names, you use the namespace name in order to correctly
+disambiguate the resource that you want to use.
+<P>
+
+<B><XMP>
+#include <iostream>  
+other #includes
+//to bring in stuff from C++ standard namespace
+//#include alone is not enough...
+using namespace std;  
+all constants
+any global variables
+
+function prototypes (if any)
+
+int main ()
+{
+ cout << "Please enter your age" << endl;
+ ...
+}
+
+other functions (if any)
+</XMP></B>
+<P>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/nlectures/w16-ex/1.c++/3.html"> using namespace</a>
+<P>
+
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/nlectures/w16-ex/1.c++/4.html"> using namespace, referencing objects directly</a>
+<P>
+
+
+
+<H2>
+Comments 
+</H2>
+
+Standard C comment format:
+<P>
+
+/* This is a typical C comment */
+<P>
+
+C++ introduced new format:
+<P>
+
+// This is a C++ style comment
+<P>
+
+
+<H2>
+Variables and Constants        
+</H2>
+
+
+<H2>
+What is a Variable? 
+</H2>
+
+All standard C types work
+<P>
+
+C++ added bool, short int
+<P>
+
+
+
+<H2>
+Constants 
+</H2>
+
+Enumerated Constants
+<P>
+
+Create your own data type
+<P>
+
+Enhance program readability
+<P>
+
+<B><XMP>
+enum Pet {DOG, CAT, FISH, FERRET, PIG};
+...
+Pet companion;
+...
+companion = CAT;
+
+if (companion == FERRET) ...
+...
+if (companion < FISH) ...
+
+// Caution - the following does not work
+companion = "PIG";
+</XMP></B>
+<P>
+
+DOG-PIG are same as 0-4
+<P>
+
+
+
+<H2>
+Expressions and Statements     
+</H2>
+
+Type bool has two values -- true, false
+<P>
+
+Also works -- 0=false, anything else = true
+<P>
+
+
+<H2>
+Logical Operators 
+</H2>
+
+C++ uses short circuit evaluation ... and has no way to force the
+alternative:
+<P>
+
+<B><XMP>
+((x>=y) || (increase(x)<=decrease(y))
+</XMP></B>
+<P>
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/nlectures/w16-ex/1.c++/5.html"> short-circuit evaluation</a>
+<P>
+
+
+Conditional Ternary Operator
+<P>
+
+(expn1) ? (expn2) : (expn3)
+<P>
+
+If (expn1) return expn2, otherwise return expn3
+<P>
+
+<B><XMP>
+z = (x > y) ? x : y;
+</XMP></B>
+<P>
+
+<H2>
+Functions                   
+</H2>
+
+<H2>
+Declaring and Defining Functions 
+</H2>
+
+C++ requires function prototype 
+<P>
+
+Some versions of C make it optional
+<P>
+
+
+<H2>
+Parameters Are Local Variables 
+</H2>
+
+C++ Uses Call-by-value (just like C)
+<P>
+
+
+<H2>
+More About Return Values 
+</H2>
+
+void main () {...}  used to be standard in C++
+<P>
+
+int main () {...}  is new standard in order to return value to
+operating system
+<P>
+
+void main () {...}  still works with most C++ compilers, but int main
+() {...}  is better
+<P>
+
+
+<H2>
+Default Parameters 
+</H2>
+
+Function prototype can declare default values for function parameters 
+<P>
+
+<B><XMP>
+float sum (float num1 = 1.0, float num2 = 0.0);
+
+float sum (float num1, float num2)
+{
+ return (num1 + num2);
+}
+
+z = sum (5.2, 3.7); // no defaults
+z = sum (5.2); // uses 0.0 default
+z = sum (); // uses both defaults
+</XMP></B>
+<P>
+
+Parameter names can be different or omitted
+<P>
+
+<B><XMP>
+float sum (float x = 1.0, float y = 0.0);
+float sum (float = 1.0, float = 0.0);
+</XMP></B>
+<P>
+
+All omitted parameters need to have default values 
+<P>
+
+A parameter can have a default value only if all parameters to its right
+have default values
+<P>
+
+So if a function parameter is omitted, all parameters to its right must
+be omitted as well
+<P>
+
+<B><XMP>
+int add (int = 1, int = 0, int = 4);
+
+a = add (5,3);
+a = add (5);
+a = add ();
+</XMP></B>
+<P>
+
+Each parameter need not have default value 
+<P>
+
+<B><XMP>
+int add (int, int  = 0, int  = 4);
+
+a = add (5,3);
+a = add (5);
+a = add (); // this causes error!
+</XMP></B>
+<P>
+
+
+<H2>
+Overloading Functions 
+</H2>
+
+Functions can be overloaded in C++ (that is where Java got the idea)
+... but not in C
+<P>
+
+Be careful about default and overloading ambiguity... 
+<P>
+
+<B><XMP>
+float sum (float, float);
+
+float sum (float, float, float=5.3);
+
+...
+
+x = sum (a,b); // What to do?????
+</XMP></B>
+<P>
+
+
+
+<H2>
+Inline Functions 
+</H2>
+
+Function calls reduce memory used by program <P>
+
+Function calls more time-consuming at run-time than equivalent
+imbedded code <P>
+
+Inline function -- compiler inserts function body at point of call <P>
+
+Similar to C's #define macro <P>
+
+In some cases can greatly improve the run-time performance of program <P>
+
+inline return-type function (parameters)
+<P>
+
+Compiler may ignore any such directive <P>
+
+<B><XMP>
+inline float sum (float num1, float num2);
+...
+inline float sum (float num1, float num2)
+{
+ return (num1 + num2);
+}
+</XMP></B> <P>
+
+Only small functions should be considered for inlining --
+space wasted when repeating large chunks of code <P>
+
+
+
+<H2>
+Object-Oriented Programming 
+</H2>
+
+<H2>
+Classes and Members 
+</H2>
+
+Original name for C++ was ``C with Classes'' <P>
+
+Class is defined similarly to a structure <P>
+
+Class names typically capitalized in C++
+<P>
+
+Data members are declared as in any structure <P>
+
+Member function for a class can be identified in class definition via
+function prototype (return value, function name, and argument list) <P>
+
+Typically definition of member function follows class definition <P>
+
+In member function definition, function name is preceded by
+ClassName:: to indicate that function is member function of class
+ClassName <P>
+
+<B><XMP>
+class Software_engineer  
+{
+ private:
+  char* name;
+  int ssn;
+  int start_date;
+  int salary;
+  int number_programs_written;
+
+ public:
+  Software_engineer (char*, int, int, int, int); // constructor
+  ~Software_engineer (); // destructor
+  void change_salary (int amount);
+  void change_number_programs_written (int programs);
+  char* report_name ();
+  int report_salary ();
+  int report_number_programs_written ();
+  int years_with_company (int today);
+  int start_year ();
+};
+
+Software_engineer::Software_engineer (char* who, 
+  int social_security_number, int begin, int amount, 
+  int programs) 
+{
+ name = new char[20];
+ strcpy (name, who);
+ ssn = social_security_number;
+ start_date = begin;
+ salary = amount;
+ number_programs_written = programs;
+}
+
+Software_engineer::~Software_engineer() 
+{	
+ delete [] name;
+}
+
+void Software_engineer::change_salary (int amount)
+{
+ salary = amount;
+}
+
+void Software_engineer::change_number_programs_written 
+ (int programs)
+{
+ number_programs_written = programs;
+}
+
+char* Software_engineer::report_name ()
+{
+ return (name);
+}
+
+int Software_engineer::report_salary ()
+{
+ return (salary);
+}
+
+int Software_engineer::report_number_programs_written ()
+{
+ return (number_programs_written);
+}
+
+int Software_engineer::years_with_company (int today)
+{
+ int start_year, this_year;
+ this_year = today - today/100*100;
+ start_year = start_date -
+  start_date/100*100; 
+ return (this_year - start_year);
+}
+</XMP></B> <P>
+
+Memory is allocated only when object of class is created 
+<P>
+
+<B><XMP>
+int main ()
+{
+ Software_engineer fred ("Fred", 408820391, 10102, 60000, 35); 
+ cout << fred.report_name () << endl << fred.report_salary () 
+      << endl << fred.report_number_programs_written() << endl;
+}
+</XMP></B> <P>
+
+outputs
+<P>
+
+<B><XMP>
+Fred
+60000
+35
+</XMP></B> <P>
+
+Data members and member functions of objects are accessed using class
+member access operators . and -&gt; <P>
+
+Software_engineer fred; <P>
+
+member function report_salary may be accessed by <P>
+
+fred.report_salary () <P>
+
+Software_engineer *fred = new Software_engineer; <P>
+
+member function report_salary may be accessed by <P>
+
+(*fred).report_salary () <P>
+fred-&gt;report_salary () <P>
+
+Member functions may be overloaded <P>
+
+<B><XMP>
+class Software_engineer  
+{
+ public:
+   int report_salary ();
+   void report_salary (int checks);
+};
+</XMP></B> <P>
+
+
+<H2>
+Constructors and Destructors 
+</H2>
+
+Default constructor for class is constructor of class that can be
+called without argument <P>
+
+Usually called by default when object of class type is defined and no
+initial value is provided for object; very useful for arrays of class
+objects<P>
+
+To use default constructor, definition of object must not include
+parentheses <P>
+
+<B><XMP>
+class Software_engineer  
+{
+ ...
+ public:
+ Software_engineer ();// constructor
+ ...
+};
+
+Software_engineer::Software_engineer ()
+{
+ name = new char[20]; 
+ strcpy (name, "Nameless");
+}
+
+int main ()
+{
+ Software_engineer fred;
+ Software_engineer SE_team [100];
+ ...
+}
+</XMP></B> <P>
+
+
+<H2>
+Interface Versus Implementation 
+</H2>
+
+<H2>
+Where to Put Class Declarations and Method Definitions 
+</H2>
+
+Software_engineer.h is the Interface 
+<P>
+
+Software_engineer.cpp (.cc) is the Implementation
+<P>
+
+<B><XMP>
+
+Software_engineer.h
+===================
+class Software_engineer  
+{
+ private:
+  char* name;
+  int ssn;
+  int start_date;
+  int salary;
+  int number_programs_written;
+
+ public:
+  Software_engineer (char*, int, int, int, int); // constructor
+  ~Software_engineer (); // destructor
+  void change_salary (int amount);
+  void change_number_programs_written (int programs);
+  char* report_name ();
+  int report_salary ();
+  int report_number_programs_written ();
+  int years_with_company (int today);
+  int start_year ();
+};
+
+Software_engineer.cpp (.cc)
+=====================
+#include "Software_engineer.h"
+
+Software_engineer::Software_engineer (char* who, 
+  int social_security_number, int begin, int amount, 
+  int programs) 
+{
+ name = new char[20];
+ strcpy (name, who);
+ ssn = social_security_number;
+ start_date = begin;
+ salary = amount;
+ number_programs_written = programs;
+}
+
+...
+
+int Software_engineer::years_with_company (int today)
+{
+ int start_year, this_year;
+ this_year = today - today/100*100;
+ start_year = start_date -
+  start_date/100*100; 
+ return (this_year - start_year);
+}
+
+</XMP></B> <P>
+
+
+<H2>
+Classes with Other Classes as Member Data 
+</H2>
+
+<B><XMP>
+class Software_engineer  
+{
+ private:
+  Person who;
+  Date start_date;
+  int salary;
+  int number_programs_written;
+  ...
+}
+</XMP></B> <P>
+
+
+
+<a href="http://www.cs.purdue.edu/homes/rego/cs240/nlectures/w16-ex/1.c++/6.html"> simple example of a "class" for stack manipulation</a>
+<P>
+
+
+<a href="http://users.soe.ucsc.edu/~pohl/CPP2/CH4/STACK.CPP"> from I. Pohl</a>
+<P>
+
+
+
+
+
+<H2>
+Structures 
+</H2>
+
+Difference between class and struct: class members are private by
+default, while struct members are public by default <P>
+
+No other difference!
+<P>
+<P>
+
+</BODY>
+</HTML>

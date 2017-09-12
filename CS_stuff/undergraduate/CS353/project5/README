@@ -1,0 +1,12 @@
+
+In order to test this program, I made some change in makefile.
+
+To test my program, you can simply compile everything that is needed.
+make chess.so
+make runner
+make sample2
+
+After compile all the files, just type "mpirun -np 51 runner" in the command line.
+Since I used "system()" method in runner.c. The test program's name is fixed.
+So, if other test is needed, please change the test file's name to sample2.c, then complie using make sample2, then run the mpirun command as above.
+The program will give a crash report if any schedule crashed after all processes finished.

@@ -1,0 +1,43 @@
+Nathan Tornquist
+ECE 563
+HW2
+
+hw2a:
+
+This program starts by listing the addresses and initial values of i and
+tid.  This is done to make sure that you can compare to the values
+printed within the parallelized for loop.
+
+Within the loop, tid is set to the thread number, and by printing the
+address you can see that the location of tid is different, which makes
+since because each thread needs its own number, and those values have to
+be stored at distinct addresses. This also shows the relationships in
+the address space.  The master thread (thread zero) is close to the
+original location of tid which was declared as a normal variable in
+main.  The other tid values are all close together, but in a different
+part of the address space, potentially in the stack.
+
+Finally after the parallel logic exits you see the value of tid printed
+again, which shows you that when a value is private within a parallel
+loop, it does not modify the original valiable at all, even if the names
+are the same.
+
+hw2b:
+This shows the same type of logic as hw2a, but proves that if a variable
+is initialized within the for loop, it is by default private to all the
+other threads.  The tid addressing is also consistent with hw2a, which
+leads to the assumption that the compiler allocates space for all
+variables like a normal c program, then additional copies that are
+needed due to multiple threads are placed elsewhere.
+
+hw2c:
+This demonstraits that if a variable is declared outside of the loop and
+not set as private, that it will be shared between multiple threads. You
+can see based on the output that it is now possible for one thread to
+overwrite tid between the time another thread sets it and tries to
+print. This results in the appearance of multiple threads with the same
+id, and the shared nature of the variable is further confirmed by the
+address of the variable.  In most cases, this type of program would
+result in incorrect computation.
+
+

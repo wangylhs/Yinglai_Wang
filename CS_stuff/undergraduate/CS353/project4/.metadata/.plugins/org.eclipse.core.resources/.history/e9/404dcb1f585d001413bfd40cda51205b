@@ -1,0 +1,5 @@
+
+public class TestDriver {
+	static ReentrantLockPseudoRandom RLPR = new ReentrantLockPseudoRandom(10);
+	
+}

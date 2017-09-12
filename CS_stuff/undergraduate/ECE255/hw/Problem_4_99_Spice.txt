@@ -1,0 +1,168 @@
+----------------Input--------------------------
+Problem 4.99, Jager Microelectronics 4ed., ECE 255 Purdue University, Adam Neal
+
+*set mosfet parameters. Gamma and Lamba are both zero by default.
+.model MOSFET1 NMOS (level=1 kp=600e-6 vto=1)
+
+*mosfet node order: drain gate source body
+*No need to specify W or L since I use kp=k'*W/L in the model defination
+M1 Nd Ng Ns 0 MOSFET1
+
+*power supply vdd
+
+Vdd NVdd 0 DC 12V
+
+*Resistors
+
+R1 Ng 0 100K
+R2 NVdd Ng 220K
+R3 Ns 0 24K
+R4 NVdd Nd 12K
+
+.op
+
+.end
+
+
+-------------------Output-------------------
+
+Circuit: Problem 4.99, Jager Microelectronics 4ed., ECE 255 Purdue University, Adam Neal
+--------------------------------------------------------------------------
+Problem 4.99, Jager Microelectronics 4ed., ECE 255 Purdue University, Adam Neal
+
+*set mosfet parameters. Gamma and Lamba are both zero by default.
+.model MOSFET1 NMOS (level=1 kp=600e-6 vto=1)
+
+*mosfet node order: drain gate source body
+*No need to specify W or L since I use kp=k'*W/L in the model defination
+M1 Nd Ng Ns 0 MOSFET1
+
+*power supply vdd
+
+Vdd NVdd 0 DC 12V
+
+*Resistors
+
+R1 Ng 0 100K
+R2 NVdd Ng 220K
+R3 Ns 0 24K
+R4 NVdd Nd 12K
+
+.op
+
+.options nopage
+.end
+
+--------------------------------------------------------------------------
+Note: no resource usage information for 'space',
+	or no active circuit available
+
+Circuit: Problem 4.99, Jager Microelectronics 4ed., ECE 255 Purdue University, Adam Neal
+
+Circuit: Problem 4.99, Jager Microelectronics 4ed., ECE 255 Purdue University, Adam Neal
+Date: Mon Sep 30 21:13:22  2013
+
+
+
+Operating point information:
+
+	Node	Voltage
+	----	-------
+	nvdd	1.200000e+01
+	ns	2.197538e+00
+	ng	3.750000e+00
+	nd	1.090123e+01
+
+	Source	Current
+	------	-------
+
+	vdd#branch	-1.29064e-04
+
+ Mos1 models (Level 1 MOSfet model with Meyer capacitance model)
+ model       mosfet1
+
+      type      nmos
+       vto         1
+        kp    0.0006
+     gamma         0
+       phi       0.6
+    lambda         0
+        rd         0
+        rs         0
+       cbd         0
+       cbs         0
+        is     1e-14
+        pb       0.8
+      cgso         0
+      cgdo         0
+      cgbo         0
+       rsh         0
+        cj         0
+        mj       0.5
+      cjsw         0
+      mjsw       0.5
+        js         0
+       tox         0
+        ld         0
+        u0         0
+        fc       0.5
+      nsub         0
+       tpg         0
+       nss         0
+      tnom        27
+        kf        27
+        af        27
+
+ Resistor models (Simple linear resistor)
+ model             R
+
+       rsh         0
+    narrow         0
+       tc1         0
+       tc2         0
+      defw     1e-05
+
+ Mos1: Level 1 MOSfet model with Meyer capacitance model
+ device           m1
+ model       mosfet1
+        id  9.16e-05
+        is -9.16e-05
+        ig         0
+        ib -5.06e-12
+       vgs      1.55
+       vds       8.7
+       vbs      -2.2
+       von         1
+     vdsat     0.552
+        rs         0
+        rd         0
+        gm  0.000331
+       gds         0
+       gmb         0
+       cbd         0
+       cbs         0
+       cgs         0
+       cgd         0
+       cgb         0
+      cbd0         0
+    cbdsw0         0
+      cbs0         0
+    cbssw0         0
+
+ Resistor: Simple linear resistor
+ device           r4        r3        r2        r1
+ model             R         R         R         R
+resistance   1.2e+04   2.4e+04   2.2e+05     1e+05
+         i  9.16e-05  9.16e-05  3.75e-05  3.75e-05
+         p  0.000101  0.000201  0.000309  0.000141
+
+ Vsource: Independent voltage source
+ device          vdd
+        dc        12
+     acmag         0
+         i -0.000129
+         p   0.00155
+
+CPU time since last call: 0.003 seconds.
+
+Total CPU time: 0.003 seconds.

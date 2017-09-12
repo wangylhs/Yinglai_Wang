@@ -1,0 +1,60 @@
+import cs.Course;
+import java.lang.String;
+    
+public class MathCourse implements Course
+{
+    public String CourseName;
+    public int CourseNo;
+    public String CourseTitle;
+    public String Subject;
+    
+    public String calculateGrade(int attendance, int homeWorkScore, int examScore)
+    {
+        return "Testing";
+    }
+
+    //Accessors
+    public String getCourseName()
+    {
+        return "Testing";
+    }
+
+    public String getCourseNo()
+    {
+        return "Testing";
+    }
+    
+    public String getCourseTitle()
+    {
+        return "Testing";
+    }
+    
+    public String getSubject()
+    {
+        return "Testing";
+    }
+    
+    //Mutators
+    
+    public void setCourseName(String name)
+    {
+        CourseName = name;
+    }
+    
+    public void setCourseNo(int num)
+    {
+        CourseNo = num;
+    }
+      
+    public void setCourseTitle(String Title)
+    {
+        CourseTitle = Title;
+    }
+    
+    public void setSubject(String subject)
+    {
+        Subject = subject;
+    }
+    
+    
+}

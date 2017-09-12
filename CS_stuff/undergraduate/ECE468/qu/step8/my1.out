@@ -1,0 +1,503 @@
+; LABEL   main
+;      successor   LINK   
+;      gen
+;      kill
+;      in     newline
+;      out     newline
+;      free   0  
+;      free   1  
+;      free   2  
+;      free   3  
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LINK   
+;      predecessor   LABEL   main
+;      successor   STOREI 0  $T1
+;      gen
+;      kill
+;      in     newline
+;      out     newline
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREI 0  $T1
+;      predecessor   LINK   
+;      successor   STOREI $T1  i
+;      gen
+;      kill     $T1
+;      in     newline
+;      out     newline     $T1
+;      ensure  $-1
+;      allocate   $-1
+;      r0 null;      r1 null;      r2 null;      r3 $-1
+; STOREI $T1  i
+;      predecessor   STOREI 0  $T1
+;      successor   STOREI 0  $T2
+;      gen     $T1
+;      kill     i
+;      in     newline     $T1
+;      out     newline     i
+;      ensure  $-1
+;      ensure  i
+;      allocate   i
+;      free   3  $-1
+;      r0 null;      r1 null;      r2 i;      r3 null
+; STOREI 0  $T2
+;      predecessor   STOREI $T1  i
+;      successor   STOREI $T2  a
+;      gen
+;      kill     $T2
+;      in     newline     i
+;      out     newline     i     $T2
+;      ensure  $-2
+;      allocate   $-2
+;      r0 null;      r1 null;      r2 i;      r3 $-2
+; STOREI $T2  a
+;      predecessor   STOREI 0  $T2
+;      successor   STOREI 0  $T3
+;      gen     $T2
+;      kill     a
+;      in     newline     i     $T2
+;      out     newline     i     a
+;      ensure  $-2
+;      ensure  a
+;      allocate   a
+;      free   3  $-2
+;      r0 null;      r1 a;      r2 i;      r3 null
+; STOREI 0  $T3
+;      predecessor   STOREI $T2  a
+;      successor   STOREI $T3  b
+;      gen
+;      kill     $T3
+;      in     newline     i     a
+;      out     newline     i     a     $T3
+;      ensure  $-3
+;      allocate   $-3
+;      r0 null;      r1 a;      r2 i;      r3 $-3
+; STOREI $T3  b
+;      predecessor   STOREI 0  $T3
+;      successor   LABEL   label1
+;      gen     $T3
+;      kill     b
+;      in     newline     i     a     $T3
+;      out     newline     b     i     a
+;      ensure  $-3
+;      ensure  b
+;      allocate   b
+;      free   3  $-3
+;      r0 b;      r1 a;      r2 i;      r3 null
+; LABEL   label1
+;      predecessor   STOREI $T3  b
+;      predecessor   JUMP   label1
+;      successor   READI   p
+;      gen
+;      kill
+;      in     newline     b     i     a
+;      out     newline     b     i     a
+;      free   0  b
+;      free   1  a
+;      free   2  i
+;      free   3  $-3
+;      r0 null;      r1 null;      r2 null;      r3 null
+; READI   p
+;      predecessor   LABEL   label1
+;      successor   STOREI 10  $T4
+;      gen
+;      kill     p
+;      in     newline     b     i     a
+;      out     newline     b     i     a     p
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREI 10  $T4
+;      predecessor   READI   p
+;      successor   LE p $T4 label3
+;      gen
+;      kill     $T4
+;      in     newline     b     i     a     p
+;      out     newline     b     i     a     p     $T4
+;      ensure  $-4
+;      allocate   $-4
+;      r0 null;      r1 null;      r2 null;      r3 $-4
+; LE p $T4 label3
+;      predecessor   STOREI 10  $T4
+;      successor   STOREI 1  $T5
+;      successor   LABEL   label3
+;      gen     p     $T4
+;      kill
+;      in     newline     b     i     a     p     $T4
+;      out     newline     b     i     a     p
+;      ensure  p
+;      allocate   p
+;      ensure  $-4
+;      free   3  $-4
+;      free   0  b
+;      free   1  a
+;      free   2  p
+;      free   3  $-4
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREI 1  $T5
+;      predecessor   LE p $T4 label3
+;      successor   ADDI a $T5 $T6
+;      gen
+;      kill     $T5
+;      in     newline     b     i     a
+;      out     newline     b     i     a     $T5
+;      ensure  $-5
+;      allocate   $-5
+;      r0 null;      r1 null;      r2 null;      r3 $-5
+; ADDI a $T5 $T6
+;      predecessor   STOREI 1  $T5
+;      successor   STOREI $T6  a
+;      gen     a     $T5
+;      kill     $T6
+;      in     newline     b     i     a     $T5
+;      out     newline     b     i     $T6
+;      ensure  a
+;      allocate   a
+;      ensure  $-5
+;      free   2  a
+;      free   3  $-5
+;      r0 null;      r1 null;      r2 $-6;      r3 null
+; STOREI $T6  a
+;      predecessor   ADDI a $T5 $T6
+;      successor   JUMP   label4
+;      gen     $T6
+;      kill     a
+;      in     newline     b     i     $T6
+;      out     newline     b     a     i
+;      ensure  $-6
+;      ensure  a
+;      allocate   a
+;      free   2  $-6
+;      r0 null;      r1 null;      r2 null;      r3 a
+; JUMP   label4
+;      predecessor   STOREI $T6  a
+;      successor   LABEL   label4
+;      gen
+;      kill
+;      in     newline     b     a     i
+;      out     newline     b     a     i
+;      free   0  b
+;      free   1  a
+;      free   2  $-6
+;      free   3  a
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   label3
+;      predecessor   LE p $T4 label3
+;      successor   STOREI 10  $T7
+;      gen
+;      kill
+;      in     newline     a     i     b     p
+;      out     newline     a     i     b     p
+;      free   0  b
+;      free   1  a
+;      free   2  $-6
+;      free   3  a
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREI 10  $T7
+;      predecessor   LABEL   label3
+;      successor   GE p $T7 label5
+;      gen
+;      kill     $T7
+;      in     newline     a     i     b     p
+;      out     newline     a     i     b     p     $T7
+;      ensure  $-7
+;      allocate   $-7
+;      r0 null;      r1 null;      r2 null;      r3 $-7
+; GE p $T7 label5
+;      predecessor   STOREI 10  $T7
+;      successor   LABEL   label5
+;      successor   STOREI 1  $T8
+;      gen     p     $T7
+;      kill
+;      in     newline     a     i     b     p     $T7
+;      out     newline     a     i     b
+;      ensure  p
+;      allocate   p
+;      ensure  $-7
+;           GE || GT
+;      free   2  p
+;      free   3  $-7
+;      free   0  b
+;      free   1  a
+;      free   2  p
+;      free   3  $-7
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREI 1  $T8
+;      predecessor   GE p $T7 label5
+;      successor   ADDI b $T8 $T9
+;      gen
+;      kill     $T8
+;      in     newline     a     i     b
+;      out     newline     a     i     b     $T8
+;      ensure  $-8
+;      allocate   $-8
+;      r0 null;      r1 null;      r2 null;      r3 $-8
+; ADDI b $T8 $T9
+;      predecessor   STOREI 1  $T8
+;      successor   STOREI $T9  b
+;      gen     b     $T8
+;      kill     $T9
+;      in     newline     a     i     b     $T8
+;      out     newline     a     i     $T9
+;      ensure  b
+;      allocate   b
+;      ensure  $-8
+;      free   2  b
+;      free   3  $-8
+;      r0 null;      r1 null;      r2 $-9;      r3 null
+; STOREI $T9  b
+;      predecessor   ADDI b $T8 $T9
+;      successor   JUMP   label4
+;      gen     $T9
+;      kill     b
+;      in     newline     a     i     $T9
+;      out     newline     b     a     i
+;      ensure  $-9
+;      ensure  b
+;      allocate   b
+;      free   2  $-9
+;      r0 null;      r1 null;      r2 null;      r3 b
+; JUMP   label4
+;      predecessor   STOREI $T9  b
+;      successor   LABEL   label4
+;      gen
+;      kill
+;      in     newline     b     a     i
+;      out     newline     b     a     i
+;      free   0  b
+;      free   1  a
+;      free   2  $-9
+;      free   3  b
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   label5
+;      predecessor   GE p $T7 label5
+;      successor   LABEL   label4
+;      gen
+;      kill
+;      in     newline     b     a     i
+;      out     newline     b     a     i
+;      free   0  b
+;      free   1  a
+;      free   2  $-9
+;      free   3  b
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   label4
+;      predecessor   JUMP   label4
+;      predecessor   JUMP   label4
+;      predecessor   LABEL   label5
+;      successor   STOREI 1  $T10
+;      gen
+;      kill
+;      in     newline     b     a     i
+;      out     newline     b     a     i
+;      free   0  b
+;      free   1  a
+;      free   2  $-9
+;      free   3  b
+;      r0 null;      r1 null;      r2 null;      r3 null
+; STOREI 1  $T10
+;      predecessor   LABEL   label4
+;      successor   ADDI i $T10 $T11
+;      gen
+;      kill     $T10
+;      in     newline     b     a     i
+;      out     newline     b     a     i     $T10
+;      ensure  $-10
+;      allocate   $-10
+;      r0 null;      r1 null;      r2 null;      r3 $-10
+; ADDI i $T10 $T11
+;      predecessor   STOREI 1  $T10
+;      successor   STOREI $T11  i
+;      gen     i     $T10
+;      kill     $T11
+;      in     newline     b     a     i     $T10
+;      out     newline     b     a     $T11
+;      ensure  i
+;      allocate   i
+;      ensure  $-10
+;      free   2  i
+;      free   3  $-10
+;      r0 null;      r1 null;      r2 $-11;      r3 null
+; STOREI $T11  i
+;      predecessor   ADDI i $T10 $T11
+;      successor   STOREI 10  $T12
+;      gen     $T11
+;      kill     i
+;      in     newline     b     a     $T11
+;      out     newline     b     a     i
+;      ensure  $-11
+;      ensure  i
+;      allocate   i
+;      free   2  $-11
+;      r0 null;      r1 null;      r2 null;      r3 i
+; STOREI 10  $T12
+;      predecessor   STOREI $T11  i
+;      successor   EQ i $T12 label2
+;      gen
+;      kill     $T12
+;      in     newline     b     a     i
+;      out     newline     b     a     i     $T12
+;      ensure  $-12
+;      allocate   $-12
+;      r0 null;      r1 null;      r2 $-12;      r3 i
+; EQ i $T12 label2
+;      predecessor   STOREI 10  $T12
+;      successor   JUMP   label1
+;      successor   LABEL   label2
+;      gen     i     $T12
+;      kill
+;      in     newline     b     a     i     $T12
+;      out     newline     b     a     i
+;      ensure  i
+;      ensure  $-12
+;      free   2  $-12
+;      free   0  b
+;      free   1  a
+;      free   2  $-12
+;      free   3  i
+;      r0 null;      r1 null;      r2 null;      r3 null
+; JUMP   label1
+;      predecessor   EQ i $T12 label2
+;      successor   LABEL   label1
+;      gen
+;      kill
+;      in     newline     b     i     a
+;      out     newline     b     i     a
+;      free   0  b
+;      free   1  a
+;      free   2  $-12
+;      free   3  i
+;      r0 null;      r1 null;      r2 null;      r3 null
+; LABEL   label2
+;      predecessor   EQ i $T12 label2
+;      successor   WRITEI   a
+;      gen
+;      kill
+;      in     newline     b     a
+;      out     newline     b     a
+;      free   0  b
+;      free   1  a
+;      free   2  $-12
+;      free   3  i
+;      r0 null;      r1 null;      r2 null;      r3 null
+; WRITEI   a
+;      predecessor   LABEL   label2
+;      successor   WRITES   newline
+;      gen     a
+;      kill
+;      in     newline     b     a
+;      out     newline     b
+;      r0 null;      r1 null;      r2 null;      r3 null
+; WRITES   newline
+;      predecessor   WRITEI   a
+;      successor   WRITEI   b
+;      gen     newline
+;      kill
+;      in     newline     b
+;      out     newline     b
+;      r0 null;      r1 null;      r2 null;      r3 null
+; WRITEI   b
+;      predecessor   WRITES   newline
+;      successor   WRITES   newline
+;      gen     b
+;      kill
+;      in     newline     b
+;      out     newline
+;      r0 null;      r1 null;      r2 null;      r3 null
+; WRITES   newline
+;      predecessor   WRITEI   b
+;      successor   RET   
+;      gen     newline
+;      kill
+;      in     newline
+;      out
+;      r0 null;      r1 null;      r2 null;      r3 null
+; RET   
+;      predecessor   WRITES   newline
+;      gen
+;      kill
+;      in
+;      out
+;      free   0  b
+;      free   1  a
+;      free   2  $-12
+;      free   3  i
+;      r0 null;      r1 null;      r2 null;      r3 null
+;tiny code
+var a
+var b
+var i
+var p
+str newline "\n"
+push
+push r0
+push r1
+push r2
+push r3
+jsr main
+sys halt
+label main
+link 15
+move $-1 r3
+move 0 r3
+move i r2
+move r3 i
+move r3 r2
+move $-2 r3
+move 0 r3
+move a r1
+move r3 a
+move r3 r1
+move $-3 r3
+move 0 r3
+move b r0
+move r3 b
+move r3 r0
+label label1
+sys readi p
+move $-4 r3
+move 10 r3
+move p r2
+cmpi r2 r3
+jle label3
+move $-5 r3
+move 1 r3
+move a r2
+addi r3 r2
+move a r3
+move r2 a
+move r2 r3
+jmp label4
+label label3
+move $-7 r3
+move 10 r3
+move p r2
+cmpi r2 r3
+jge label5
+move $-8 r3
+move 1 r3
+move b r2
+addi r3 r2
+move b r3
+move r2 b
+move r2 r3
+jmp label4
+label label5
+label label4
+move $-10 r3
+move 1 r3
+move i r2
+addi r3 r2
+move i r3
+move r2 i
+move r2 r3
+move $-12 r2
+move 10 r2
+cmpi r3 r2
+jeq label2
+jmp label1
+label label2
+sys writei a
+sys writes newline
+sys writei b
+sys writes newline
+unlnk
+ret
+end

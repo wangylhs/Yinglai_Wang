@@ -1,0 +1,14 @@
+Question 1:
+
+In hw3a.c, tid is declared in a serial region, but the private clause causes a
+private copy to be made for each thread, and as a result the address of each 
+tid is different.
+
+In hw3b.c, tid is declared within the parallel code, and a local copy of tid
+is made on the stack of each thread, resulting in a private copy on each thread.
+Again, the address of each tid is different.
+
+In hw3c.c, tid is declared outside the parallel code, and no private clause is
+used.  Each thread writes its value for tid into the same storage that is 
+shared across threads.  The last thread to write into tid is the value printed
+at the end.

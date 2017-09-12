@@ -1,0 +1,30 @@
+
+public class TestDriver {
+	public static final int NO_OF_THREADS = 20;
+	static ReentrantLockPseudoRandom myLPR = new ReentrantLockPseudoRandom(10);
+	static NonBlockingPseudoRandom myNBPR = new NonBlockingPseudoRandom(10);
+	
+	private static class LPR implements Runnable{
+		public int counter = 0;
+		public void run(){
+			while(true){
+				myLPR.nextInt(100);
+				counter++;
+			}
+		}
+	}
+	private static class NBPR implements Runnable{
+		public int counter = 0;
+		public void run(){
+			myNBPR.nextInt(100);
+			counter++;
+		}
+	}
+	
+	public static void main(String[] args) throws InterruptedException{
+		long start, end;
+		Thread[] threads;
+		int num;		//number generated
+		LPR[] lprs = new LPR[]
+	}
+}

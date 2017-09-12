@@ -1,0 +1,12 @@
+Breakpoint 1 at 0x400a70: file pa02.c, line 50.
+Starting program: /home/shay/b/zhang951/ECE264Assignments/Spring2014/PA02/pa02 
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe618) at pa02.c:67
+67	    return EXIT_SUCCESS;
+Missing separate debuginfos, use: debuginfo-install glibc-2.12-1.132.el6.x86_64
+$1 = 1
+68	}
+0x0000003e7441ed1d in __libc_start_main () from /lib64/libc.so.6
+Continuing.
+
+Program exited normally.

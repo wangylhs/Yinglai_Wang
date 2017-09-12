@@ -1,0 +1,11 @@
+#!/bin/sh
+number=29000
+while [ 1 ]
+do
+  kill number
+  number=`expr $number + 1 `
+  if [ $number -gt 30000 ]
+  then
+      exit
+  fi
+done

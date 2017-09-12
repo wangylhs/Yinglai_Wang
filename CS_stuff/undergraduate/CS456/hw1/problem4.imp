@@ -1,0 +1,17 @@
+(define exp(m n)
+    (if(= n 1) m (begin (set n (- n 1))
+                        (set m (* m (exp m n)))
+                 )
+    )
+)
+
+
+
+(val result 0)
+(define log(m n)
+    (if(= 1 n) result (begin (set n (/ n m))
+                        (set result (+ 1 (log m n)))
+                 )
+    )
+)
+

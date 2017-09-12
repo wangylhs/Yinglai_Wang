@@ -1,0 +1,28 @@
+for in par, i = 0, tid = 3
+for in par, i = 1, tid = 3
+for in par, i = 2, tid = 3
+for in par, i = 3, tid = 3
+omp for in par, i = 3, tid = 3
+for in par, i = 0, tid = 0
+for in par, i = 1, tid = 0
+for in par, i = 2, tid = 0
+for in par, i = 3, tid = 0
+omp for in par, i = 0, tid = 0
+for in par, i = 0, tid = 2
+for in par, i = 1, tid = 2
+for in par, i = 2, tid = 2
+for in par, i = 3, tid = 2
+omp for in par, i = 2, tid = 2
+for in par, i = 0, tid = 1
+for in par, i = 1, tid = 1
+for in par, i = 2, tid = 1
+for in par, i = 3, tid = 1
+omp for in par, i = 1, tid = 1
+for in parfor i = 2
+for in parfor i = 0
+omp parfor, i = 2, tid = 2
+omp parfor, i = 0, tid = 0
+for in parfor i = 3
+omp parfor, i = 3, tid = 3
+for in parfor i = 1
+omp parfor, i = 1, tid = 1

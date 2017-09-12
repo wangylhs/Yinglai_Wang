@@ -1,0 +1,103 @@
+==20149== Memcheck, a memory error detector
+==20149== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==20149== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==20149== Command: ./tester
+==20149== Parent PID: 3176
+==20149== 
+--20149-- 
+--20149-- Valgrind options:
+--20149--    --tool=memcheck
+--20149--    --leak-check=full
+--20149--    --verbose
+--20149--    --log-file=memcheck.log
+--20149-- Contents of /proc/version:
+--20149--   Linux version 2.6.32-431.11.2.el6.x86_64 (mockbuild@x86-027.build.eng.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-4) (GCC) ) #1 SMP Mon Mar 3 13:32:45 EST 2014
+--20149-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--20149-- Page sizes: currently 4096, max supported 4096
+--20149-- Valgrind library directory: /usr/lib64/valgrind
+--20149-- Reading syms from /home/shay/b/zhang951/ECE264Assignments/Spring2014/PA09/tester
+--20149-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--20149--    object doesn't have a dynamic symbol table
+--20149-- Reading syms from /lib64/ld-2.12.so
+--20149-- Scheduler: using generic scheduler lock implementation.
+--20149-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==20149== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-20149-by-zhang951-on-ecelinux13.ecn.purdue.edu
+==20149== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-20149-by-zhang951-on-ecelinux13.ecn.purdue.edu
+==20149== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-20149-by-zhang951-on-ecelinux13.ecn.purdue.edu
+==20149== 
+==20149== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==20149== don't want to do, unless you know exactly what you're doing,
+==20149== or are doing some strange experiment):
+==20149==   /usr/lib64/valgrind/../../bin/vgdb --pid=20149 ...command...
+==20149== 
+==20149== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==20149==   /path/to/gdb ./tester
+==20149== and then give GDB the following command
+==20149==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=20149
+==20149== --pid is optional if only one valgrind process is running
+==20149== 
+--20149-- REDIR: 0x3807c17530 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--20149-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--20149-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--20149-- REDIR: 0x3807c173a0 (index) redirected to 0x4a07bf0 (index)
+--20149-- REDIR: 0x3807c17420 (strcmp) redirected to 0x4a08530 (strcmp)
+--20149-- Reading syms from /lib64/libc-2.12.so
+--20149-- REDIR: 0x3808084fb0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20149-- REDIR: 0x3808087270 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--20149-- REDIR: 0x3808082f20 (__GI_strrchr) redirected to 0x4a07a70 (__GI_strrchr)
+--20149-- REDIR: 0x380807a920 (malloc) redirected to 0x4a0696c (malloc)
+==20149== Invalid write of size 1
+==20149==    at 0x4006F1: main (in /home/shay/b/zhang951/ECE264Assignments/Spring2014/PA09/tester)
+==20149==  Address 0x4c48101 is 0 bytes after a block of size 61,633 alloc'd
+==20149==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+==20149==    by 0x4006EB: main (in /home/shay/b/zhang951/ECE264Assignments/Spring2014/PA09/tester)
+==20149== 
+==20149== Conditional jump or move depends on uninitialised value(s)
+==20149==    at 0x400735: main (in /home/shay/b/zhang951/ECE264Assignments/Spring2014/PA09/tester)
+==20149== 
+--20149-- REDIR: 0x380807b800 (free) redirected to 0x4a06369 (free)
+--20149-- REDIR: 0x3808081440 (__GI_strlen) redirected to 0x4a07f70 (__GI_strlen)
+--20149-- REDIR: 0x38080847e0 (mempcpy) redirected to 0x4a09f80 (mempcpy)
+==20149== 
+==20149== Process terminating with default action of signal 2 (SIGINT)
+==20149==    at 0x380806878D: _IO_proc_close@@GLIBC_2.2.5 (in /lib64/libc-2.12.so)
+==20149==    by 0x3808072A42: _IO_file_close_it@@GLIBC_2.2.5 (in /lib64/libc-2.12.so)
+==20149==    by 0x38080667F7: fclose@@GLIBC_2.2.5 (in /lib64/libc-2.12.so)
+==20149==    by 0x4009F8: main (in /home/shay/b/zhang951/ECE264Assignments/Spring2014/PA09/tester)
+==20149== 
+==20149== HEAP SUMMARY:
+==20149==     in use at exit: 308,249 bytes in 3 blocks
+==20149==   total heap usage: 4 allocs, 1 frees, 554,777 bytes allocated
+==20149== 
+==20149== Searching for pointers to 3 not-freed blocks
+==20149== Checked 161,096 bytes
+==20149== 
+==20149== LEAK SUMMARY:
+==20149==    definitely lost: 0 bytes in 0 blocks
+==20149==    indirectly lost: 0 bytes in 0 blocks
+==20149==      possibly lost: 0 bytes in 0 blocks
+==20149==    still reachable: 308,249 bytes in 3 blocks
+==20149==         suppressed: 0 bytes in 0 blocks
+==20149== Reachable blocks (those to which a pointer was found) are not shown.
+==20149== To see them, rerun with: --leak-check=full --show-reachable=yes
+==20149== 
+==20149== Use --track-origins=yes to see where uninitialised values come from
+==20149== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 6 from 6)
+==20149== 
+==20149== 1 errors in context 1 of 2:
+==20149== Conditional jump or move depends on uninitialised value(s)
+==20149==    at 0x400735: main (in /home/shay/b/zhang951/ECE264Assignments/Spring2014/PA09/tester)
+==20149== 
+==20149== 
+==20149== 1 errors in context 2 of 2:
+==20149== Invalid write of size 1
+==20149==    at 0x4006F1: main (in /home/shay/b/zhang951/ECE264Assignments/Spring2014/PA09/tester)
+==20149==  Address 0x4c48101 is 0 bytes after a block of size 61,633 alloc'd
+==20149==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+==20149==    by 0x4006EB: main (in /home/shay/b/zhang951/ECE264Assignments/Spring2014/PA09/tester)
+==20149== 
+--20149-- 
+--20149-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--20149-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==20149== 
+==20149== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 6 from 6)

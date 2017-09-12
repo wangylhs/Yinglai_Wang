@@ -1,0 +1,80 @@
+==22511== Memcheck, a memory error detector
+==22511== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==22511== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==22511== Command: ./a.out images/bmps/05-sagan-stamp.bmp student-out-09_05-sagan-stamp.ee264
+==22511== Parent PID: 22510
+==22511== 
+--22511-- 
+--22511-- Valgrind options:
+--22511--    --tool=memcheck
+--22511--    --leak-check=full
+--22511--    --verbose
+--22511--    --log-file=memcheck-09.log
+--22511-- Contents of /proc/version:
+--22511--   Linux version 2.6.32-431.5.1.el6.x86_64 (mockbuild@x86-002.build.bos.redhat.com) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-4) (GCC) ) #1 SMP Fri Jan 10 14:46:43 EST 2014
+--22511-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--22511-- Page sizes: currently 4096, max supported 4096
+--22511-- Valgrind library directory: /usr/lib64/valgrind
+--22511-- Reading syms from /tmp/.Ol1hdK/a.out
+--22511-- Reading syms from /usr/lib64/valgrind/memcheck-amd64-linux
+--22511--    object doesn't have a dynamic symbol table
+--22511-- Reading syms from /lib64/ld-2.12.so
+--22511-- Scheduler: using generic scheduler lock implementation.
+--22511-- Reading suppressions file: /usr/lib64/valgrind/default.supp
+==22511== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-22511-by-zhang951-on-ecelinux22.ecn.purdue.edu
+==22511== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-22511-by-zhang951-on-ecelinux22.ecn.purdue.edu
+==22511== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-22511-by-zhang951-on-ecelinux22.ecn.purdue.edu
+==22511== 
+==22511== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==22511== don't want to do, unless you know exactly what you're doing,
+==22511== or are doing some strange experiment):
+==22511==   /usr/lib64/valgrind/../../bin/vgdb --pid=22511 ...command...
+==22511== 
+==22511== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==22511==   /path/to/gdb ./a.out
+==22511== and then give GDB the following command
+==22511==   target remote | /usr/lib64/valgrind/../../bin/vgdb --pid=22511
+==22511== --pid is optional if only one valgrind process is running
+==22511== 
+--22511-- REDIR: 0x36d8617530 (strlen) redirected to 0x38049551 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--22511-- Reading syms from /usr/lib64/valgrind/vgpreload_core-amd64-linux.so
+--22511-- Reading syms from /usr/lib64/valgrind/vgpreload_memcheck-amd64-linux.so
+--22511-- REDIR: 0x36d86173a0 (index) redirected to 0x4a07bf0 (index)
+--22511-- REDIR: 0x36d8617420 (strcmp) redirected to 0x4a08530 (strcmp)
+--22511-- Reading syms from /lib64/libc-2.12.so
+--22511-- REDIR: 0x36d8a84fb0 (strcasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--22511-- REDIR: 0x36d8a87270 (strncasecmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--22511-- REDIR: 0x36d8a82f20 (__GI_strrchr) redirected to 0x4a07a70 (__GI_strrchr)
+--22511-- REDIR: 0x36d8a7f9c0 (strcmp) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--22511-- REDIR: 0x36d8b28590 (__strcmp_sse42) redirected to 0x4a08490 (strcmp)
+--22511-- REDIR: 0x36d8a81400 (strlen) redirected to 0x480155c (_vgnU_ifunc_wrapper)
+--22511-- REDIR: 0x36d8b33860 (__strlen_sse42) redirected to 0x4a07f50 (strlen)
+--22511-- REDIR: 0x36d8a8add0 (strchrnul) redirected to 0x4a09f10 (strchrnul)
+--22511-- REDIR: 0x36d8a847e0 (mempcpy) redirected to 0x4a09f80 (mempcpy)
+--22511-- REDIR: 0x36d8a7b800 (free) redirected to 0x4a06369 (free)
+--22511-- REDIR: 0x36d8a7a920 (malloc) redirected to 0x4a0696c (malloc)
+--22511-- REDIR: 0x36d8a89950 (memcpy) redirected to 0x4a08b20 (memcpy)
+--22511-- REDIR: 0x36d8a81440 (__GI_strlen) redirected to 0x4a07f70 (__GI_strlen)
+==22511== 
+==22511== HEAP SUMMARY:
+==22511==     in use at exit: 568 bytes in 1 blocks
+==22511==   total heap usage: 7 allocs, 6 frees, 309,372 bytes allocated
+==22511== 
+==22511== Searching for pointers to 1 not-freed blocks
+==22511== Checked 64,640 bytes
+==22511== 
+==22511== LEAK SUMMARY:
+==22511==    definitely lost: 0 bytes in 0 blocks
+==22511==    indirectly lost: 0 bytes in 0 blocks
+==22511==      possibly lost: 0 bytes in 0 blocks
+==22511==    still reachable: 568 bytes in 1 blocks
+==22511==         suppressed: 0 bytes in 0 blocks
+==22511== Reachable blocks (those to which a pointer was found) are not shown.
+==22511== To see them, rerun with: --leak-check=full --show-reachable=yes
+==22511== 
+==22511== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+--22511-- 
+--22511-- used_suppression:      4 U1004-ARM-_dl_relocate_object
+--22511-- used_suppression:      2 glibc-2.5.x-on-SUSE-10.2-(PPC)-2a
+==22511== 
+==22511== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)

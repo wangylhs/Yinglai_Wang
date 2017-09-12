@@ -1,0 +1,15 @@
+rem EE 562 project2
+rem Yinglai Wang
+rem wang1105
+
+
+create table Books(
+	book_id number primary key,
+	book_title varchar2(50),
+	author_id number,
+	year_of_publication number,
+	edition number,
+	status varchar2(20)
+);
+
+

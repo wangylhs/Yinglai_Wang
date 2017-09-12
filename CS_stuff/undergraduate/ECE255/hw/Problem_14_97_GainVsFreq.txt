@@ -1,0 +1,244 @@
+Circuit: Jaeger Blalock 14.97, ECE 255 HW 10 Solution, Adam T Neal, Purdue University, Fall 2013
+--------------------------------------------------------------------------
+Jaeger Blalock 14.97, ECE 255 HW 10 Solution, Adam T Neal, Purdue University, Fall 2013
+
+.model MOS1 NMOS Kp=0.5e-3 Vto=1 Lambda=0.0133
+
+*Connect the mosfet dran gate source 
+M1 Nd Ng Ns 0 MOS1
+
+*Connect the DC supplies
+Vdd Ndd 0 DC 12V
+
+*Connect DC bias resistors
+Rd Nd Ndd 22k
+Rs Ns Ns1 2k
+R4 Ns1 0 10k 
+R1 Ng 0 1.5e6
+R2 Ndd Ng 2.2e6
+
+*Connect the load
+C2 Nd NL 15e-9
+R3 NL 0 100k
+
+*Connect the input
+C1 Ng Ni2 1.8e-9
+RI Ni2 Ni1 2k
+Vi Ni1 0 0V AC 1
+*note: 1V AC magnitude may be pratcially too large but correctly gives V(NL)=Gain for .print stament
+
+*Bypass the source resistor R4
+C3 Ns1 0 67.2e-9
+
+.op
+
+.ac DEC 9 1 1e6
+.print AC Vdb(NL)
+
+.options nopage
+.end
+
+--------------------------------------------------------------------------
+
+Circuit: Jaeger Blalock 14.97, ECE 255 HW 10 Solution, Adam T Neal, Purdue University, Fall 2013
+
+Circuit: Jaeger Blalock 14.97, ECE 255 HW 10 Solution, Adam T Neal, Purdue University, Fall 2013
+Date: Tue Nov  5 18:53:55  2013
+
+
+
+Operating point information:
+
+	Node	Voltage
+	----	-------
+	ni1	0.000000e+00
+	ni2	0.000000e+00
+	nl	0.000000e+00
+	ns1	2.420552e+00
+	ndd	1.200000e+01
+	ns	2.904662e+00
+	ng	4.864865e+00
+	nd	6.674786e+00
+
+	Source	Current
+	------	-------
+
+	vdd#branch	-2.45298e-04
+	vi#branch	0.000000e+00
+
+ Capacitor models (Fixed capacitor)
+ model             C
+
+        cj         0
+      cjsw         0
+      defw     1e-05
+    narrow         0
+
+ Mos1 models (Level 1 MOSfet model with Meyer capacitance model)
+ model          mos1
+
+      type      nmos
+       vto         1
+        kp    0.0005
+     gamma         0
+       phi       0.6
+    lambda    0.0133
+        rd         0
+        rs         0
+       cbd         0
+       cbs         0
+        is     1e-14
+        pb       0.8
+      cgso         0
+      cgdo         0
+      cgbo         0
+       rsh         0
+        cj         0
+        mj       0.5
+      cjsw         0
+      mjsw       0.5
+        js         0
+       tox         0
+        ld         0
+        u0         0
+        fc       0.5
+      nsub         0
+       tpg         0
+       nss         0
+      tnom        27
+        kf        27
+        af        27
+
+ Resistor models (Simple linear resistor)
+ model             R
+
+       rsh         0
+    narrow         0
+       tc1         0
+       tc2         0
+      defw     1e-05
+
+ Capacitor: Fixed capacitor
+ device           c3        c1        c2
+ model             C         C         C
+capacitanc  6.72e-08   1.8e-09   1.5e-08
+         i   1.5e-08   1.5e-08   1.5e-08
+         p   1.5e-08   1.5e-08   1.5e-08
+
+ Mos1: Level 1 MOSfet model with Meyer capacitance model
+ device           m1
+ model          mos1
+        id  0.000242
+        is -0.000242
+        ig         0
+        ib  -3.7e-12
+       vgs      1.96
+       vds      3.77
+       vbs      -2.9
+       von         1
+     vdsat      0.96
+        rs         0
+        rd         0
+        gm  0.000504
+       gds  3.07e-06
+       gmb         0
+       cbd         0
+       cbs         0
+       cgs         0
+       cgd         0
+       cgb         0
+      cbd0         0
+    cbdsw0         0
+      cbs0         0
+    cbssw0         0
+
+ Resistor: Simple linear resistor
+ device           ri        r3        r2        r1        r4        rs
+ model             R         R         R         R         R         R
+resistance     2e+03     1e+05   2.2e+06   1.5e+06     1e+04     2e+03
+         i         0         0  3.24e-06  3.24e-06  0.000242  0.000242
+         p         0         0  2.31e-05  1.58e-05  0.000586  0.000117
+
+ Resistor: Simple linear resistor
+ device           rd
+ model             R
+resistance   2.2e+04
+         i -0.000242
+         p   0.00129
+
+ Vsource: Independent voltage source
+ device           vi       vdd
+        dc         0        12
+     acmag         1         0
+         i         0 -0.000245
+         p        -0   0.00294
+
+Jaeger Blalock 14.97, ECE 255 HW 10 Solution, Adam T Neal, Purdue University, Fall 2013
+AC Analysis  Tue Nov  5 18:53:55  2013
+--------------------------------------------------------------------------------
+Index   frequency                       db(v(nl))       
+--------------------------------------------------------------------------------
+0	1.000000e+00,	0.000000e+00	-7.663153e+01	
+1	1.291550e+00,	0.000000e+00	-7.218772e+01	
+2	1.668101e+00,	0.000000e+00	-6.774433e+01	
+3	2.154435e+00,	0.000000e+00	-6.330164e+01	
+4	2.782559e+00,	0.000000e+00	-5.886013e+01	
+5	3.593814e+00,	0.000000e+00	-5.442057e+01	
+6	4.641589e+00,	0.000000e+00	-4.998427e+01	
+7	5.994843e+00,	0.000000e+00	-4.555339e+01	
+8	7.742637e+00,	0.000000e+00	-4.113151e+01	
+9	1.000000e+01,	0.000000e+00	-3.672457e+01	
+10	1.291550e+01,	0.000000e+00	-3.234226e+01	
+11	1.668101e+01,	0.000000e+00	-2.800033e+01	
+12	2.154435e+01,	0.000000e+00	-2.372382e+01	
+13	2.782559e+01,	0.000000e+00	-1.955133e+01	
+14	3.593814e+01,	0.000000e+00	-1.553949e+01	
+15	4.641589e+01,	0.000000e+00	-1.176466e+01	
+16	5.994843e+01,	0.000000e+00	-8.316671e+00	
+17	7.742637e+01,	0.000000e+00	-5.278514e+00	
+18	1.000000e+02,	0.000000e+00	-2.693359e+00	
+19	1.291550e+02,	0.000000e+00	-5.355812e-01	
+20	1.668101e+02,	0.000000e+00	1.289852e+00	
+21	2.154435e+02,	0.000000e+00	2.911762e+00	
+22	2.782559e+02,	0.000000e+00	4.440482e+00	
+23	3.593814e+02,	0.000000e+00	5.929067e+00	
+24	4.641589e+02,	0.000000e+00	7.365557e+00	
+25	5.994843e+02,	0.000000e+00	8.693359e+00	
+26	7.742637e+02,	0.000000e+00	9.844949e+00	
+27	1.000000e+03,	0.000000e+00	1.077348e+01	
+28	1.291550e+03,	0.000000e+00	1.146979e+01	
+29	1.668101e+03,	0.000000e+00	1.195945e+01	
+30	2.154435e+03,	0.000000e+00	1.228654e+01	
+31	2.782559e+03,	0.000000e+00	1.249693e+01	
+32	3.593814e+03,	0.000000e+00	1.262881e+01	
+33	4.641589e+03,	0.000000e+00	1.271008e+01	
+34	5.994843e+03,	0.000000e+00	1.275964e+01	
+35	7.742637e+03,	0.000000e+00	1.278965e+01	
+36	1.000000e+04,	0.000000e+00	1.280776e+01	
+37	1.291550e+04,	0.000000e+00	1.281865e+01	
+38	1.668101e+04,	0.000000e+00	1.282520e+01	
+39	2.154435e+04,	0.000000e+00	1.282913e+01	
+40	2.782559e+04,	0.000000e+00	1.283148e+01	
+41	3.593814e+04,	0.000000e+00	1.283290e+01	
+42	4.641589e+04,	0.000000e+00	1.283375e+01	
+43	5.994843e+04,	0.000000e+00	1.283426e+01	
+44	7.742637e+04,	0.000000e+00	1.283456e+01	
+45	1.000000e+05,	0.000000e+00	1.283474e+01	
+46	1.291550e+05,	0.000000e+00	1.283485e+01	
+47	1.668101e+05,	0.000000e+00	1.283492e+01	
+48	2.154435e+05,	0.000000e+00	1.283496e+01	
+49	2.782559e+05,	0.000000e+00	1.283498e+01	
+50	3.593814e+05,	0.000000e+00	1.283499e+01	
+51	4.641589e+05,	0.000000e+00	1.283500e+01	
+52	5.994843e+05,	0.000000e+00	1.283501e+01	
+53	7.742637e+05,	0.000000e+00	1.283501e+01	
+54	1.000000e+06,	0.000000e+00	1.283501e+01	
+
+CPU time since last call: 0.003 seconds.
+
+Total CPU time: 0.004 seconds.
+
+
+Note: no resource usage information for 'space',
+	or no active circuit available
+

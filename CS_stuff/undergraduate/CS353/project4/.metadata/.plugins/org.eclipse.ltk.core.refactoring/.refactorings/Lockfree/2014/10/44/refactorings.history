@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;ReentrantLockPseudoRandom.java&apos; to &apos;NonBlockingPseudoRandom.java&apos;&#x0A;- Original project: &apos;Lockfree&apos;&#x0A;- Original element: &apos;ReentrantLockPseudoRandom.java&apos;&#x0A;- Renamed element: &apos;NonBlockingPseudoRandom.java&apos;" description="Rename compilation unit &apos;ReentrantLockPseudoRandom.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;{ReentrantLockPseudoRandom.java" name="NonBlockingPseudoRandom.java" references="false" stamp="1414356701872" version="1.0"/>
+</session>

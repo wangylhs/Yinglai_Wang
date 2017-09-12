@@ -1,0 +1,50 @@
+Script started on Wed Feb 25 16:01:36 2015
+[1m[7m%[27m[1m[0m                                                                                                                                      ]2;nathan@Nathans-MacBook-Air: ~/Documents/Development/563/hw6]1;..pment/563/hw6[0m[27m[24m[J[41m[01;37m Nathans-MacBook-Air [00m[32m~/Documents/Development/563/hw6[01;34m(master ✗)[00m [K[?1h=../hw6[?1l>
+]2;./hw6]1;./hw6Cyclic Block Scheduling Tool
+Enter Number of Processors:
+7
+Enter Array Size:
+50
+
+Results:
+0: [0:49:7]
+1: [1:43:7]
+2: [2:44:7]
+3: [3:45:7]
+4: [4:46:7]
+5: [5:47:7]
+6: [6:48:7]
+[1m[7m%[27m[1m[0m                                                                                                                                      ]2;nathan@Nathans-MacBook-Air: ~/Documents/Development/563/hw6]1;..pment/563/hw6[0m[27m[24m[J[41m[01;37m Nathans-MacBook-Air [00m[32m~/Documents/Development/563/hw6[01;34m(master ✗)[00m [K[?1h=../hw6[?1l>
+]2;./hw6]1;./hw6Cyclic Block Scheduling Tool
+Enter Number of Processors:
+5
+Enter Array Size:
+100
+
+Results:
+0: [0:95:5]
+1: [1:96:5]
+2: [2:97:5]
+3: [3:98:5]
+4: [4:99:5]
+[1m[7m%[27m[1m[0m                                                                                                                                      ]2;nathan@Nathans-MacBook-Air: ~/Documents/Development/563/hw6]1;..pment/563/hw6[0m[27m[24m[J[41m[01;37m Nathans-MacBook-Air [00m[32m~/Documents/Development/563/hw6[01;34m(master ✗)[00m [K[?1h=../hw6[?1l>
+]2;./hw6]1;./hw6Cyclic Block Scheduling Tool
+Enter Number of Processors:
+10
+Enter Array Size:
+5
+
+Results:
+0: [0:0:10]
+1: [1:1:10]
+2: [2:2:10]
+3: [3:3:10]
+4: [4:4:10]
+5: [N\A]
+6: [N\A]
+7: [N\A]
+8: [N\A]
+9: [N\A]
+[1m[7m%[27m[1m[0m                                                                                                                                      ]2;nathan@Nathans-MacBook-Air: ~/Documents/Development/563/hw6]1;..pment/563/hw6[0m[27m[24m[J[41m[01;37m Nathans-MacBook-Air [00m[32m~/Documents/Development/563/hw6[01;34m(master ✗)[00m [K[?1h=eexit[?1l>
+]2;exit]1;exit
+Script done on Wed Feb 25 16:01:59 2015
