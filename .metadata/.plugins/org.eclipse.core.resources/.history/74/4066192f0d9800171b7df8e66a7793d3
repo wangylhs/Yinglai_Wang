@@ -31,7 +31,7 @@ public class StringMani {
 		}
 		return true;
 	}
-	//String compress
+	
 	public static String StringCompr(String s){
 		StringBuilder sb = new StringBuilder();
 		int ct = 1;
@@ -54,34 +54,12 @@ public class StringMani {
 			return s;
 		}
 	}
-	//magic index
-	public static int magicFast(int[] array){
-		return magicFast(array, 0, array.length-1);
-	}
-	public static int magicFast(int[] array, int start, int end){
-		if(end<start){
-			return -1;
-		}
-		int mid = (start+end)/2;
-		if(array[mid]==mid){
-			return mid;
-		}else if(array[mid]<mid){
-			return magicFast(array,mid+1,end);
-		}else if(array[mid]>mid){
-			return magicFast(array,start,mid-1);
-		}
-		return -1;
-	}
-	
 	
 	public static void main(String[] args){
-		/*String s1 = "abdjskl";
+		String s1 = "abdjskl";
 		String s2 = "ajskabd";
-		System.out.println(checkPerm(s1,s2));
+		//System.out.println(checkPerm(s1,s2));
 		String s = "abcde";
 		System.out.println(StringCompr(s));
-		*/
-		int[] array = {-40,-20,-1,1,2,3,5,7,9,12,13};
-		System.out.println(magicFast(array));
 	}
 }

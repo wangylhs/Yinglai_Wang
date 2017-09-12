@@ -75,12 +75,11 @@ public class StringMani {
 	
 	
 	public static void main(String[] args){
-		/*String s1 = "abdjskl";
+		String s1 = "abdjskl";
 		String s2 = "ajskabd";
-		System.out.println(checkPerm(s1,s2));
+		//System.out.println(checkPerm(s1,s2));
 		String s = "abcde";
-		System.out.println(StringCompr(s));
-		*/
+		//System.out.println(StringCompr(s));
 		int[] array = {-40,-20,-1,1,2,3,5,7,9,12,13};
 		System.out.println(magicFast(array));
 	}

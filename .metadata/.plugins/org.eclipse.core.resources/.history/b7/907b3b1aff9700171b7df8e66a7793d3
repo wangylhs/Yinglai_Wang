@@ -1,0 +1,42 @@
+import java.util.Arrays;
+
+
+public class StringMani {
+	
+	//determine if a string has all unique characters
+	public static boolean isUnique(String s){
+		if(s.length()>128){
+			return false;
+		}
+		boolean[] b = new boolean[128];
+		for(int i=0;i<s.length();i++){
+			if(b[s.charAt(i)]!=false){
+				return false;
+			}
+			b[s.charAt(i)] = true;
+		}
+		return true;
+		
+	}
+	
+	//check if one is permutation of other
+	public static boolean checkPerm(String s1, String s2){
+		if(s1.length()!=s2.length()) return false;
+		char[] c1 = s1.toCharArray();
+		char[] c2 = s2.toCharArray();
+		Arrays.sort(c1);
+		Arrays.sort(c2);
+		for(int i=0; i<c1.length;i++){
+			if(c1[i]!=c2[i]) return false;
+		}
+		return true;
+	}
+	
+	
+	
+	public static void main(String[] args){
+		String s1 = "abdjskl";
+		String s2 = "ajsklbd"
+		System.out.println(checkPerm(s1,s2));
+	}
+}
