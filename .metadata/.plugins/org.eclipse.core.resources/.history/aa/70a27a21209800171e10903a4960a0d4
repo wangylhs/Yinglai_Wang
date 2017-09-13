@@ -137,30 +137,10 @@ public class StringMani {
 	//remove duplicates
 	public static void removeDup(Node head){
 		Node p1 = head;
-		while(p1!=null){
-			Node p2 = p1;
-			while(p2.next!=null){
-				//System.out.println("iterating "+p2.data);
-				if(p2.next.data == p1.data){
-					//System.out.println("p2.next.data = "+p2.next.data);
-					//System.out.println("p2.next.next = "+p2.next.next.data);
-					p2.next = p2.next.next;
-				}else{
-					p2 = p2.next;
-				}
-			}
+		while(p1.next!=null){
+			deleteNode(p1.next,p1.data);
 			p1 = p1.next;
 		}
-	}
-	
-	//kth to the last
-	static int kthToLast(Node head, int k){
-		if(head==null) return 0;
-		int i = kthToLast(head.next,k)+1;
-		if(i == k){
-			System.out.println(k+"th to last node is "+head.data);
-		}
-		return i;
 	}
 	
 	public static void main(String[] args){
@@ -183,10 +163,9 @@ public class StringMani {
 		list.appendToTail(2);
 		list.appendToTail(3);
 		printList(list);
-		//list = deleteNode(list,2);
+		list = deleteNode(list,2);
 		System.out.println();
 		//removeDup(list);
-		//printList(list);
-		kthToLast(list,3);
+		printList(list);
 	}
 }

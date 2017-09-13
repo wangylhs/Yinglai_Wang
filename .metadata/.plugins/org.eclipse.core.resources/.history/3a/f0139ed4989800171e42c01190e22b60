@@ -153,16 +153,6 @@ public class StringMani {
 		}
 	}
 	
-	//kth to the last
-	static int kthToLast(Node head, int k){
-		if(head==null) return 0;
-		int i = kthToLast(head.next,k)+1;
-		if(i == k){
-			System.out.println(k+"th to last node is "+head.data);
-		}
-		return i;
-	}
-	
 	public static void main(String[] args){
 		/*String s1 = "abdjskl";
 		String s2 = "ajskabd";
@@ -185,8 +175,7 @@ public class StringMani {
 		printList(list);
 		//list = deleteNode(list,2);
 		System.out.println();
-		//removeDup(list);
-		//printList(list);
-		kthToLast(list,3);
+		removeDup(list);
+		printList(list);
 	}
 }

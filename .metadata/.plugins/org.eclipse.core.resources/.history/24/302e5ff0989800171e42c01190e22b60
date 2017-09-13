@@ -187,6 +187,6 @@ public class StringMani {
 		System.out.println();
 		//removeDup(list);
 		//printList(list);
-		kthToLast(list,3);
+		kthToLast(list,3)
 	}
 }

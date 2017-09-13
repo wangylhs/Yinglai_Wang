@@ -160,7 +160,6 @@ public class StringMani {
 		if(i == k){
 			System.out.println(k+"th to last node is "+head.data);
 		}
-		return i;
 	}
 	
 	public static void main(String[] args){
@@ -187,6 +186,5 @@ public class StringMani {
 		System.out.println();
 		//removeDup(list);
 		//printList(list);
-		kthToLast(list,3);
 	}
 }

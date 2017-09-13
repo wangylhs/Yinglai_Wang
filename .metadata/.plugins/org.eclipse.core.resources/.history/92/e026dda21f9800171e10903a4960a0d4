@@ -125,8 +125,10 @@ public class StringMani {
 				if(p.next.next!=null){
 					p.next = p.next.next;
 					p.next.prev = p;
+					return head;
 				}else{
 					p.next = null;
+					return head;
 				}
 			}
 			p = p.next;
@@ -140,27 +142,19 @@ public class StringMani {
 		while(p1!=null){
 			Node p2 = p1;
 			while(p2.next!=null){
-				//System.out.println("iterating "+p2.data);
 				if(p2.next.data == p1.data){
-					//System.out.println("p2.next.data = "+p2.next.data);
-					//System.out.println("p2.next.next = "+p2.next.next.data);
-					p2.next = p2.next.next;
-				}else{
-					p2 = p2.next;
+					if(p2.next.next!=null){
+						p2.next = p2.next.next;
+						p2.next.prev = p2;
+						p2 = p2.next;
+					}else{
+						p2.next = null;
+						break;
+					}
 				}
 			}
 			p1 = p1.next;
 		}
-	}
-	
-	//kth to the last
-	static int kthToLast(Node head, int k){
-		if(head==null) return 0;
-		int i = kthToLast(head.next,k)+1;
-		if(i == k){
-			System.out.println(k+"th to last node is "+head.data);
-		}
-		return i;
 	}
 	
 	public static void main(String[] args){
@@ -185,8 +179,7 @@ public class StringMani {
 		printList(list);
 		//list = deleteNode(list,2);
 		System.out.println();
-		//removeDup(list);
-		//printList(list);
-		kthToLast(list,3);
+		removeDup(list);
+		printList(list);
 	}
 }

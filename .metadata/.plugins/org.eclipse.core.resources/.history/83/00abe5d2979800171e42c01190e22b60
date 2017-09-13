@@ -137,7 +137,7 @@ public class StringMani {
 	//remove duplicates
 	public static void removeDup(Node head){
 		Node p1 = head;
-		while(p1!=null){
+		while(p1.next!=null){
 			Node p2 = p1;
 			while(p2.next!=null){
 				//System.out.println("iterating "+p2.data);
@@ -151,16 +151,6 @@ public class StringMani {
 			}
 			p1 = p1.next;
 		}
-	}
-	
-	//kth to the last
-	static int kthToLast(Node head, int k){
-		if(head==null) return 0;
-		int i = kthToLast(head.next,k)+1;
-		if(i == k){
-			System.out.println(k+"th to last node is "+head.data);
-		}
-		return i;
 	}
 	
 	public static void main(String[] args){
@@ -185,8 +175,7 @@ public class StringMani {
 		printList(list);
 		//list = deleteNode(list,2);
 		System.out.println();
-		//removeDup(list);
-		//printList(list);
-		kthToLast(list,3);
+		removeDup(list);
+		printList(list);
 	}
 }
