@@ -91,7 +91,7 @@ public class StringMani {
 			n.next = end;
 			
 		}
-		public void appendToHead(int data){
+		public void appenToHead(int data){
 			Node head = new Node(data);
 			Node n = this;
 			while(n.prev!=null){
@@ -122,23 +122,12 @@ public class StringMani {
 		}
 		while(p.next!=null){
 			if(p.next.data == d){
-				if(p.next.next!=null){
-					p.next = p.next.next;
-					p.next.prev = p;
-					return head;
-				}else{
-					p.next = null;
-					return head;
-				}
+				p.next = p.next.next;
+				p.next.next.prev = p;
+				return head;
 			}
-			p = p.next;
 		}
 		return head;
-	}
-	
-	//remove duplicates
-	public static void removeDup(Node head){
-		
 	}
 	
 	public static void main(String[] args){
@@ -153,7 +142,7 @@ public class StringMani {
 		*/
 		StringMani.Node list = new StringMani.Node(0);
 		list.appendToTail(1);
-		//list.appendToHead(-1);
+		//list.appenToHead(-1);
 		list.appendToTail(2);
 		list.appendToTail(3);
 		printList(list);

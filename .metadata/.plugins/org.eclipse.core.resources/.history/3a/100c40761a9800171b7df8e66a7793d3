@@ -124,7 +124,7 @@ public class StringMani {
 			if(p.next.data == d){
 				if(p.next.next!=null){
 					p.next = p.next.next;
-					p.next.prev = p;
+					p.next.next.prev = p;
 					return head;
 				}else{
 					p.next = null;
@@ -134,11 +134,6 @@ public class StringMani {
 			p = p.next;
 		}
 		return head;
-	}
-	
-	//remove duplicates
-	public static void removeDup(Node head){
-		
 	}
 	
 	public static void main(String[] args){
@@ -152,10 +147,10 @@ public class StringMani {
 		System.out.println(magicFast(array));
 		*/
 		StringMani.Node list = new StringMani.Node(0);
-		list.appendToTail(1);
+		list.appendToHead(1);
 		//list.appendToHead(-1);
-		list.appendToTail(2);
-		list.appendToTail(3);
+		list.appendToHead(2);
+		list.appendToHead(3);
 		printList(list);
 		list = deleteNode(list,2);
 		System.out.println();

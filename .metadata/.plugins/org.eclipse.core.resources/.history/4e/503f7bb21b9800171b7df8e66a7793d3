@@ -136,11 +136,6 @@ public class StringMani {
 		return head;
 	}
 	
-	//remove duplicates
-	public static void removeDup(Node head){
-		
-	}
-	
 	public static void main(String[] args){
 		/*String s1 = "abdjskl";
 		String s2 = "ajskabd";
@@ -156,7 +151,7 @@ public class StringMani {
 		//list.appendToHead(-1);
 		list.appendToTail(2);
 		list.appendToTail(3);
-		printList(list);
+		//printList(list);
 		list = deleteNode(list,2);
 		System.out.println();
 		printList(list);

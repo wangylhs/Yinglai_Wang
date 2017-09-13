@@ -1,7 +1,6 @@
 import java.util.Arrays;
 
 
-
 public class StringMani {
 	
 	//determine if a string has all unique characters
@@ -74,91 +73,14 @@ public class StringMani {
 		return -1;
 	}
 	
-	static class Node{
-		Node prev = null;
-		Node next = null;
-		int data;
-		public Node(int data){
-			this.data = data;
-		}
-		public void appendToTail(int data){
-			Node end = new Node(data);
-			Node n = this;
-			while(n.next!=null){
-				n = n.next;
-			}
-			end.prev = n;
-			n.next = end;
-			
-		}
-		public void appendToHead(int data){
-			Node head = new Node(data);
-			Node n = this;
-			while(n.prev!=null){
-				n = n.prev;
-			}
-			n.prev = head;
-			head.next = n;
-		}
-	}
-	
-	public static void printList(Node n){
-		Node p = n;
-		while(p.prev!=null){
-			p = p.prev;
-		}
-		while(p.next!=null){
-			System.out.println(p.data);
-			p = p.next;
-		}
-		System.out.println(p.data);
-	}
-	
-	static Node deleteNode(Node head, int d){
-		Node p = head;
-		if(p.data == d){
-			p.next.prev = null;
-			return p.next;
-		}
-		while(p.next!=null){
-			if(p.next.data == d){
-				if(p.next.next!=null){
-					p.next = p.next.next;
-					p.next.prev = p;
-					return head;
-				}else{
-					p.next = null;
-					return head;
-				}
-			}
-			p = p.next;
-		}
-		return head;
-	}
-	
-	//remove duplicates
-	public static void removeDup(Node head){
-		
-	}
-	
 	public static void main(String[] args){
 		/*String s1 = "abdjskl";
 		String s2 = "ajskabd";
 		System.out.println(checkPerm(s1,s2));
 		String s = "abcde";
 		System.out.println(StringCompr(s));
-		
+		*/
 		int[] array = {-40,-20,-1,1,2,3,5,7,9,12,13};
 		System.out.println(magicFast(array));
-		*/
-		StringMani.Node list = new StringMani.Node(0);
-		list.appendToTail(1);
-		//list.appendToHead(-1);
-		list.appendToTail(2);
-		list.appendToTail(3);
-		printList(list);
-		list = deleteNode(list,2);
-		System.out.println();
-		printList(list);
 	}
 }
