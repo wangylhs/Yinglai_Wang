@@ -139,8 +139,9 @@ public class StringMani {
 	//remove duplicates
 	public static void removeDup(Node head){
 		Node p1 = head;
-		while(p1!=null){
-			Node p2 = p1;
+		Node p2 = p1;
+		while(p1.next!=null){
+			
 			while(p2.next!=null){
 				if(p2.next.data == p1.data){
 					if(p2.next.next!=null){
@@ -149,8 +150,9 @@ public class StringMani {
 					}else{
 						p2.next = null;
 					}
+				}else{
+					p2 = p2.next;
 				}
-				p2 = p2.next;
 			}
 			p1 = p1.next;
 		}
