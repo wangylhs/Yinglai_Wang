@@ -13,8 +13,9 @@ name = "WYL"
  
  Write in your own favorite quote where indicated, and be sure to include escaped quotation marks. Print the value of `favoriteQuote`
  */
-
-
+let favoriteQuote: String
+favoriteQuote = "My favoriteQuote is <Practice makes perfect>"
+print(favoriteQuote)
 /*:
  Write an if-else statement that prints "There's nothing here" if `emptyString` is empty, and "It's not as empty as I thought" otherwise.
  */

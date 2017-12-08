@@ -133,5 +133,25 @@ class Student: Person{
     }
 }
 
+//collections: array, dictionay
+var myArray = [Int](repeating: 0, count: 100)
+let count = myArray.count
+var array1 = [1,2,3]
+let array2 = [4,5,6]
+array1.insert(7, at: 0)
+let combArray = [array1,array2]
+var myDictionary = Dictionary<String, Int>()
+myDictionary = ["Richard":100,"James":90,"John":80]
+let names = Array(myDictionary.keys)
+
+for (a,b) in myDictionary{
+    print("name: \(a) score: \(b)")
+}
+
+
+
+
+
+
 
 
