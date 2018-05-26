@@ -1,0 +1,22 @@
+q1. How to build
+cd apps/q1
+The answers are in the file called "Prelab2.txt".
+
+q2. How to build:
+cd apps/q2
+make
+make run
+
+q3. How to build:
+cd os
+make
+
+q4. How to build:
+cd apps/q4
+make 
+make run
+
+q5. How to build:
+cd apps/q5
+make 
+make run

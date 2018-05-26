@@ -1,0 +1,9 @@
+1. 32 semaphores, 64 locks
+
+2. LockCreate(), LockAcquire(lock *k), and LockRelease(lock *k)
+
+3. In DLXOS semaphores are created using the function SemCreate(). SemInit() initializes the semaphore created.
+
+4. If triggered, sem_signal signals and wakes up other processes while incrementing the counter. On the other hand, sem_wait procedure waits(sleeps) as long as the semaphore counter is less than or equal to zero. It can only proceed once the counter becomes positive. Locks are basically binary semaphores. LockCreate() returns the handle and Lock_Acquire() obtains lock handle precessed by LockHandleAcquire. LockRelease() releases the lock by resetting the counter.
+
+5. Handle is an index to the array of semaphores which can map physical shared memory to the process's memory space. shmget() returns the unique handle to a page of shared memory, and this handle can map the shared memory page to virtual memory space via void *shmat(uint32 handle). SemHandleWait and SemHandSignal are other functions needed to signal and wait the semaphore.

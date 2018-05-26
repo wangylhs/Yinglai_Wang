@@ -1,0 +1,2 @@
+work/makeprocs1234.o: makeprocs1234.c ../../../include/usertraps.h \
+ ../../../include/misc.h

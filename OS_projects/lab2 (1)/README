@@ -1,0 +1,33 @@
+Before run the solution, buid the OS:
+cd ~/ece595/lab2/os 
+make
+
+q1
+solution is in q1/Prelab2.txt
+
+q2
+cd ~/ece595/lab2/apps/q2
+make clean && make
+make run
+
+q3
+cd ~/ece595/lab2/apps/q3
+make clean && make
+make run
+
+q4
+cd ~/ece595/lab2/apps/q4
+make clean && make
+make run
+
+q5
+cd ~/ece595/lab2/apps/q5
+make clean && make
+make run
+
+To change the parameter for q5, go to q5/Makefile
+change this line:
+cd ../../bin; dlxsim -x os.dlx.obj -a -u makeprocs.dlx.obj [# of N atoms] [# of O atoms] [temperature]; ee469_fixterminal
+
+Then do
+make run

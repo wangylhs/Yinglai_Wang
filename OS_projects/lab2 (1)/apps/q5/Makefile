@@ -1,0 +1,14 @@
+default:
+	cd makeprocs; make
+	cd inject_n; make
+	cd inject_o; make
+
+
+clean:
+	cd makeprocs; make clean
+	cd inject_n; make clean
+	cd inject_o; make clean
+
+	
+run:
+	cd ../../bin; dlxsim -x os.dlx.obj -a -u makeprocs.dlx.obj 2 10 100; ee469_fixterminal

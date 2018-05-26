@@ -1,0 +1,21 @@
+For flat:
+
+to test our program, first do 'make' in /os
+then do 'make' and 'make run' in /app/fdisk
+
+Each block allocation and block deletion will be displayed for grading purpose.
+
+ostests:
+
+'make' in /app/ostests
+'make run' to run ostests, THIS NEED TO BE DONE TWICE in order to check the persistance.
+
+First time, it will create a test file and do some write read test.
+Seconde time, it will reopen test file and do some more complicated test.
+
+filetest:
+
+'make' and 'make run' in /app/filetest
+
+For multilevel:
+

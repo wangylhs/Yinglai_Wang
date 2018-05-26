@@ -1,0 +1,9 @@
+My program compile and runs in a normal way, no extra sources are needed.
+
+compile:
+do make in apps and os
+
+run:
+dlxsim -x ~/ece595/lab1/os/work/os.dlx.obj -a -u ~/ece595/lab1/apps/work/userprog.dlx.obj
+
+

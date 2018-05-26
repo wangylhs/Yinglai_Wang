@@ -1,0 +1,8 @@
+default:
+	cd test; make
+	
+clean:
+	cd test; make clean
+	
+run:
+	cd ../../bin; dlxsim -x os.dlx.obj -a -u test.dlx.obj; ee469_fixterminal

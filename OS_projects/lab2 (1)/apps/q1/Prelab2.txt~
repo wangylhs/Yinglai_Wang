@@ -1,0 +1,12 @@
+1.	Maximum 32 semaphores
+2.	Maximum 64 locks
+3.	Semaphore is created by using SemCreate() function.
+	Number of semaphores are passed as an argument to this function.
+	It returns a handle to this semaphore.
+4.	SemWait() decrements by one value of the semaphore. The semaphore will be decremented
+	when its value is greater than zero. If the value is zero, then the current process 
+	will block untile semaphore's value becomes greater than zero.
+	SemSignal() increments the semaphore's value by one. Then check if there is a process 
+	to wake up.
+5.	A handle is a pointer to a semaphore, different processes can access the same semaphore 
+	through a handle.

@@ -1,0 +1,38 @@
+Program compile and runs in a normal way.
+
+compile os:
+do make in os
+compile test cases:
+do make in apps/example
+
+run testcases:
+make run in apps/example
+
+For one-level:
+The test order is 1 3 4 2 5 6
+
+After test 2, simulator will exit because of the illegal access.
+
+test 1 is just print hello world.
+
+test 3 will access memory inside virtual address space but outside of its currently allocated pages, which will cause a segmentation fault and process will be killed.
+
+test 4 will cause page fault handler to allocate new page.
+
+test 2 will access memory beyond maximum virtual adress, which will cause a illegal access and simulator will exit.
+
+test 5 will create 100 hello_world processes one by one.
+
+test 6 will create 30 counting processes simultaneously.
+
+For fork:
+Test case is designed as requested.
+Before we try to write anything to memory. The PTE of parent and child is the same.
+Then parent and child change the value of its own variable, which rise the ROP_ACCESS trap.
+In the test output, it is clear that after ROP_handler, the last PTE(which is stack's physical address) has changed.
+
+Program's output illustrates the right behavior of copy on write.
+
+For two-level:
+used same test cases as one-level, in same order.
+  

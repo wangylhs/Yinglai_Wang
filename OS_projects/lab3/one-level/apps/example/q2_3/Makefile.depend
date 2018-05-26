@@ -1,0 +1,2 @@
+work/out_page.o: out_page.c ../../../include/usertraps.h \
+ ../../../include/misc.h
